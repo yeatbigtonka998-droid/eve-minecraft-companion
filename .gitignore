@@ -24,6 +24,7 @@ config/*.secret.*
 # Worlds and jars
 **/world*/
 **/*.jar
+!**/gradle/wrapper/gradle-wrapper.jar
 **/mods/
 **/libraries/
 **/versions/
@@ -31,7 +32,8 @@ config/*.secret.*
 **/*.dat
 
 # Generated game data and design outputs
-data/game/*/
+data/game/*/*
+!data/game/*/MANIFEST.json
 !data/game/README.md
 designs/*
 !designs/README.md
