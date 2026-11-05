@@ -1,0 +1,1762 @@
+{
+  "registry_version": "0.15.1",
+  "$defs": {
+    "pos": {
+      "type": "object",
+      "required": [
+        "x",
+        "y",
+        "z"
+      ],
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "z": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "block_pos": {
+      "type": "object",
+      "required": [
+        "x",
+        "y",
+        "z"
+      ],
+      "properties": {
+        "x": {
+          "type": "integer"
+        },
+        "y": {
+          "type": "integer",
+          "minimum": -64,
+          "maximum": 319
+        },
+        "z": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "item_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_.-]+:[a-z0-9_./-]+$"
+    },
+    "block_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_.-]+:[a-z0-9_./-]+$"
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 2304
+    },
+    "entity_id": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "skills": [
+    {
+      "name": "stop",
+      "version": 1,
+      "summary": "Cancel the active action and clear inputs. Always accepted.",
+      "params": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "effects": [],
+      "preconditions": [],
+      "timeout_ms": 1000,
+      "cancellable": false,
+      "evidence": [
+        "inputs_cleared",
+        "latency_ms"
+      ],
+      "failure_codes": [],
+      "min_mode": "manual"
+    },
+    {
+      "name": "look_at",
+      "version": 1,
+      "summary": "Turn head to face a position or entity.",
+      "params": {
+        "type": "object",
+        "properties": {
+          "pos": {
+            "$ref": "#/$defs/pos"
+          },
+          "entity_id": {
+            "$ref": "#/$defs/entity_id"
+          }
+        },
+        "oneOf": [
+          {
+            "required": [
+              "pos"
+            ]
+          },
+          {
+            "required": [
+              "entity_id"
+            ]
+          }
+        ],
+        "additionalProperties": false
+      },
+      "effects": [],
+      "preconditions": [
+        "alive",
+        "not_stopped"
+      ],
+      "timeout_ms": 2000,
+      "cancellable": true,
+      "evidence": [
+        "yaw",
+        "pitch",
+        "angle_error_deg"
+      ],
+      "failure_codes": [
+        "entity_gone",
+        "cancelled",
+        "timeout"
+      ],
+      "min_mode": "manual"
+    },
+    {
+      "name": "walk_to",
+      "version": 1,
+      "summary": "Path to a position with Baritone; stop within tolerance.",
+      "params": {
+        "type": "object",
+        "required": [
+          "pos"
+        ],
+        "properties": {
+          "pos": {
+            "$ref": "#/$defs/pos"
+          },
+          "tolerance": {
+            "type": "number",
+            "minimum": 0.5,
+            "maximum": 8,
+            "default": 1.5
+          },
+          "allow_break": {
+            "type": "boolean",
+            "default": false
+          },
+          "allow_place": {
+            "type": "boolean",
+            "default": false
+          },
+          "max_blocks_broken": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 256,
+            "default": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      "effects": [
+        "move"
+      ],
+      "preconditions": [
+        "alive",
+        "not_stopped",
+        "link_fresh"
+      ],
+      "timeout_ms": 120000,
+      "cancellable": true,
+      "evidence": [
+        "final_pos",
+        "distance_to_goal",
+        "blocks_broken",
+        "blocks_placed",
+        "path_length"
+      ],
+      "failure_codes": [
+        "unreachable",
+        "timeout",
+        "cancelled",
+        "zone_denied",
+        "interrupted",
+        "stuck"
+      ],
+      "min_mode": "manual"
+    },
+    {
+      "name": "go_home",
+      "version": 1,
+      "summary": "Return to the envelope home position by a qualified safe route.",
+      "params": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "effects": [
+        "move"
+      ],
+      "preconditions": [
+        "alive",
+        "not_stopped",
+        "home_known"
+      ],
+      "timeout_ms": 300000,
+      "cancellable": true,
+      "evidence": [
+        "final_pos",
+        "distance_to_home",
+        "route_kind"
+      ],
+      "failure_codes": [
+        "home_blocked",
+        "timeout",
+        "cancelled",
+        "interrupted",
+        "stuck"
+      ],
+      "min_mode": "manual"
+    },
+    {
+      "name": "select_hotbar",
+      "version": 1,
+      "summary": "Select a hotbar slot 0-8.",
+      "params": {
+        "type": "object",
+        "required": [
+          "slot"
+        ],
+        "properties": {
+          "slot": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 8
+          }
+        },
+        "additionalProperties": false
+      },
+      "effects": [],
+      "preconditions": [
+        "alive",
+        "not_stopped"
+      ],
+      "timeout_ms": 1000,
+      "cancellable": false,
+      "evidence": [
+        "hotbar_slot",
+        "mainhand_item"
+      ],
+      "failure_codes": [
+        "timeout"
+      ],
+      "min_mode": "manual"
+    },
+    {
+      "name": "sneak",
+      "version": 1,
+      "summary": "Hold or release sneak.",
+      "params": {
+        "type": "object",
+        "required": [
+          "on"
+        ],
+        "properties": {
+          "on": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "effects": [],
+      "preconditions": [
+        "alive",
+        "not_stopped"
+      ],
+      "timeout_ms": 1000,
+      "cancellable": false,
+      "evidence": [
+        "sneaking"
+      ],
+      "failure_codes": [
+        "timeout"
+      ],
+      "min_mode": "manual"
+    },
+    {
+      "name": "jump",
+      "version": 1,
+      "summary": "Single jump.",
+      "params": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "effects": [
+        "move"
+      ],
+      "preconditions": [
+        "alive",
+        "not_stopped",
+        "on_ground"
+      ],
+      "timeout_ms": 2000,
+      "cancellable": false,
+      "evidence": [
+        "left_ground"
+      ],
+      "failure_codes": [
+        "precondition_failed",
+        "timeout"
+      ],
+      "min_mode": "manual"
+    },
+    {
+      "name": "use_item",
+      "version": 1,
+      "summary": "Use the main-hand item (right click) for up to hold_ms, optionally on a block face or entity.",
+      "params": {
+        "type": "object",
+        "properties": {
+          "hold_ms": {
+            "type": "integer",
+            "minimum": 50,
+            "maximum": 5000,
+            "default": 100
+          },
+          "target_pos": {
+            "$ref": "#/$defs/block_pos"
+          },
+          "face": {
+            "type": "string",
+            "enum": [
+              "up",
+              "down",
+              "north",
+              "south",
+              "east",
+              "west"
+            ]
+          },
+          "entity_id": {
+            "$ref": "#/$defs/entity_id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "effects": [
+        "use_item"
+      ],
+      "preconditions": [
+        "alive",
+        "not_stopped"
+      ],
+      "timeout_ms": 8000,
+      "cancellable": true,
+      "evidence": [
+        "item_before",
+        "item_after",
+        "server_confirmed"
+      ],
+      "failure_codes": [
+        "out_of_range",
+        "obstructed",
+        "nothing_to_use",
+        "cancelled",
+        "timeout",
+        "zone_denied",
+        "interrupted"
+      ],
+      "min_mode": "manual"
+    },
+    {
+      "name": "attack_entity",
+      "version": 1,
+      "summary": "One melee swing at an entity in reach, respecting cooldown and protection.",
+      "params": {
+        "type": "object",
+        "required": [
+          "entity_id"
+        ],
+        "properties": {
+          "entity_id": {
+            "$ref": "#/$defs/entity_id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "effects": [
+        "attack"
+      ],
+      "preconditions": [
+        "alive",
+        "not_stopped",
+        "target_not_protected"
+      ],
+      "timeout_ms": 2000,
+      "cancellable": true,
+      "evidence": [
+        "target_health_before",
+        "target_health_after",
+        "hit_confirmed"
+      ],
+      "failure_codes": [
+        "out_of_range",
+        "obstructed",
+        "protected_entity",
+        "entity_gone",
+        "cancelled",
+        "timeout",
+        "interrupted"
+      ],
+      "min_mode": "manual"
+    },
+    {
+      "name": "mine_block",
+      "version": 1,
+      "summary": "Break one block in reach with the best tool in inventory; collect the drop.",
+      "params": {
+        "type": "object",
+        "required": [
+          "pos"
+        ],
+        "properties": {
+          "pos": {
+            "$ref": "#/$defs/block_pos"
+          },
+          "expect_block": {
+            "$ref": "#/$defs/block_id"
+          },
+          "collect": {
+            "type": "boolean",
+            "default": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "effects": [
+        "break"
+      ],
+      "preconditions": [
+        "alive",
+        "not_stopped",
+        "in_reach"
+      ],
+      "timeout_ms": 30000,
+      "cancellable": true,
+      "evidence": [
+        "block_before",
+        "block_after",
+        "drops_collected",
+        "tool_used",
+        "tool_damage_delta"
+      ],
+      "failure_codes": [
+        "out_of_range",
+        "obstructed",
+        "wrong_block",
+        "unbreakable",
+        "no_tool",
+        "zone_denied",
+        "cancelled",
+        "timeout",
+        "interrupted"
+      ],
+      "min_mode": "manual"
+    },
+    {
+      "name": "place_block",
+      "version": 2,
+      "summary": "Place a block of the given item at a position by clicking an adjacent face; v2: optional target state, the body picks the face and hit point that vanilla turns into that state from where Eve stands (state = property name -> value string, e.g. {\"facing\": \"north\", \"half\": \"top\"}).",
+      "params": {
+        "type": "object",
+        "required": [
+          "pos",
+          "item"
+        ],
+        "properties": {
+          "pos": {
+            "$ref": "#/$defs/block_pos"
+          },
+          "item": {
+            "$ref": "#/$defs/item_id"
+          },
+          "face": {
+            "type": "string",
+            "enum": [
+              "up",
+              "down",
+              "north",
+              "south",
+              "east",
+              "west"
+            ]
+          },
+          "sneak": {
+            "type": "boolean",
+            "default": false
+          },
+          "state": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      },
+      "effects": [
+        "place"
+      ],
+      "preconditions": [
+        "alive",
+        "not_stopped",
+        "in_reach",
+        "has_item"
+      ],
+      "timeout_ms": 10000,
+      "cancellable": true,
+      "evidence": [
+        "block_before",
+        "block_after",
+        "item_count_delta",
+        "state_after"
+      ],
+      "failure_codes": [
+        "out_of_range",
+        "obstructed",
+        "no_item",
+        "occupied",
+        "no_support",
+        "zone_denied",
+        "bad_state",
+        "state_unreachable",
+        "wrong_state",
+        "cancelled",
+        "timeout",
+        "interrupted"
+      ],
+      "min_mode": "manual"
+    },
+    {
+      "name": "open_container",
+      "version": 1,
+      "summary": "Open a container in reach and report its contents, then close it.",
+      "params": {
+        "type": "object",
+        "required": [
+          "pos"
+        ],
+        "properties": {
+          "pos": {
+            "$ref": "#/$defs/block_pos"
+          }
+        },
+        "additionalProperties": false
+      },
+      "effects": [
+        "container"
+      ],
+      "preconditions": [
+        "alive",
+        "not_stopped",
+        "in_reach"
+      ],
+      "timeout_ms": 10000,
+      "cancellable": true,
+      "evidence": [
+        "container_kind",
+        "slots",
+        "items"
+      ],
+      "failure_codes": [
+        "out_of_range",
+        "obstructed",
+        "not_a_container",
+        "locked",
+        "private_container",
+        "zone_denied",
+        "cancelled",
+        "timeout",
+        "interrupted"
+      ],
+      "min_mode": "manual"
+    },
+    {
+      "name": "chat_say",
+      "version": 1,
+      "summary": "Send a chat line as Eve (rate-limited).",
+      "params": {
+        "type": "object",
+        "required": [
+          "text"
+        ],
+        "properties": {
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          }
+        },
+        "additionalProperties": false
+      },
+      "effects": [
+        "chat"
+      ],
+      "preconditions": [
+        "alive"
+      ],
+      "timeout_ms": 3000,
+      "cancellable": false,
+      "evidence": [
+        "sent"
+      ],
+      "failure_codes": [
+        "rate_limited",
+        "timeout"
+      ],
+      "min_mode": "manual"
+    },
+    {
+      "name": "craft",
+      "version": 1,
+      "summary": "Craft at least count of an item with the game's recipes: the inventory 2x2 grid, or the crafting table at pos (in reach).",
+      "params": {
+        "type": "object",
+        "required": [
+          "item",
+          "count"
+        ],
+        "properties": {
+          "item": {
+            "$ref": "#/$defs/item_id"
+          },
+          "count": {
+            "$ref": "#/$defs/count"
+          },
+          "pos": {
+            "$ref": "#/$defs/block_pos"
+          }
+        },
+        "additionalProperties": false
+      },
+      "effects": [
+        "craft"
+      ],
+      "preconditions": [
+        "alive",
+        "not_stopped",
+        "in_reach"
+      ],
+      "timeout_ms": 180000,
+      "cancellable": true,
+      "evidence": [
+        "crafted",
+        "consumed",
+        "recipe",
+        "batches",
+        "workstation",
+        "missing"
+      ],
+      "failure_codes": [
+        "no_recipe",
+        "missing_ingredients",
+        "no_workstation",
+        "partial",
+        "inventory_full",
+        "not_confirmed",
+        "out_of_range",
+        "obstructed",
+        "zone_denied",
+        "precondition_failed",
+        "cancelled",
+        "timeout",
+        "interrupted"
+      ],
+      "min_mode": "manual"
+    },
+    {
+      "name": "smelt",
+      "version": 1,
+      "summary": "Smelt count of an item in the furnace at pos (in reach, all slots empty) with Eve's own input and fuel; takes the output and unburnt fuel back.",
+      "params": {
+        "type": "object",
+        "required": [
+          "pos",
+          "item",
+          "count"
+        ],
+        "properties": {
+          "pos": {
+            "$ref": "#/$defs/block_pos"
+          },
+          "item": {
+            "$ref": "#/$defs/item_id"
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 64
+          },
+          "fuel": {
+            "$ref": "#/$defs/item_id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "effects": [
+        "craft",
+        "container"
+      ],
+      "preconditions": [
+        "alive",
+        "not_stopped",
+        "in_reach"
+      ],
+      "timeout_ms": 900000,
+      "cancellable": true,
+      "evidence": [
+        "smelted",
+        "input_used",
+        "fuel_used",
+        "furnace_left",
+        "inventory_delta",
+        "input",
+        "fuel",
+        "accepted_inputs",
+        "cook_ms"
+      ],
+      "failure_codes": [
+        "no_recipe",
+        "missing_ingredients",
+        "no_fuel",
+        "no_workstation",
+        "workstation_busy",
+        "stalled",
+        "partial",
+        "out_of_range",
+        "obstructed",
+        "zone_denied",
+        "precondition_failed",
+        "cancelled",
+        "timeout",
+        "interrupted"
+      ],
+      "min_mode": "manual"
+    },
+    {
+      "name": "withdraw",
+      "version": 1,
+      "summary": "Take exactly count of an item from the container at pos (in reach) into the main inventory.",
+      "params": {
+        "type": "object",
+        "required": [
+          "pos",
+          "item",
+          "count"
+        ],
+        "properties": {
+          "pos": {
+            "$ref": "#/$defs/block_pos"
+          },
+          "item": {
+            "$ref": "#/$defs/item_id"
+          },
+          "count": {
+            "$ref": "#/$defs/count"
+          }
+        },
+        "additionalProperties": false
+      },
+      "effects": [
+        "container"
+      ],
+      "preconditions": [
+        "alive",
+        "not_stopped",
+        "in_reach"
+      ],
+      "timeout_ms": 120000,
+      "cancellable": true,
+      "evidence": [
+        "requested",
+        "moved",
+        "short",
+        "container_before",
+        "container_after",
+        "inventory_delta",
+        "foreign_change",
+        "clicks"
+      ],
+      "failure_codes": [
+        "insufficient",
+        "inventory_full",
+        "not_a_container",
+        "out_of_range",
+        "obstructed",
+        "zone_denied",
+        "precondition_failed",
+        "cancelled",
+        "timeout",
+        "interrupted"
+      ],
+      "min_mode": "manual"
+    },
+    {
+      "name": "deposit",
+      "version": 1,
+      "summary": "Put exactly count of an item from the main inventory into the container at pos (in reach); tools, weapons, armour and the last 8 food stay unless allow_essentials.",
+      "params": {
+        "type": "object",
+        "required": [
+          "pos",
+          "item",
+          "count"
+        ],
+        "properties": {
+          "pos": {
+            "$ref": "#/$defs/block_pos"
+          },
+          "item": {
+            "$ref": "#/$defs/item_id"
+          },
+          "count": {
+            "$ref": "#/$defs/count"
+          },
+          "allow_essentials": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "effects": [
+        "container"
+      ],
+      "preconditions": [
+        "alive",
+        "not_stopped",
+        "in_reach"
+      ],
+      "timeout_ms": 120000,
+      "cancellable": true,
+      "evidence": [
+        "requested",
+        "moved",
+        "short",
+        "container_before",
+        "container_after",
+        "inventory_delta",
+        "foreign_change",
+        "clicks"
+      ],
+      "failure_codes": [
+        "insufficient",
+        "container_full",
+        "protected_item",
+        "not_a_container",
+        "out_of_range",
+        "obstructed",
+        "zone_denied",
+        "precondition_failed",
+        "cancelled",
+        "timeout",
+        "interrupted"
+      ],
+      "min_mode": "manual"
+    },
+    {
+      "name": "mine_resource",
+      "version": 1,
+      "summary": "Mine count exposed blocks of one block id or block tag within radius: walk_to (no breaking on the way) then mine_block with the best hotbar tool; ends at the first server refusal.",
+      "params": {
+        "type": "object",
+        "required": [
+          "count"
+        ],
+        "properties": {
+          "block": {
+            "$ref": "#/$defs/block_id"
+          },
+          "tag": {
+            "type": "string",
+            "pattern": "^[a-z0-9_.-]+:[a-z0-9_./-]+$"
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 256
+          },
+          "max_blocks": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 512
+          },
+          "allow_vein": {
+            "type": "boolean",
+            "default": true
+          },
+          "radius": {
+            "type": "integer",
+            "minimum": 4,
+            "maximum": 32,
+            "default": 16
+          }
+        },
+        "additionalProperties": false,
+        "oneOf": [
+          {
+            "required": [
+              "block"
+            ]
+          },
+          {
+            "required": [
+              "tag"
+            ]
+          }
+        ]
+      },
+      "effects": [
+        "move",
+        "break"
+      ],
+      "preconditions": [
+        "alive",
+        "not_stopped",
+        "link_fresh"
+      ],
+      "timeout_ms": 600000,
+      "cancellable": true,
+      "evidence": [
+        "mined",
+        "attempts",
+        "blocks",
+        "drops"
+      ],
+      "failure_codes": [
+        "not_found",
+        "no_tool",
+        "inventory_full",
+        "unreachable",
+        "partial",
+        "zone_denied",
+        "precondition_failed",
+        "cancelled",
+        "timeout",
+        "interrupted"
+      ],
+      "min_mode": "manual"
+    },
+    {
+      "name": "fight_melee",
+      "version": 1,
+      "summary": "Melee-fight entity_id, or (without it) the hostiles within radius one at a time (nearest swingable first, at most max_targets): attack_entity swings at full cooldown and legal reach, spacing and strafing between swings, walk_to when far or out of sight; never swings with a protected entity in the sweep area; below health_floor it runs and ends failed health_floor. Creepers are never melee targets.",
+      "params": {
+        "type": "object",
+        "properties": {
+          "entity_id": {
+            "$ref": "#/$defs/entity_id"
+          },
+          "radius": {
+            "type": "number",
+            "minimum": 4,
+            "maximum": 32,
+            "default": 16
+          },
+          "health_floor": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 20,
+            "default": 8
+          },
+          "max_targets": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 16,
+            "default": 8
+          }
+        },
+        "additionalProperties": false
+      },
+      "effects": [
+        "attack",
+        "move"
+      ],
+      "preconditions": [
+        "alive",
+        "not_stopped"
+      ],
+      "timeout_ms": 120000,
+      "cancellable": true,
+      "evidence": [
+        "targets",
+        "kills",
+        "swings",
+        "hits",
+        "damage_dealt",
+        "damage_taken",
+        "health_start",
+        "health_min",
+        "health_end",
+        "max_swing_reach",
+        "protected_holds",
+        "disengaged",
+        "swing_log"
+      ],
+      "failure_codes": [
+        "no_target",
+        "lost_target",
+        "protected_entity",
+        "health_floor",
+        "cancelled",
+        "timeout",
+        "interrupted"
+      ],
+      "min_mode": "manual"
+    },
+    {
+      "name": "build_schematic",
+      "version": 1,
+      "summary": "Build the design folder <project_id>/v<version> (design.json + build_order.json [+ scaffold.json]) whose hash equals design_hash: scaffold first, role order, normal-reach placement with place_block/mine_block/use_item/walk_to, cells already right are skipped (resume), then compare every cell and fix mismatches; scaffold removed last. origin (the approved site) overrides design.json's origin. States place_block v1 cannot produce are reported under manual. Fails no_item with the deficit before placing anything when supplies are short.",
+      "params": {
+        "type": "object",
+        "required": [
+          "project_id",
+          "version",
+          "design_hash"
+        ],
+        "properties": {
+          "project_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9_.-]{1,64}$"
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "design_hash": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "origin": {
+            "$ref": "#/$defs/block_pos"
+          },
+          "max_fix_rounds": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 5,
+            "default": 2
+          }
+        },
+        "additionalProperties": false
+      },
+      "effects": [
+        "move",
+        "place",
+        "break",
+        "use_item"
+      ],
+      "preconditions": [
+        "alive",
+        "not_stopped",
+        "link_fresh"
+      ],
+      "timeout_ms": 3600000,
+      "cancellable": true,
+      "evidence": [
+        "design_hash",
+        "origin",
+        "cells_total",
+        "already_present",
+        "placed",
+        "fixed",
+        "scaffold_removed",
+        "matched",
+        "mismatches",
+        "manual",
+        "deficit"
+      ],
+      "failure_codes": [
+        "no_design",
+        "design_hash_mismatch",
+        "gate_refused",
+        "no_item",
+        "partial",
+        "unreachable",
+        "zone_denied",
+        "cancelled",
+        "timeout",
+        "interrupted"
+      ],
+      "min_mode": "manual"
+    },
+    {
+      "name": "fight_ranged",
+      "version": 1,
+      "summary": "Shoot entity_id, or (without it) the nearest hostile in sight within radius, with Eve's own bow from her hotbar: full draw, pitch solved for the arrow's drag and gravity, lead on a moving target; never releases with a protected entity near the line of fire; walk_to when out of sight; at most max_arrows arrows. Ends ok when the target dies.",
+      "params": {
+        "type": "object",
+        "properties": {
+          "entity_id": {
+            "$ref": "#/$defs/entity_id"
+          },
+          "radius": {
+            "type": "number",
+            "minimum": 4,
+            "maximum": 48,
+            "default": 24
+          },
+          "max_arrows": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 64,
+            "default": 16
+          }
+        },
+        "additionalProperties": false
+      },
+      "effects": [
+        "attack",
+        "move"
+      ],
+      "preconditions": [
+        "alive",
+        "not_stopped"
+      ],
+      "timeout_ms": 120000,
+      "cancellable": true,
+      "evidence": [
+        "shots",
+        "hits",
+        "arrows_used",
+        "kills",
+        "health_start",
+        "health_min",
+        "max_range",
+        "protected_holds",
+        "shot_log"
+      ],
+      "failure_codes": [
+        "no_target",
+        "lost_target",
+        "protected_entity",
+        "no_weapon",
+        "no_ammo",
+        "out_of_arrows",
+        "too_close",
+        "cancelled",
+        "timeout",
+        "interrupted"
+      ],
+      "min_mode": "manual"
+    },
+    {
+      "name": "harvest_replant",
+      "version": 1,
+      "summary": "Harvest every mature wheat/carrot/potato crop in the farm box min..max (at most 32x4x32) and replant each harvested plot with the matching seed; immature crops are left, farmland is never jumped on; missing seeds end as a partial report.",
+      "params": {
+        "type": "object",
+        "required": [
+          "min",
+          "max"
+        ],
+        "properties": {
+          "min": {
+            "$ref": "#/$defs/block_pos"
+          },
+          "max": {
+            "$ref": "#/$defs/block_pos"
+          },
+          "replant": {
+            "type": "boolean",
+            "default": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "effects": [
+        "move",
+        "break",
+        "place",
+        "use_item"
+      ],
+      "preconditions": [
+        "alive",
+        "not_stopped",
+        "link_fresh"
+      ],
+      "timeout_ms": 600000,
+      "cancellable": true,
+      "evidence": [
+        "harvested",
+        "replanted",
+        "immature_left",
+        "not_replanted",
+        "trampled",
+        "drops",
+        "not_harvested",
+        "walks",
+        "trampled_at"
+      ],
+      "failure_codes": [
+        "partial",
+        "bad_area",
+        "unreachable",
+        "inventory_full",
+        "zone_denied",
+        "precondition_failed",
+        "cancelled",
+        "timeout",
+        "interrupted"
+      ],
+      "min_mode": "manual"
+    },
+    {
+      "name": "repair_zone",
+      "version": 1,
+      "summary": "Restore a zone to an approved snapshot from sense's zone.repair steps (link v1.3), passed in by the mind: removals in order (a block is broken only if it is still the block the step names, so later edits stay), then placements (place_block v2 states; farmland = dirt tilled with a hoe), then replanting `replant` (sense's crop_cycle skips with their snapshot block, now air) with the crop's seed, then a check of every step's cell. Only step positions are touched; sense's manual (containers, O17) and skipped (owner edits, crops) are not. Fails no_item with the deficit before acting when supplies or a hoe are missing.",
+      "params": {
+        "type": "object",
+        "required": [
+          "zone_id",
+          "snapshot_id",
+          "steps"
+        ],
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9_.-]{1,64}$"
+          },
+          "snapshot_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.@:-]{1,128}$"
+          },
+          "steps": {
+            "type": "array",
+            "maxItems": 4096,
+            "items": {
+              "type": "object",
+              "required": [
+                "op",
+                "pos",
+                "block"
+              ],
+              "properties": {
+                "op": {
+                  "type": "string",
+                  "enum": [
+                    "remove",
+                    "place"
+                  ]
+                },
+                "pos": {
+                  "$ref": "#/$defs/block_pos"
+                },
+                "block": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9_.-]+:[a-z0-9_./-]+(\\[[a-z0-9_=,]*\\])?$"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "replant": {
+            "type": "array",
+            "maxItems": 1024,
+            "items": {
+              "type": "object",
+              "required": [
+                "pos",
+                "block"
+              ],
+              "properties": {
+                "pos": {
+                  "$ref": "#/$defs/block_pos"
+                },
+                "block": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9_.-]+:[a-z0-9_./-]+(\\[[a-z0-9_=,]*\\])?$"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "max_fix_rounds": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 5,
+            "default": 2
+          }
+        },
+        "additionalProperties": false
+      },
+      "effects": [
+        "move",
+        "place",
+        "break",
+        "use_item"
+      ],
+      "preconditions": [
+        "alive",
+        "not_stopped",
+        "link_fresh"
+      ],
+      "timeout_ms": 3600000,
+      "cancellable": true,
+      "evidence": [
+        "zone_id",
+        "snapshot_id",
+        "cells_total",
+        "already_present",
+        "placed",
+        "fixed",
+        "matched",
+        "mismatches",
+        "manual",
+        "deficit"
+      ],
+      "failure_codes": [
+        "no_item",
+        "partial",
+        "unreachable",
+        "zone_denied",
+        "cancelled",
+        "timeout",
+        "interrupted"
+      ],
+      "min_mode": "manual"
+    },
+    {
+      "name": "gather",
+      "version": 1,
+      "summary": "Gather a renewable resource by qualified means only: wood = mine_resource over #minecraft:logs; wool = shears on an adult unsheared sheep, then the wool picked up; milk = a bucket on an adult cow. Never kills; protected animals (pets, named, envelope extra types) and babies are skipped and counted; no eligible animal or no tool ends as a bounded shortage report.",
+      "params": {
+        "type": "object",
+        "required": [
+          "product",
+          "count"
+        ],
+        "properties": {
+          "product": {
+            "type": "string",
+            "enum": [
+              "wood",
+              "wool",
+              "milk"
+            ]
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 256
+          },
+          "radius": {
+            "type": "integer",
+            "minimum": 4,
+            "maximum": 32,
+            "default": 16
+          }
+        },
+        "additionalProperties": false
+      },
+      "effects": [
+        "move",
+        "break",
+        "use_item"
+      ],
+      "preconditions": [
+        "alive",
+        "not_stopped",
+        "link_fresh"
+      ],
+      "timeout_ms": 600000,
+      "cancellable": true,
+      "evidence": [
+        "gathered",
+        "animals",
+        "protected_skipped",
+        "babies_skipped"
+      ],
+      "failure_codes": [
+        "not_found",
+        "no_tool",
+        "partial",
+        "inventory_full",
+        "unreachable",
+        "zone_denied",
+        "precondition_failed",
+        "cancelled",
+        "timeout",
+        "interrupted"
+      ],
+      "min_mode": "manual"
+    },
+    {
+      "name": "bridge",
+      "version": 1,
+      "summary": "Bridge in a straight line along x or z from the block she stands on to `to` (same height as her floor): per cell, lean over the edge sneaking (vanilla's sneak back-off keeps her on the block), place_block the next floor cell on the front face, step onto it sneaking. Refuses before stepping out without enough blocks, without a recovery item (ender pearl, slow falling, water bucket) when the gap is deeper than a safe fall, or with hostiles near; a hostile closing in mid-bridge sends her back to the start. Any drop of her feet below the floor ends it `fell`.",
+      "params": {
+        "type": "object",
+        "required": [
+          "to"
+        ],
+        "properties": {
+          "to": {
+            "$ref": "#/$defs/block_pos"
+          },
+          "item": {
+            "$ref": "#/$defs/item_id"
+          },
+          "max_blocks": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 64,
+            "default": 40
+          },
+          "hostile_radius": {
+            "type": "number",
+            "minimum": 4,
+            "maximum": 32,
+            "default": 16
+          }
+        },
+        "additionalProperties": false
+      },
+      "effects": [
+        "move",
+        "place",
+        "hazard"
+      ],
+      "preconditions": [
+        "alive",
+        "not_stopped",
+        "link_fresh"
+      ],
+      "timeout_ms": 600000,
+      "cancellable": true,
+      "evidence": [
+        "start",
+        "end",
+        "length",
+        "placed",
+        "falls",
+        "min_feet_y",
+        "recovery_item",
+        "retreated",
+        "hostiles_seen"
+      ],
+      "failure_codes": [
+        "bad_target",
+        "no_item",
+        "no_recovery",
+        "hostile_near",
+        "obstructed",
+        "fell",
+        "zone_denied",
+        "partial",
+        "cancelled",
+        "timeout",
+        "interrupted"
+      ],
+      "min_mode": "manual"
+    },
+    {
+      "name": "prospect",
+      "version": 1,
+      "summary": "Bounded branch mining for ore that is not exposed: optionally a staircase down to descend_to first, then a 1x2 tunnel straight ahead along direction (default: her facing; never up) with mine_block, every target ore it exposes within reach mined, outline-only plants in its way cleared, a torch every torch_every blocks, then back to the start. Stops on count, max_blocks, full inventory, the timer, or a hazard ahead (lava, water, no floor). A threat checked every tick (health below min_health, a hit just taken, a hostile within 6 in sight) ends it at once where she stands: hurt, with evidence threat {kind, health, entity_id, type, distance} and stop_at {x, y, z}, no walk back.",
+      "params": {
+        "type": "object",
+        "properties": {
+          "block": {
+            "$ref": "#/$defs/block_id"
+          },
+          "tag": {
+            "type": "string",
+            "pattern": "^[a-z0-9_.-]+:[a-z0-9_./-]+$"
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 64
+          },
+          "max_blocks": {
+            "type": "integer",
+            "minimum": 8,
+            "maximum": 256,
+            "default": 64
+          },
+          "torch_every": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 32,
+            "default": 8
+          },
+          "min_health": {
+            "type": "number",
+            "minimum": 2,
+            "maximum": 20,
+            "default": 12
+          },
+          "minutes": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 30,
+            "default": 8
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "north",
+              "south",
+              "east",
+              "west"
+            ]
+          },
+          "descend_to": {
+            "type": "integer",
+            "minimum": -58,
+            "maximum": 319
+          }
+        },
+        "required": [
+          "count"
+        ],
+        "additionalProperties": false
+      },
+      "effects": [
+        "move",
+        "break",
+        "place"
+      ],
+      "preconditions": [
+        "alive",
+        "not_stopped",
+        "link_fresh"
+      ],
+      "timeout_ms": 1900000,
+      "cancellable": true,
+      "evidence": [
+        "mined",
+        "ores",
+        "blocks_broken",
+        "tunnel_length",
+        "torches_placed",
+        "stop_reason",
+        "returned",
+        "threat",
+        "stop_at",
+        "torch_failure",
+        "seals",
+        "bridged"
+      ],
+      "failure_codes": [
+        "not_found",
+        "partial",
+        "hazard",
+        "inventory_full",
+        "hurt",
+        "no_tool",
+        "unreachable",
+        "zone_denied",
+        "capped",
+        "precondition_failed",
+        "cancelled",
+        "timeout",
+        "interrupted"
+      ],
+      "min_mode": "manual"
+    },
+    {
+      "name": "equip_best",
+      "version": 1,
+      "summary": "Equip the best available gear from Eve's own inventory: per armour slot the best piece by armour + toughness (a nearly broken piece counts as nothing; binding is never touched), a shield into the off hand, and in the main hand the best correct tool for for_block (destroy speed, more than 5 uses left) or with weapon the best sword/axe by attack damage, moved into the selected hotbar slot. Legal inventory clicks only; evidence read 10 ticks after the last click (what the server kept).",
+      "params": {
+        "type": "object",
+        "properties": {
+          "slots": {
+            "type": "array",
+            "maxItems": 5,
+            "items": {
+              "type": "string",
+              "enum": [
+                "head",
+                "chest",
+                "legs",
+                "feet",
+                "offhand"
+              ]
+            }
+          },
+          "for_block": {
+            "$ref": "#/$defs/block_id"
+          },
+          "weapon": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "effects": [],
+      "preconditions": [
+        "alive",
+        "not_stopped"
+      ],
+      "timeout_ms": 5000,
+      "cancellable": true,
+      "evidence": [
+        "before",
+        "after",
+        "changed"
+      ],
+      "failure_codes": [
+        "obstructed",
+        "cancelled",
+        "timeout",
+        "interrupted"
+      ],
+      "min_mode": "manual"
+    },
+    {
+      "name": "dig_up",
+      "version": 1,
+      "summary": "The way out when go_home is blocked underground (O86): a 1x2 staircase up, one block a step, toward `toward` (home or the mine entry; the larger horizontal axis first) with mine_block and place_block, using prospect's rules: a threat (health below min_health, a hit, a hostile in sight, drowning) ends it at once; lava touching the next step or over her head stops it; visible water is sealed with mined blocks; a missing step floor within 3 is bridged; a zone_denied face turns it 90 degrees. Ores are ignored and it never walks back. Without a pickaxe in the hotbar it pillars up an open column instead (look down, jump, place filler in the cell left behind at the top of the jump; stone or dirt first, planks while more than 6 are left) and ends no_tool when a solid block over her head would have to be broken. Ends ok when she stands at toward's level (or 2 below it under open sky); else failed, where she got to.",
+      "params": {
+        "type": "object",
+        "properties": {
+          "toward": {
+            "$ref": "#/$defs/block_pos"
+          },
+          "max_blocks": {
+            "type": "integer",
+            "minimum": 8,
+            "maximum": 256,
+            "default": 128
+          },
+          "torch_every": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 32,
+            "default": 8
+          },
+          "min_health": {
+            "type": "number",
+            "minimum": 2,
+            "maximum": 20,
+            "default": 12
+          },
+          "minutes": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 30,
+            "default": 8
+          }
+        },
+        "required": [
+          "toward"
+        ],
+        "additionalProperties": false
+      },
+      "effects": [
+        "move",
+        "break",
+        "place"
+      ],
+      "preconditions": [
+        "alive",
+        "not_stopped",
+        "link_fresh"
+      ],
+      "timeout_ms": 1900000,
+      "cancellable": true,
+      "evidence": [
+        "climbed",
+        "reached",
+        "blocks_broken",
+        "tunnel_length",
+        "torches_placed",
+        "stop_reason",
+        "stop_at",
+        "threat",
+        "seals",
+        "bridged",
+        "mined",
+        "torch_failure"
+      ],
+      "failure_codes": [
+        "not_reached",
+        "hazard",
+        "inventory_full",
+        "hurt",
+        "no_tool",
+        "unreachable",
+        "zone_denied",
+        "capped",
+        "precondition_failed",
+        "cancelled",
+        "timeout",
+        "interrupted"
+      ],
+      "min_mode": "manual"
+    },
+    {
+      "name": "drop_item",
+      "version": 1,
+      "summary": "Toss count items of one kind on the ground (vanilla drop, as Q), optionally facing a block first (e.g. the owner's feet). The stack is taken from the hotbar or moved there from the main inventory; one toss per 10 ticks; the selected slot is restored. Protected kit (swords, pickaxes, shields, bread, worn armour) is refused unless kit_ok (the owner named that exact item). Fewer than count in her inventory ends partial.",
+      "params": {
+        "type": "object",
+        "required": [
+          "item"
+        ],
+        "properties": {
+          "item": {
+            "type": "string",
+            "pattern": "^[a-z0-9_.-]+:[a-z0-9_./-]+$"
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 64,
+            "default": 1
+          },
+          "toward": {
+            "$ref": "#/$defs/block_pos"
+          },
+          "kit_ok": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "effects": [],
+      "preconditions": [
+        "alive",
+        "not_stopped",
+        "has_item"
+      ],
+      "timeout_ms": 15000,
+      "cancellable": true,
+      "evidence": [
+        "dropped",
+        "entity_ids",
+        "item_count_delta",
+        "from_slot",
+        "faced"
+      ],
+      "failure_codes": [
+        "no_item",
+        "protected_kit",
+        "partial",
+        "cancelled",
+        "timeout"
+      ],
+      "min_mode": "manual"
+    }
+  ]
+}

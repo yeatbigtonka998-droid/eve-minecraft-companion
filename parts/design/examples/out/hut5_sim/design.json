@@ -1,0 +1,72 @@
+{
+ "format": "eve-design/1",
+ "project_id": "hut5",
+ "version": 1,
+ "world_id": null,
+ "dim": "minecraft:overworld",
+ "origin": {
+  "x": 0,
+  "y": 64,
+  "z": 0
+ },
+ "size": {
+  "x": 5,
+  "y": 6,
+  "z": 5
+ },
+ "style": null,
+ "style_card_hash": null,
+ "palette": [
+  "minecraft:air",
+  "minecraft:chest[facing=west,type=single,waterlogged=false]",
+  "minecraft:cobblestone",
+  "minecraft:crafting_table",
+  "minecraft:glass_pane[east=false,north=true,south=true,waterlogged=false,west=false]",
+  "minecraft:glass_pane[east=true,north=false,south=false,waterlogged=false,west=true]",
+  "minecraft:oak_door[facing=north,half=lower,hinge=left,open=false,powered=false]",
+  "minecraft:oak_door[facing=north,half=upper,hinge=left,open=false,powered=false]",
+  "minecraft:oak_log[axis=y]",
+  "minecraft:oak_planks",
+  "minecraft:oak_slab[type=bottom,waterlogged=false]",
+  "minecraft:oak_slab[type=double,waterlogged=false]",
+  "minecraft:oak_stairs[facing=east,half=bottom,shape=straight,waterlogged=false]",
+  "minecraft:oak_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+  "minecraft:oak_stairs[facing=south,half=bottom,shape=straight,waterlogged=false]",
+  "minecraft:oak_stairs[facing=west,half=bottom,shape=straight,waterlogged=false]",
+  "minecraft:wall_torch[facing=west]",
+  "minecraft:white_bed[facing=north,occupied=false,part=foot]",
+  "minecraft:white_bed[facing=north,occupied=false,part=head]"
+ ],
+ "blocks": "AgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgAIAAkACQAJAAgACQASAAAAAwAJAAkAEQAAAAEACQAJAAAAAAAAAAkACAAJAAYACQAIAAgACQAFAAkACAAJAAAAAAAAAAkABAAAAAAAAAAEAAkAAAAAABAACQAIAAkABwAJAAgACAAJAAkACQAIAAkAAAAAAAAACQAJAAAAAAAAAAkACQAAAAAAAAAJAAgACQAJAAkACAALAA4ADgAOAAsADAAJAAkACQAPAAwACQAJAAkADwAMAAkACQAJAA8ACwANAA0ADQALAAAAAAAAAAAAAAAAAAoACgAKAAAAAAAKAAoACgAAAAAACgAKAAoAAAAAAAAAAAAAAAAA",
+ "roles": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQsCAgILAggACAICCAAIAgIAAAACCwIEAgsLAgMCCwIAAAACAwAAAAMCAAAJAgsCBAILCwICAgsCAAAAAgIAAAACAgAAAAILAgICCwUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUAAAAAAAAFBQUAAAUFBQAABQUFAAAAAAAA",
+ "rooms": [
+  {
+   "id": "main",
+   "type": "bedroom",
+   "min": {
+    "x": 1,
+    "y": 1,
+    "z": 1
+   },
+   "max": {
+    "x": 3,
+    "y": 3,
+    "z": 3
+   },
+   "door_pos": {
+    "x": 2,
+    "y": 1,
+    "z": 4
+   }
+  }
+ ],
+ "block_entities": [],
+ "hash": "90a0175d44fb6728663e0781a329782f1d2e15209d24a2b80d83c31b85000edd",
+ "provenance": {
+  "source": "hand-built (examples/hut5.py)",
+  "compiler_version": null,
+  "seed": null,
+  "schematic": true
+ },
+ "import_issues": []
+}

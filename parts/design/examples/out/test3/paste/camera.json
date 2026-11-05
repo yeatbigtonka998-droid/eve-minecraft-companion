@@ -1,0 +1,80 @@
+{
+ "design_hash": "d2ba3a5bed28ca3797bc407ed047c392f9bdb2654d81779d583fe1099ac04810",
+ "origin": [
+  0,
+  64,
+  0
+ ],
+ "size": [
+  3,
+  3,
+  3
+ ],
+ "blocks": 22,
+ "functions": [
+  "cam_test3_v1_ne",
+  "cam_test3_v1_nw",
+  "cam_test3_v1_se",
+  "cam_test3_v1_sw",
+  "cam_test3_v1_top",
+  "clear_test3_v1",
+  "paste_test3_v1"
+ ],
+ "cameras": {
+  "SE": {
+   "pos": [
+    8.45,
+    70.83,
+    8.45
+   ],
+   "yaw": 135.0,
+   "pitch": 35.26,
+   "fov": 30.0
+  },
+  "NE": {
+   "pos": [
+    8.45,
+    70.83,
+    -5.45
+   ],
+   "yaw": 45.0,
+   "pitch": 35.26,
+   "fov": 30.0
+  },
+  "NW": {
+   "pos": [
+    -5.45,
+    70.83,
+    -5.45
+   ],
+   "yaw": -45.0,
+   "pitch": 35.26,
+   "fov": 30.0
+  },
+  "SW": {
+   "pos": [
+    -5.45,
+    70.83,
+    8.45
+   ],
+   "yaw": -135.0,
+   "pitch": 35.26,
+   "fov": 30.0
+  },
+  "top": {
+   "pos": [
+    1.5,
+    77.42,
+    1.5
+   ],
+   "yaw": 180.0,
+   "pitch": 90.0,
+   "fov": 30.0
+  }
+ },
+ "notes": [
+  "DISPOSABLE worlds only (server-qual/dev); run clear first, then paste",
+  "screenshots: spectator, F1 (hide HUD), FOV 30 in the client options, render distance >= 8, noon, clear weather",
+  "0 block entities: data not pasted (compiled designs carry none)"
+ ]
+}

@@ -1,0 +1,42 @@
+{
+ "version": "eve-gate/1",
+ "design_hash": "427097f6fc13b0000ba68ffbeb4101d55d87c7ac03c0820ae14a2491168b1742",
+ "category": "eve_own",
+ "decision": "hold",
+ "reasons": [
+  "critiqued: no critique (critic not configured or unavailable)"
+ ],
+ "checks": {
+  "validation_bound": {
+   "ok": true
+  },
+  "bom_bound": {
+   "ok": true
+  },
+  "scaffold_bound": {
+   "ok": true
+  },
+  "validation_passed": {
+   "ok": true
+  },
+  "brief_checks_ran": {
+   "ok": true
+  },
+  "previews_bound": {
+   "ok": true
+  },
+  "critiqued": {
+   "ok": false,
+   "reason": "no critique (critic not configured or unavailable)"
+  }
+ },
+ "policy": {
+  "critics": [
+   "deepseek"
+  ],
+  "threshold": 7.0,
+  "require_brief_checks": true,
+  "allow_validation_only": false,
+  "selftest_dir": "designs/_critic"
+ }
+}

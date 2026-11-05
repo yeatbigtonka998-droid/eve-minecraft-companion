@@ -1,0 +1,8 @@
+# Byte-reproducible builds: resources and sources are LF in every checkout (core.autocrlf would add CR on Windows).
+*.java text eol=lf
+*.json text eol=lf
+*.gradle text eol=lf
+*.properties text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.jar binary

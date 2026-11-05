@@ -1,0 +1,15 @@
+{
+ "purpose": "nether portal frame",
+ "names": [
+  "nether portal with corners",
+  "full nether portal",
+  "portal with corners",
+  "corner portal"
+ ],
+ "style": "obsidian",
+ "approval_category": "schematic",
+ "authored_by": "eve-build-flow (O150)",
+ "clearance_front": 2,
+ "level_word": "bottom",
+ "done_say": "Frame done; say 'light the portal' when you have flint and steel."
+}

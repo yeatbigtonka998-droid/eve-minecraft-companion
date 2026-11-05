@@ -1,0 +1,48 @@
+{
+ "format": "eve-design/1",
+ "project_id": "test3",
+ "version": 1,
+ "world_id": null,
+ "dim": "minecraft:overworld",
+ "origin": {
+  "x": 0,
+  "y": 64,
+  "z": 0
+ },
+ "size": {
+  "x": 3,
+  "y": 3,
+  "z": 3
+ },
+ "style": null,
+ "style_card_hash": null,
+ "palette": [
+  "minecraft:air",
+  "minecraft:cobblestone",
+  "minecraft:glass_pane[east=true,north=false,south=true,waterlogged=false,west=true]",
+  "minecraft:lantern[hanging=false,waterlogged=false]",
+  "minecraft:lantern[hanging=true,waterlogged=false]",
+  "minecraft:oak_door[facing=south,half=lower,hinge=left,open=false,powered=false]",
+  "minecraft:oak_door[facing=south,half=upper,hinge=left,open=false,powered=false]",
+  "minecraft:oak_log[axis=x]",
+  "minecraft:oak_log[axis=z]",
+  "minecraft:oak_planks",
+  "minecraft:oak_slab[type=bottom,waterlogged=false]",
+  "minecraft:oak_slab[type=double,waterlogged=false]",
+  "minecraft:oak_slab[type=top,waterlogged=false]",
+  "minecraft:oak_stairs[facing=east,half=bottom,shape=straight,waterlogged=false]",
+  "minecraft:oak_stairs[facing=south,half=top,shape=straight,waterlogged=false]",
+  "minecraft:oak_trapdoor[facing=north,half=bottom,open=true,powered=false,waterlogged=false]",
+  "minecraft:wall_torch[facing=south]"
+ ],
+ "blocks": "AQAHAAgADQABAAsACgAJAAEACQACAAkADwAFABAAAAAEAAMADgAJAAwAAAAGAAAAAAAJAAAA",
+ "roles": "AQsLBwEFBQIBAgMCDAQJAAkJBwIFAAQAAAIA",
+ "rooms": [],
+ "block_entities": [],
+ "hash": "d2ba3a5bed28ca3797bc407ed047c392f9bdb2654d81779d583fe1099ac04810",
+ "provenance": {
+  "source": "hand-built CP-49 fixture (examples/test3.py)",
+  "schematic": true
+ },
+ "import_issues": []
+}

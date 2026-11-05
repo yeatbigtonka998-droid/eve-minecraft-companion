@@ -1,0 +1,208 @@
+{
+ "design_hash": "d1ff49b147ccfa09064ec19cb18b638fab052561fd494c1fe80229734f1f1adb",
+ "scaffold_hash": "7286ba458ed77ddacf8ca261497c698e6c9b7fdb0b752fcb266063e719065d3c",
+ "final": [
+  {
+   "item": "minecraft:andesite",
+   "count": 32
+  },
+  {
+   "item": "minecraft:cobblestone",
+   "count": 103
+  },
+  {
+   "item": "minecraft:polished_andesite",
+   "count": 14
+  },
+  {
+   "item": "minecraft:stone_bricks",
+   "count": 78
+  }
+ ],
+ "items_per_state": {
+  "minecraft:andesite": [
+   {
+    "item": "minecraft:andesite",
+    "count": 1
+   }
+  ],
+  "minecraft:cobblestone": [
+   {
+    "item": "minecraft:cobblestone",
+    "count": 1
+   }
+  ],
+  "minecraft:dirt": [
+   {
+    "item": "minecraft:dirt",
+    "count": 1
+   }
+  ],
+  "minecraft:polished_andesite": [
+   {
+    "item": "minecraft:polished_andesite",
+    "count": 1
+   }
+  ],
+  "minecraft:stone_bricks": [
+   {
+    "item": "minecraft:stone_bricks",
+    "count": 1
+   }
+  ]
+ },
+ "scaffold": [
+  {
+   "item": "minecraft:dirt",
+   "count": 332
+  }
+ ],
+ "tools": [
+  {
+   "item": "minecraft:<any>_pickaxe",
+   "uses": 241,
+   "estimate": true
+  },
+  {
+   "item": "minecraft:<any>_shovel",
+   "uses": 664,
+   "estimate": true
+  }
+ ],
+ "fuel": [
+  {
+   "item": "minecraft:coal",
+   "count": 10,
+   "smelted_items": 80,
+   "estimate": true
+  }
+ ],
+ "crafting": [
+  {
+   "item": "minecraft:polished_andesite",
+   "recipe": "minecraft:polished_andesite",
+   "type": "minecraft:crafting_shaped",
+   "batches": 4,
+   "yield_per_batch": 4,
+   "produced": 16,
+   "leftover": 2,
+   "consumes": [
+    {
+     "item": "minecraft:andesite",
+     "count": 16
+    }
+   ]
+  },
+  {
+   "item": "minecraft:stone_bricks",
+   "recipe": "minecraft:stone_bricks",
+   "type": "minecraft:crafting_shaped",
+   "batches": 20,
+   "yield_per_batch": 4,
+   "produced": 80,
+   "leftover": 2,
+   "consumes": [
+    {
+     "item": "minecraft:stone",
+     "count": 80
+    }
+   ]
+  },
+  {
+   "item": "minecraft:stone",
+   "recipe": "minecraft:stone",
+   "type": "minecraft:smelting",
+   "batches": 80,
+   "yield_per_batch": 1,
+   "produced": 80,
+   "leftover": 0,
+   "consumes": [
+    {
+     "item": "minecraft:cobblestone",
+     "count": 80
+    }
+   ]
+  }
+ ],
+ "leftovers": [
+  {
+   "item": "minecraft:polished_andesite",
+   "count": 2
+  },
+  {
+   "item": "minecraft:stone_bricks",
+   "count": 2
+  }
+ ],
+ "carry": {
+  "slots": 12,
+  "inventory_slots": 36,
+  "trips": 1
+ },
+ "deficit": {
+  "computed_against": {
+   "inventory_hash": null,
+   "storage_index_ts": 0
+  },
+  "missing": [
+   {
+    "item": "minecraft:andesite",
+    "count": 32
+   },
+   {
+    "item": "minecraft:cobblestone",
+    "count": 103
+   },
+   {
+    "item": "minecraft:dirt",
+    "count": 332
+   },
+   {
+    "item": "minecraft:polished_andesite",
+    "count": 14
+   },
+   {
+    "item": "minecraft:stone_bricks",
+    "count": 78
+   }
+  ],
+  "gather_plan": [
+   {
+    "item": "minecraft:andesite",
+    "count": 48,
+    "via": "mine",
+    "estimated_minutes": 3.8
+   },
+   {
+    "item": "minecraft:coal",
+    "count": 10,
+    "via": "mine",
+    "estimated_minutes": 0.8
+   },
+   {
+    "item": "minecraft:cobblestone",
+    "count": 183,
+    "via": "mine",
+    "estimated_minutes": 14.6
+   },
+   {
+    "item": "minecraft:dirt",
+    "count": 332,
+    "via": "dig",
+    "estimated_minutes": 13.3
+   }
+  ],
+  "note": "design-side estimate; the mind recomputes from live state before gathering"
+ },
+ "totals": {
+  "final_blocks": 227,
+  "scaffold_blocks": 332,
+  "estimated_gather_minutes": 32.5,
+  "estimated_build_minutes": null
+ },
+ "estimates_note": "tools (1 use per block broken), fuel (coal, 8 items each) and minutes are uncalibrated estimates",
+ "game_data": {
+  "version": "26.3",
+  "data_version": 5023
+ }
+}

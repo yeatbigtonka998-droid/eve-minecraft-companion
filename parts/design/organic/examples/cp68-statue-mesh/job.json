@@ -1,0 +1,46 @@
+{
+ "pipeline": "eve-organic/1",
+ "job_id": "15138199be0d49a0",
+ "source": {
+  "kind": "generated",
+  "generator": "statue",
+  "seed": 1
+ },
+ "tool": {
+  "name": "organic.statue",
+  "version": "eve-organic/1"
+ },
+ "params": {
+  "up": "y",
+  "timeout_s": 600.0,
+  "cap_usd": 0.0,
+  "retries": 1
+ },
+ "attempts": [],
+ "usd": {
+  "cap": 0.0,
+  "reserved": 0.0
+ },
+ "status": "ok",
+ "output": {
+  "mesh": "mesh.obj",
+  "sha256": "783f623dc228f0cdf26e962735e8735663be2d8943d62bcb5ca2a943b2866549",
+  "source_size": [
+   5.634762311044094,
+   10.75,
+   4.8
+  ],
+  "up": "y",
+  "vertices": 626,
+  "faces": 1216,
+  "shells": 9,
+  "watertight": true,
+  "open_shells": 0,
+  "edges": {
+   "boundary_edges": 0,
+   "nonmanifold_edges": 0,
+   "misoriented_edges": 0,
+   "watertight": true
+  }
+ }
+}

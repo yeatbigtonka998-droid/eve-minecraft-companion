@@ -1,0 +1,16 @@
+{
+  "about": "CP-48 fixture: a storage.index payload (contracts/link-protocol.md) holding about half the hut's supplies. Only loaded 'shared' containers count; the private chest and the unloaded barrel must be ignored.",
+  "containers": [
+    {"id": "chest-a", "dim": "minecraft:overworld", "pos": [10, 64, 0], "kind": "chest", "tag": "shared", "loaded": true, "observed_tick": 1200,
+     "items": [{"item": "minecraft:cobblestone", "count": 13}, {"item": "minecraft:oak_planks", "count": 20},
+               {"item": "minecraft:oak_log", "count": 6}, {"item": "minecraft:glass_pane", "count": 2}]},
+    {"id": "chest-b", "dim": "minecraft:overworld", "pos": [11, 64, 0], "kind": "chest", "tag": "shared", "loaded": true, "observed_tick": 1250,
+     "items": [{"item": "minecraft:oak_stairs", "count": 6}, {"item": "minecraft:oak_slab", "count": 8},
+               {"item": "minecraft:white_bed", "count": 1}, {"item": "minecraft:chest", "count": 1},
+               {"item": "minecraft:coal", "count": 2}, {"item": "minecraft:dirt", "count": 1}]},
+    {"id": "chest-hunter", "dim": "minecraft:overworld", "pos": [12, 64, 0], "kind": "chest", "tag": "private", "loaded": true, "observed_tick": 1250,
+     "items": [{"item": "minecraft:oak_planks", "count": 64}, {"item": "minecraft:torch", "count": 16}]},
+    {"id": "barrel-far", "dim": "minecraft:overworld", "pos": [400, 70, 0], "kind": "barrel", "tag": "shared", "loaded": false, "observed_tick": 300,
+     "items": [{"item": "minecraft:sand", "count": 64}]}
+  ]
+}

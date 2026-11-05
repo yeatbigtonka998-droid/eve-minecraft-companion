@@ -1,0 +1,8 @@
+{
+  "about": "Shared test vector for the construction-progress record (design + mind). Hut5 (examples/out/hut5) with every non-air FINAL cell at y <= 1 marked placed and the scaffold untouched. Remaining items counted by hand from the layer drawings in examples/hut5.py (y2: logs 4, planks 8, panes 3, wall torch 1, door top = no item; y3: logs 4, planks 12; y4: stairs 12, 4 double slabs = 8 slabs, planks 9; y5: 9 slabs; scaffold: 2 dirt).",
+  "design": "examples/out/hut5/design.json",
+  "scaffold": "tests/fixtures/progress/hut5_hand_scaffold.json",
+  "design_hash": "90a0175d44fb6728663e0781a329782f1d2e15209d24a2b80d83c31b85000edd",
+  "placed_final": "every non-air cell with y <= 1",
+  "expected_remaining": {"minecraft:oak_log": 8, "minecraft:oak_planks": 29, "minecraft:glass_pane": 3, "minecraft:torch": 1, "minecraft:oak_stairs": 12, "minecraft:oak_slab": 17, "minecraft:dirt": 2}
+}

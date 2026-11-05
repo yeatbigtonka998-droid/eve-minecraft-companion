@@ -1,0 +1,31 @@
+{
+ "checkpoint": "CP-44 O42d dev cases (mind-written, not a held-out set): (a) wood name for a named block, (b) a renamed relocation supersedes, (c) task questions answer from Eve's own records; set-5 dialogue_checks format",
+ "owner": "Silvershark3600",
+ "worlds": {"A": "dev-shark:a1a5b81d7d18", "B": "other-shark:fedcba987654"},
+ "statements": [
+  {"id": "S1", "text": "Doors on my builds should always be spruce.", "fact": {"subject": "doors", "predicate": "material_preference", "object": "minecraft:spruce_door", "world_specific": false, "source": "owner_chat", "confidence": "certain"}},
+  {"id": "S2", "text": "I like birch for stairs.", "fact": {"subject": "stairs", "predicate": "material_preference", "object": "minecraft:birch_stairs", "world_specific": false, "source": "owner_chat", "confidence": "certain"}},
+  {"id": "S3", "text": "Use oak planks for floors.", "fact": {"subject": "floors", "predicate": "material_preference", "object": "minecraft:oak_planks", "world_specific": false, "source": "owner_chat", "confidence": "certain"}},
+  {"id": "S4", "text": "The kiln is at 40 64 12.", "fact": {"subject": "kiln", "predicate": "location", "object": "40 64 12", "world_specific": true, "source": "owner_chat", "confidence": "certain"}},
+  {"id": "S5", "text": "The archery range is at 90 64 -30.", "fact": {"subject": "archery range", "predicate": "location", "object": "90 64 -30", "world_specific": true, "source": "owner_chat", "confidence": "certain"}}
+ ],
+ "corrections": [
+  {"id": "C1", "corrects": "S4", "text": "I relocated the pottery furnace to 41 64 14.", "fact": {"subject": "kiln", "predicate": "location", "object": "41 64 14", "world_specific": true, "source": "owner_chat", "confidence": "certain"}, "expect": "S4 superseded"}
+ ],
+ "traps": [
+  {"id": "T1", "kind": "hypothetical", "text": "If I ever build a bell tower, it goes at 300 90 300.", "expect": "no current location fact for 300 90 300"}
+ ],
+ "job": {"id": "J1", "do": "one task completed through the normal path in world A", "fact": {"subject": "task <task_id>", "predicate": "completed", "object": "<skill and target as logged>", "world_specific": true, "source": "observation", "confidence": "certain"}},
+ "recall_checks": {
+  "R-A1 (world A, after restart, before corrections)": {"current": ["S1", "S2", "S3", "S4", "S5", "J1"], "absent": ["T1 as current"]},
+  "R-A2 (world A, after corrections)": {"current": ["C1", "S1", "S2", "S3", "S5", "J1"], "superseded_not_current": ["S4"]},
+  "R-B (world B)": {"current": ["S1", "S2", "S3"], "absent": ["C1", "S4", "S5", "J1"]},
+  "R-A3 (back in world A, after another restart)": {"current": ["C1", "S1", "S2", "S3", "S5", "J1"], "superseded_not_current": ["S4"]}
+ },
+ "dialogue_checks": {
+  "rule": "asked exactly, after the check's facts are captured; judged on the reply",
+  "D1": {"in": ["R-A1"], "ask": "What did you do earlier?", "expect": "the completed walk_to 2 64 2 with its time"},
+  "D2": {"in": ["R-A2", "R-A3"], "ask": "What are you working on?", "expect": "no task running now; the completed walk_to with its time"},
+  "D3": {"in": ["R-A2"], "ask": "Where is the kiln now?", "expect": "41 64 14, not 40 64 12"}
+ }
+}

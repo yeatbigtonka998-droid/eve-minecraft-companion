@@ -1,0 +1,23 @@
+{
+	"schemaVersion": 1,
+	"id": "eve-body",
+	"version": "${version}",
+	"name": "Eve body",
+	"description": "Eve's client body: state telemetry, skill executor, reflexes, control arbiter.",
+	"license": "All-Rights-Reserved",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"eve.body.EveBody"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": ">=0.161.0"
+	},
+	"mixins": [
+		"eve-body.mixins.json"
+	]
+}

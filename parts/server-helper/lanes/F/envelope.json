@@ -1,0 +1,188 @@
+{
+  "envelope_version": 8,
+  "world_id": "dev-45l-f:a1a5b81d7d18",
+  "owner": {
+    "trusted_players": [],
+    "eve_account": "EveDevF"
+  },
+  "mode_default": "manual",
+  "mode_allowed": [
+    "manual"
+  ],
+  "difficulty": "normal",
+  "death_rules": "true_survival",
+  "home": {
+    "dim": "minecraft:overworld",
+    "center": {
+      "x": -16,
+      "y": 99,
+      "z": -48
+    },
+    "radius": 64,
+    "explore_radius": 128,
+    "doorway": [
+      {
+        "x": -16,
+        "y": 99,
+        "z": -45
+      },
+      {
+        "x": -16,
+        "y": 100,
+        "z": -45
+      }
+    ]
+  },
+  "zones": [
+    {
+      "id": "home",
+      "dim": "minecraft:overworld",
+      "min": {
+        "x": -48,
+        "y": -64,
+        "z": -80
+      },
+      "max": {
+        "x": 16,
+        "y": 319,
+        "z": -16
+      },
+      "break": "task_only",
+      "place": "task_only",
+      "containers": "private",
+      "snapshot": true,
+      "note": "dev-world spawn +-32 (spawn -16,109,-48); breaks only when a task names the block"
+    },
+    {
+      "id": "mine",
+      "dim": "minecraft:overworld",
+      "min": {
+        "x": 64,
+        "y": -64,
+        "z": -112
+      },
+      "max": {
+        "x": 192,
+        "y": 60,
+        "z": 16
+      },
+      "break": "free",
+      "place": "free",
+      "containers": "private",
+      "snapshot": false,
+      "note": "dev-world test mining area, 80..208 blocks east of spawn, below y=60"
+    },
+    {
+      "id": "reflex_arena",
+      "dim": "minecraft:overworld",
+      "min": {
+        "x": -26,
+        "y": 190,
+        "z": -26
+      },
+      "max": {
+        "x": 26,
+        "y": 215,
+        "z": 26
+      },
+      "break": "free",
+      "place": "free",
+      "containers": "shared",
+      "snapshot": false,
+      "note": "body reflex fixtures (tools/laneb.py --lane 45L), sky platform, disposable; overlaps home on x -26..16 z -26..-16 (home wins)"
+    },
+    {
+      "id": "build_plot",
+      "dim": "minecraft:overworld",
+      "min": {
+        "x": 20,
+        "y": 150,
+        "z": -48
+      },
+      "max": {
+        "x": 36,
+        "y": 175,
+        "z": -32
+      },
+      "break": "free",
+      "place": "free",
+      "containers": "private",
+      "snapshot": false,
+      "note": "eve-builder test plot (stone floor top at y=150), disposable"
+    },
+    {
+      "id": "combat_arena",
+      "dim": "minecraft:overworld",
+      "min": {
+        "x": 40,
+        "y": 140,
+        "z": 20
+      },
+      "max": {
+        "x": 100,
+        "y": 175,
+        "z": 80
+      },
+      "break": "free",
+      "place": "free",
+      "containers": "shared",
+      "snapshot": false,
+      "note": "eve-combat fixtures on lane C (sky arena), disposable"
+    }
+  ],
+  "containers": {
+    "default_tag": "private",
+    "tags": {
+      "minecraft:overworld:-26,99,-32": "shared",
+      "minecraft:overworld:-24,99,-32": "shared",
+      "minecraft:overworld:-22,99,-32": "shared",
+      "minecraft:overworld:-24,191,15": "shared",
+      "minecraft:overworld:-22,191,15": "shared",
+      "minecraft:overworld:-20,191,15": "shared",
+      "minecraft:overworld:-18,191,15": "private",
+      "minecraft:overworld:-40,151,-72": "shared",
+      "minecraft:overworld:-38,151,-72": "shared",
+      "minecraft:overworld:-36,151,-72": "shared",
+      "minecraft:overworld:-32,151,-72": "shared",
+      "minecraft:overworld:24,151,-35": "shared",
+      "minecraft:overworld:26,151,-35": "shared",
+      "minecraft:overworld:28,151,-35": "shared"
+    }
+  },
+  "protected_entities": {
+    "players": true,
+    "villagers": true,
+    "iron_golems": true,
+    "pets": true,
+    "named": true,
+    "extra_types": []
+  },
+  "hazards": {
+    "fire": false,
+    "lava": false,
+    "tnt": false
+  },
+  "limits": {
+    "blocks_broken_per_hour": 1000,
+    "blocks_placed_per_hour": 1000,
+    "chunk_scan_radius": 4,
+    "ws_payload_max_bytes": 262144,
+    "max_action_queue": 20
+  },
+  "sensors": {
+    "storage_index": "loaded_chunks_only",
+    "ore": "exposed_only",
+    "crops": "zones_only",
+    "entities_radius": 32
+  },
+  "budgets": {
+    "deepseek_monthly_usd": 20,
+    "planner_calls_per_hour_max": 600,
+    "fal_monthly_usd": 0
+  },
+  "approvals": {
+    "small_build_block_limit": 0,
+    "wishlist_max_per_week": 0,
+    "terrain_change_blocks": 0
+  }
+}

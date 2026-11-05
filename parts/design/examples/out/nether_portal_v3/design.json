@@ -1,0 +1,36 @@
+{
+ "format": "eve-design/1",
+ "project_id": "nether_portal",
+ "version": 3,
+ "world_id": null,
+ "dim": "minecraft:overworld",
+ "origin": {
+  "x": 0,
+  "y": 64,
+  "z": 0
+ },
+ "size": {
+  "x": 4,
+  "y": 5,
+  "z": 1
+ },
+ "style": null,
+ "style_card_hash": null,
+ "palette": [
+  "minecraft:air",
+  "minecraft:obsidian"
+ ],
+ "blocks": "AQABAAEAAQABAAAAAAABAAEAAAAAAAEAAQAAAAAAAQABAAEAAQABAA==",
+ "roles": "AgICAgIAAAICAAACAgAAAgICAgI=",
+ "rooms": [],
+ "block_entities": [],
+ "hash": "ee96350c7aa4f06a26f95be9d6ad9ab52b84dd260342c3aee5fb0b8d959f0f63",
+ "provenance": {
+  "source": "hand-built (examples/nether_portal.py v3, O150)",
+  "compiler_version": null,
+  "seed": null,
+  "schematic": true,
+  "click_eyes": 5
+ },
+ "import_issues": []
+}

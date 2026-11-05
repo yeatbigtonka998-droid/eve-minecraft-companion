@@ -1,0 +1,804 @@
+{
+ "checkpoint": "CP-60",
+ "about": "Planted faults (>=2 per category) and valid counterexamples. Each case starts from a base design, applies the listed edits to the compiled grid (never to labels), and states which check must fail and where. Positions are design coordinates. Bases: hut5 (examples/hut5.py), cabin/two_storey/tower (examples/*.eve), or inline layers. scaffold: plan = eve_design.scaffold.plan, none = no scaffold. bom: true computes bom.json for the affordability check.",
+ "cases": [
+  {
+   "id": "site-outside-plot",
+   "category": "site_fit",
+   "base": "hut5",
+   "brief": {
+    "site": {
+     "plot": {
+      "min": {
+       "x": 0,
+       "z": 0
+      },
+      "max": {
+       "x": 3,
+       "z": 3
+      }
+     }
+    }
+   },
+   "expect": {
+    "fail": "site_fit",
+    "pos": {
+     "x": 0,
+     "y": 0,
+     "z": 4
+    },
+    "reason": "outside the plot"
+   }
+  },
+  {
+   "id": "site-too-tall",
+   "category": "site_fit",
+   "base": "hut5",
+   "brief": {
+    "site": {
+     "height_limit": 68
+    }
+   },
+   "expect": {
+    "fail": "site_fit",
+    "pos": null,
+    "reason": "above the height limit"
+   }
+  },
+  {
+   "id": "site-needs-fill",
+   "category": "site_fit",
+   "base": "hut5",
+   "brief": {
+    "site": {
+     "terrain_change": 0,
+     "terrain": {
+      "origin": {
+       "x": 0,
+       "z": 0
+      },
+      "heights": [
+       [
+        63,
+        63,
+        63,
+        63,
+        63
+       ],
+       [
+        63,
+        63,
+        63,
+        63,
+        63
+       ],
+       [
+        63,
+        63,
+        61,
+        63,
+        63
+       ],
+       [
+        63,
+        63,
+        63,
+        63,
+        63
+       ],
+       [
+        63,
+        63,
+        63,
+        63,
+        63
+       ]
+      ]
+     }
+    }
+   },
+   "expect": {
+    "fail": "site_fit",
+    "pos": {
+     "x": 2,
+     "y": 0,
+     "z": 2
+    },
+    "reason": "fill of 2"
+   }
+  },
+  {
+   "id": "walk-door-bricked",
+   "category": "walkable",
+   "base": "hut5",
+   "set": [
+    [
+     2,
+     1,
+     4,
+     "minecraft:cobblestone",
+     "wall"
+    ],
+    [
+     2,
+     2,
+     4,
+     "minecraft:cobblestone",
+     "wall"
+    ]
+   ],
+   "expect": {
+    "fail": "walkable",
+    "pos": {
+     "x": 1,
+     "y": 1,
+     "z": 1
+    },
+    "reason": "cannot be reached"
+   }
+  },
+  {
+   "id": "walk-stairs-removed",
+   "category": "walkable",
+   "base": "two_storey",
+   "scaffold": "plan",
+   "remove_stair_runs": true,
+   "note": "removing only the stair blocks is NOT a fault: the supports under them still form a jumpable block staircase",
+   "expect": {
+    "fail": "walkable",
+    "pos": {
+     "room": "bedroom"
+    },
+    "reason": "cannot be reached"
+   }
+  },
+  {
+   "id": "walk-low-ceiling",
+   "category": "walkable",
+   "base": "hut5",
+   "set": [
+    [
+     2,
+     2,
+     2,
+     "minecraft:oak_planks",
+     "wall"
+    ]
+   ],
+   "expect": {
+    "fail": "walkable",
+    "pos": {
+     "x": 2,
+     "y": 1,
+     "z": 2
+    },
+    "reason": "headroom under 2"
+   }
+  },
+  {
+   "id": "encl-wall-hole",
+   "category": "enclosed",
+   "base": "hut5",
+   "set": [
+    [
+     1,
+     2,
+     0,
+     "minecraft:air",
+     "none"
+    ]
+   ],
+   "expect": {
+    "fail": "enclosed",
+    "pos": {
+     "x": 1,
+     "y": 2,
+     "z": 0
+    },
+    "reason": "open to the outside"
+   }
+  },
+  {
+   "id": "encl-roof-hole",
+   "category": "enclosed",
+   "base": "hut5",
+   "set": [
+    [
+     2,
+     4,
+     2,
+     "minecraft:air",
+     "none"
+    ],
+    [
+     2,
+     5,
+     2,
+     "minecraft:air",
+     "none"
+    ]
+   ],
+   "expect": {
+    "fail": "enclosed",
+    "pos": {
+     "x": 2,
+     "y": 5,
+     "z": 2
+    },
+    "reason": "open to the outside"
+   }
+  },
+  {
+   "id": "lit-torch-removed",
+   "category": "lit",
+   "base": "hut5",
+   "set": [
+    [
+     3,
+     2,
+     3,
+     "minecraft:air",
+     "none"
+    ]
+   ],
+   "expect": {
+    "fail": "lit",
+    "pos": "in_room:main",
+    "reason": "block light 0"
+   }
+  },
+  {
+   "id": "lit-all-lanterns-removed",
+   "category": "lit",
+   "base": "cabin",
+   "scaffold": "plan",
+   "remove_role": "light",
+   "note": "removing only the bedroom lantern is NOT a fault: the living-room lantern lights it through the doorway (validator confirmed)",
+   "expect": {
+    "fail": "lit",
+    "pos": "any",
+    "reason": "block light 0"
+   }
+  },
+  {
+   "id": "func-bed-removed",
+   "category": "functional",
+   "base": "hut5",
+   "set": [
+    [
+     1,
+     1,
+     1,
+     "minecraft:air",
+     "none"
+    ],
+    [
+     1,
+     1,
+     2,
+     "minecraft:air",
+     "none"
+    ]
+   ],
+   "expect": {
+    "fail": "functional",
+    "pos": {
+     "x": 1,
+     "y": 1,
+     "z": 1
+    },
+    "reason": "has no bed"
+   }
+  },
+  {
+   "id": "func-kitchen-missing",
+   "category": "functional",
+   "base": "hut5",
+   "brief": {
+    "rooms": [
+     "bedroom",
+     "kitchen"
+    ]
+   },
+   "expect": {
+    "fail": "functional",
+    "pos": null,
+    "reason": "asks for a kitchen"
+   }
+  },
+  {
+   "id": "stable-floating-sand",
+   "category": "stable",
+   "base": "hut5",
+   "set": [
+    [
+     2,
+     3,
+     2,
+     "minecraft:sand",
+     "furniture"
+    ]
+   ],
+   "expect": {
+    "fail": "stable",
+    "pos": {
+     "x": 2,
+     "y": 3,
+     "z": 2
+    },
+    "reason": "falls"
+   }
+  },
+  {
+   "id": "stable-hanging-lantern",
+   "category": "stable",
+   "base": "hut5",
+   "set": [
+    [
+     1,
+     2,
+     3,
+     "minecraft:lantern[hanging=true]",
+     "light"
+    ]
+   ],
+   "expect": {
+    "fail": "stable",
+    "pos": {
+     "x": 1,
+     "y": 2,
+     "z": 3
+    },
+    "reason": "needs a block above"
+   }
+  },
+  {
+   "id": "stable-water-escapes",
+   "category": "stable",
+   "base": "hut5",
+   "set": [
+    [
+     2,
+     3,
+     2,
+     "minecraft:water",
+     "furniture"
+    ]
+   ],
+   "expect": {
+    "fail": "stable",
+    "pos": {
+     "x": 2,
+     "y": 3,
+     "z": 2
+    },
+    "reason": "water would flow out"
+   }
+  },
+  {
+   "id": "stable-lava-escapes",
+   "category": "stable",
+   "base": "hut5",
+   "set": [
+    [
+     2,
+     1,
+     3,
+     "minecraft:lava",
+     "furniture"
+    ]
+   ],
+   "expect": {
+    "fail": "stable",
+    "pos": {
+     "x": 2,
+     "y": 1,
+     "z": 3
+    },
+    "reason": "lava would flow out"
+   }
+  },
+  {
+   "id": "func-room-crammed",
+   "category": "functional",
+   "base": "hut5",
+   "set": [
+    [
+     2,
+     1,
+     1,
+     "minecraft:barrel",
+     "furniture"
+    ],
+    [
+     2,
+     1,
+     2,
+     "minecraft:barrel",
+     "furniture"
+    ],
+    [
+     1,
+     1,
+     3,
+     "minecraft:barrel",
+     "furniture"
+    ],
+    [
+     3,
+     1,
+     3,
+     "minecraft:barrel",
+     "furniture"
+    ]
+   ],
+   "expect": {
+    "fail": "functional",
+    "pos": {
+     "x": 1,
+     "y": 1,
+     "z": 1
+    },
+    "reason": "free floor cells"
+   }
+  },
+  {
+   "id": "stable-half-door",
+   "category": "stable",
+   "base": "hut5",
+   "set": [
+    [
+     2,
+     2,
+     4,
+     "minecraft:air",
+     "none"
+    ]
+   ],
+   "expect": {
+    "fail": "stable",
+    "pos": {
+     "x": 2,
+     "y": 1,
+     "z": 4
+    },
+    "reason": "missing its other half"
+   }
+  },
+  {
+   "id": "fire-lava-indoors",
+   "category": "fire_safe",
+   "base": "hut5",
+   "set": [
+    [
+     2,
+     1,
+     3,
+     "minecraft:lava",
+     "furniture"
+    ]
+   ],
+   "expect": {
+    "fail": "fire_safe",
+    "pos": "any",
+    "reason": "next to lava"
+   }
+  },
+  {
+   "id": "fire-campfire-by-planks",
+   "category": "fire_safe",
+   "base": "hut5",
+   "set": [
+    [
+     1,
+     1,
+     3,
+     "minecraft:campfire[lit=true]",
+     "furniture"
+    ]
+   ],
+   "expect": {
+    "fail": "fire_safe",
+    "pos": "any",
+    "reason": "next to campfire"
+   }
+  },
+  {
+   "id": "build-floating-block",
+   "category": "buildable",
+   "base": "two_storey",
+   "scaffold": "plan",
+   "plant": "floating_block",
+   "expect": {
+    "fail": "buildable",
+    "pos": "planted",
+    "reason": "floating"
+   }
+  },
+  {
+   "id": "build-no-scaffold",
+   "category": "buildable",
+   "base": "tower",
+   "scaffold": "none",
+   "expect": {
+    "fail": "buildable",
+    "pos": "any",
+    "reason": "needs a scaffold plan"
+   }
+  },
+  {
+   "id": "afford-unobtainable",
+   "category": "affordable",
+   "base": "hut5",
+   "bom": true,
+   "set": [
+    [
+     3,
+     2,
+     1,
+     "minecraft:bedrock",
+     "furniture"
+    ]
+   ],
+   "expect": {
+    "fail": "affordable",
+    "pos": null,
+    "reason": "minecraft:bedrock cannot be crafted or gathered"
+   }
+  },
+  {
+   "id": "afford-over-block-budget",
+   "category": "affordable",
+   "base": "hut5",
+   "bom": true,
+   "brief": {
+    "budget": {
+     "max_blocks": 50
+    }
+   },
+   "expect": {
+    "fail": "affordable",
+    "pos": null,
+    "reason": "exceed the budget of 50"
+   }
+  },
+  {
+   "id": "afford-over-time-budget",
+   "category": "affordable",
+   "base": "cabin",
+   "scaffold": "plan",
+   "bom": true,
+   "brief": {
+    "budget": {
+     "gather_minutes": 10
+    }
+   },
+   "expect": {
+    "fail": "affordable",
+    "pos": null,
+    "reason": "exceeds the budget of 10 min"
+   }
+  },
+  {
+   "id": "limit-hard-cap-hut",
+   "category": "within_limits",
+   "base": "hut5",
+   "policy": {
+    "max_blocks": 100
+   },
+   "expect": {
+    "fail": "within_limits",
+    "pos": null,
+    "reason": "113 blocks exceed the hard limit of 100"
+   }
+  },
+  {
+   "id": "limit-hard-cap-cabin",
+   "category": "within_limits",
+   "base": "cabin",
+   "scaffold": "plan",
+   "policy": {
+    "max_blocks": 500
+   },
+   "expect": {
+    "fail": "within_limits",
+    "pos": null,
+    "reason": "531 blocks exceed the hard limit of 500"
+   }
+  },
+  {
+   "id": "valid-hut",
+   "category": "valid",
+   "base": "hut5",
+   "bom": true,
+   "expect": {
+    "pass": true,
+    "needs_approval": false
+   },
+   "note": "S16: Eve's own designs need no owner approval by default",
+   "scaffold": "plan"
+  },
+  {
+   "id": "valid-hut-with-an-approval-limit",
+   "category": "valid",
+   "base": "hut5",
+   "policy": {
+    "approval_limit_blocks": 100
+   },
+   "expect": {
+    "pass": true,
+    "needs_approval": true
+   },
+   "note": "the limit is still a config knob",
+   "scaffold": "plan"
+  },
+  {
+   "id": "valid-cabin-open-porch",
+   "category": "valid",
+   "base": "cabin",
+   "scaffold": "plan",
+   "bom": true,
+   "brief": {
+    "rooms": [
+     "living",
+     "bedroom"
+    ],
+    "budget": {
+     "max_blocks": 600
+    },
+    "site": {
+     "plot": {
+      "min": {
+       "x": -5,
+       "z": -5
+      },
+      "max": {
+       "x": 20,
+       "z": 20
+      }
+     },
+     "height_limit": 100
+    }
+   },
+   "expect": {
+    "pass": true
+   }
+  },
+  {
+   "id": "valid-contained-pool",
+   "category": "valid",
+   "layers": [
+    [
+     "CCCCC",
+     "CCCCC",
+     "CCCCC",
+     "CCCCC",
+     "CCCCC"
+    ],
+    [
+     "CCCCC",
+     "CwwwC",
+     "CwwwC",
+     "CwwwC",
+     "CCCCC"
+    ]
+   ],
+   "key": {
+    "C": [
+     "minecraft:stone_bricks",
+     "foundation"
+    ],
+    "w": [
+     "minecraft:water",
+     "ground"
+    ]
+   },
+   "expect": {
+    "pass": true
+   },
+   "scaffold": "plan",
+   "note": "a walled pool: water with only water or walls beside and below it. S93: planned with its scaffold; without one the old replay stood Eve inside the closed basin (a stand she cannot walk to, she cannot stand on water)"
+  },
+  {
+   "id": "valid-tower-with-scaffold",
+   "category": "valid",
+   "base": "tower",
+   "scaffold": "plan",
+   "expect": {
+    "pass": true
+   }
+  },
+  {
+   "id": "valid-open-pavilion",
+   "category": "valid",
+   "layers": [
+    [
+     "SSSSS",
+     "SSSSS",
+     "SSSSS",
+     "SSSSS",
+     "SSSSS"
+    ],
+    [
+     "F...F",
+     ".....",
+     ".....",
+     ".....",
+     "F...F"
+    ],
+    [
+     "F...F",
+     ".....",
+     ".....",
+     ".....",
+     "F...F"
+    ],
+    [
+     "F...F",
+     ".....",
+     ".....",
+     ".....",
+     "F...F"
+    ],
+    [
+     "bbbbb",
+     "bbbbb",
+     "bbbbb",
+     "bbbbb",
+     "bbbbb"
+    ]
+   ],
+   "key": {
+    "S": [
+     "minecraft:stone_bricks",
+     "foundation"
+    ],
+    "F": [
+     "minecraft:oak_fence",
+     "support"
+    ],
+    "b": [
+     "minecraft:oak_slab[type=bottom]",
+     "roof"
+    ]
+   },
+   "expect": {
+    "pass": true
+   },
+   "scaffold": "plan"
+  },
+  {
+   "id": "valid-sand-on-stone-and-stone-hearth",
+   "category": "valid",
+   "layers": [
+    [
+     "CCC",
+     "CCC",
+     "CCC"
+    ],
+    [
+     "s.h",
+     "...",
+     "..."
+    ]
+   ],
+   "key": {
+    "C": [
+     "minecraft:cobblestone",
+     "foundation"
+    ],
+    "s": [
+     "minecraft:sand",
+     "ground"
+    ],
+    "h": [
+     "minecraft:campfire[lit=true]",
+     "furniture"
+    ]
+   },
+   "expect": {
+    "pass": true
+   }
+  }
+ ]
+}

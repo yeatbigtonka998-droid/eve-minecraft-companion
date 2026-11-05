@@ -1,0 +1,28 @@
+{
+  "style": "cozy_cabin",
+  "status": "provisional",
+  "provenance": {
+    "source": "the example style card in Hunter's Build Side document (docs/source/Project-Sentience-Eve-Build-Side.txt, 2026-10-19)",
+    "references": [],
+    "note": "No reference schematics measured yet. CP-58 replaces these numbers with metrics extracted from a lawful reference set and records each reference's provenance and terms. Not Hunter's rated taste."
+  },
+  "palette": {
+    "base": [["minecraft:cobblestone", 0.60], ["minecraft:mossy_cobblestone", 0.25], ["minecraft:stone_bricks", 0.15]],
+    "frame": [["minecraft:stripped_spruce_log", 1.0], ["minecraft:spruce_log", 0.0]],
+    "wall": [["minecraft:spruce_planks", 0.70], ["minecraft:stripped_spruce_wood", 0.30]],
+    "floor": [["minecraft:spruce_planks", 1.0]],
+    "roof": "dark_oak",
+    "door": "spruce",
+    "fence": "spruce",
+    "window": "minecraft:glass_pane",
+    "chimney": "minecraft:bricks",
+    "trim": "spruce",
+    "accent": ["minecraft:lantern", "minecraft:flower_pot", "minecraft:campfire", "minecraft:spruce_trapdoor"]
+  },
+  "reference_metrics": {"file": "cozy_cabin.references.json", "note": "measured from 9 taiga village dwellings in the 26.3 jar; they differ from the palette above (logs 40%, cobblestone 34%, planks 9%; footprints 7-9 x 7-13; log-block roofs). Which numbers the card should use is Hunter's call."},
+  "proportions": {"storey_height": [4, 5], "footprint": {"min": [7, 7], "max": [15, 11]}, "roof": {"kind": "gable", "pitch": "steep", "overhang": 1}},
+  "rules": {"frame_every": 4, "window_recess": 1, "window_frame": "trapdoor", "base_band": [1, 2]},
+  "detailing": {"default": ["pillars", "base_band", "gradient", "shutters", "roof_trim"], "base_band_rows": 1,
+                "source": "card rules in the Build Side document (log pillars, trapdoor-framed windows, stone base band) and its detailing table (palette gradients, gable-end trim); window recess is not implemented yet"},
+  "signature": ["stone chimney", "front porch", "flower boxes"]
+}

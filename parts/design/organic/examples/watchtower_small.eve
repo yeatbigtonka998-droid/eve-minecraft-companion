@@ -1,0 +1,13 @@
+# Small watchtower (9x9, flat roof) for the organic combinator (CP-71): three storeys, the statue stands beside its door.
+tower = Build(style="cozy_cabin", seed=7)
+tower.foundation(w=9, d=9, h=1, block="stone_bricks")
+tower.walls(h=4, storeys=3, frame="stone_bricks", fill="cobblestone")
+tower.floor()
+tower.door(side="south", at="center")
+tower.windows(side="east", count=1, w=1, h=2, storey=1)
+tower.windows(side="west", count=1, w=1, h=2, storey=2)
+tower.stairs(storey=0, side="north", at=2)
+tower.stairs(storey=1, side="south", at=2)
+tower.room("storage", storey=0)
+tower.room("bedroom", storey=2)
+tower.roof("flat", overhang=0, block="stone_bricks")

@@ -1,0 +1,154 @@
+{
+ "design_hash": "df1961b38a9bf9dba6ead124c5eddc4b75604ff3e3c3e718fc623319ff213215",
+ "scaffold_hash": "03e4d666417930004404c45151c2eb4ef974a7ac406f57cf1260133679270d5a",
+ "final": [
+  {
+   "item": "minecraft:moss_block",
+   "count": 62
+  },
+  {
+   "item": "minecraft:oak_log",
+   "count": 10
+  },
+  {
+   "item": "minecraft:oak_planks",
+   "count": 50
+  }
+ ],
+ "items_per_state": {
+  "minecraft:dirt": [
+   {
+    "item": "minecraft:dirt",
+    "count": 1
+   }
+  ],
+  "minecraft:moss_block": [
+   {
+    "item": "minecraft:moss_block",
+    "count": 1
+   }
+  ],
+  "minecraft:oak_log[axis=y]": [
+   {
+    "item": "minecraft:oak_log",
+    "count": 1
+   }
+  ],
+  "minecraft:oak_planks": [
+   {
+    "item": "minecraft:oak_planks",
+    "count": 1
+   }
+  ]
+ },
+ "scaffold": [
+  {
+   "item": "minecraft:dirt",
+   "count": 235
+  }
+ ],
+ "tools": [
+  {
+   "item": "minecraft:<any>_axe",
+   "uses": 23,
+   "estimate": true
+  },
+  {
+   "item": "minecraft:<any>_shovel",
+   "uses": 470,
+   "estimate": true
+  }
+ ],
+ "fuel": [
+  {
+   "item": "minecraft:coal",
+   "count": 0,
+   "smelted_items": 0,
+   "estimate": true
+  }
+ ],
+ "crafting": [
+  {
+   "item": "minecraft:oak_planks",
+   "recipe": "minecraft:oak_planks",
+   "type": "minecraft:crafting_shapeless",
+   "batches": 13,
+   "yield_per_batch": 4,
+   "produced": 52,
+   "leftover": 2,
+   "consumes": [
+    {
+     "item": "minecraft:oak_log",
+     "count": 13
+    }
+   ]
+  }
+ ],
+ "leftovers": [
+  {
+   "item": "minecraft:oak_planks",
+   "count": 2
+  }
+ ],
+ "carry": {
+  "slots": 7,
+  "inventory_slots": 36,
+  "trips": 1
+ },
+ "deficit": {
+  "computed_against": {
+   "inventory_hash": null,
+   "storage_index_ts": 0
+  },
+  "missing": [
+   {
+    "item": "minecraft:dirt",
+    "count": 235
+   },
+   {
+    "item": "minecraft:moss_block",
+    "count": 62
+   },
+   {
+    "item": "minecraft:oak_log",
+    "count": 10
+   },
+   {
+    "item": "minecraft:oak_planks",
+    "count": 50
+   }
+  ],
+  "gather_plan": [
+   {
+    "item": "minecraft:dirt",
+    "count": 235,
+    "via": "dig",
+    "estimated_minutes": 9.4
+   },
+   {
+    "item": "minecraft:moss_block",
+    "count": 62,
+    "via": "farm",
+    "estimated_minutes": 18.6
+   },
+   {
+    "item": "minecraft:oak_log",
+    "count": 23,
+    "via": "chop",
+    "estimated_minutes": 3.4
+   }
+  ],
+  "note": "design-side estimate; the mind recomputes from live state before gathering"
+ },
+ "totals": {
+  "final_blocks": 122,
+  "scaffold_blocks": 235,
+  "estimated_gather_minutes": 31.4,
+  "estimated_build_minutes": null
+ },
+ "estimates_note": "tools (1 use per block broken), fuel (coal, 8 items each) and minutes are uncalibrated estimates",
+ "game_data": {
+  "version": "26.3",
+  "data_version": 5023
+ }
+}

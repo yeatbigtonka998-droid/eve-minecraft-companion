@@ -1,0 +1,145 @@
+{
+ "about": "Hand-written expected placement order for examples/test3.py (rules in BUILD_SCHEMATIC.md section 4): layer by layer; blocks with a facing first, then the rest, each by role (foundation, support, wall, floor, stair, window, door, roof, trim, furniture, light), then z, then x; attached blocks wait for their support; the door top appears with the door. Worked out by hand before buildorder.py; revised by hand for the facing-first rule (builder CP-49 attempt 2). Revised by hand again (2026-10-20, placement replay): a log waits for a face along its axis, so the axis=z log (2,0,0) follows the double slab (2,0,1); the upside-down stair (0,2,0) cannot be placed before its neighbours and moves to the end of its layer.",
+ "order": [
+  [
+   0,
+   0,
+   1
+  ],
+  [
+   0,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   1
+  ],
+  [
+   2,
+   0,
+   2
+  ],
+  [
+   1,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   2
+  ],
+  [
+   2,
+   0,
+   1
+  ],
+  [
+   0,
+   0,
+   2
+  ],
+  [
+   2,
+   0,
+   0
+  ],
+  [
+   1,
+   1,
+   1
+  ],
+  [
+   0,
+   1,
+   1
+  ],
+  [
+   0,
+   1,
+   0
+  ],
+  [
+   2,
+   1,
+   0
+  ],
+  [
+   1,
+   1,
+   0
+  ],
+  [
+   2,
+   1,
+   2
+  ],
+  [
+   2,
+   1,
+   1
+  ],
+  [
+   1,
+   2,
+   0
+  ],
+  [
+   1,
+   2,
+   2
+  ],
+  [
+   2,
+   2,
+   0
+  ],
+  [
+   0,
+   2,
+   0
+  ],
+  [
+   1,
+   1,
+   2
+  ]
+ ],
+ "after": {
+  "10": [
+   1,
+   0,
+   1
+  ],
+  "15": [
+   2,
+   0,
+   2
+  ],
+  "16": [
+   2,
+   1,
+   0
+  ],
+  "21": [
+   1,
+   2,
+   2
+  ]
+ },
+ "also_appears": {
+  "10": [
+   [
+    1,
+    2,
+    1
+   ]
+  ]
+ },
+ "notes": {
+  "7": "two slabs",
+  "11": "use (right-click) after placing"
+ }
+}

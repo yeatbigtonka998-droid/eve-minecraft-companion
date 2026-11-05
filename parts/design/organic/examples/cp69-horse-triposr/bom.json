@@ -1,0 +1,357 @@
+{
+ "design_hash": "d1064838bbca39b8e036a548e00800588534fe6ad54254a089c92ce542be8ad4",
+ "scaffold_hash": "424a9a4adefe0976f584df6493dd28f8fb02384eb64abaa271f430b983c74c80",
+ "final": [
+  {
+   "item": "minecraft:bricks",
+   "count": 45
+  },
+  {
+   "item": "minecraft:orange_terracotta",
+   "count": 70
+  },
+  {
+   "item": "minecraft:red_terracotta",
+   "count": 3
+  },
+  {
+   "item": "minecraft:terracotta",
+   "count": 87
+  },
+  {
+   "item": "minecraft:yellow_terracotta",
+   "count": 35
+  }
+ ],
+ "items_per_state": {
+  "minecraft:bricks": [
+   {
+    "item": "minecraft:bricks",
+    "count": 1
+   }
+  ],
+  "minecraft:dirt": [
+   {
+    "item": "minecraft:dirt",
+    "count": 1
+   }
+  ],
+  "minecraft:orange_terracotta": [
+   {
+    "item": "minecraft:orange_terracotta",
+    "count": 1
+   }
+  ],
+  "minecraft:red_terracotta": [
+   {
+    "item": "minecraft:red_terracotta",
+    "count": 1
+   }
+  ],
+  "minecraft:terracotta": [
+   {
+    "item": "minecraft:terracotta",
+    "count": 1
+   }
+  ],
+  "minecraft:yellow_terracotta": [
+   {
+    "item": "minecraft:yellow_terracotta",
+    "count": 1
+   }
+  ]
+ },
+ "scaffold": [
+  {
+   "item": "minecraft:dirt",
+   "count": 832
+  }
+ ],
+ "tools": [
+  {
+   "item": "minecraft:<any>_pickaxe",
+   "uses": 49,
+   "estimate": true
+  },
+  {
+   "item": "minecraft:<any>_shovel",
+   "uses": 2672,
+   "estimate": true
+  }
+ ],
+ "fuel": [
+  {
+   "item": "minecraft:coal",
+   "count": 49,
+   "smelted_items": 387,
+   "estimate": true
+  }
+ ],
+ "crafting": [
+  {
+   "item": "minecraft:bricks",
+   "recipe": "minecraft:bricks",
+   "type": "minecraft:crafting_shaped",
+   "batches": 45,
+   "yield_per_batch": 1,
+   "produced": 45,
+   "leftover": 0,
+   "consumes": [
+    {
+     "item": "minecraft:brick",
+     "count": 180
+    }
+   ]
+  },
+  {
+   "item": "minecraft:brick",
+   "recipe": "minecraft:brick",
+   "type": "minecraft:smelting",
+   "batches": 180,
+   "yield_per_batch": 1,
+   "produced": 180,
+   "leftover": 0,
+   "consumes": [
+    {
+     "item": "minecraft:clay_ball",
+     "count": 180
+    }
+   ]
+  },
+  {
+   "item": "minecraft:orange_terracotta",
+   "recipe": "minecraft:orange_terracotta",
+   "type": "minecraft:crafting_shaped",
+   "batches": 9,
+   "yield_per_batch": 8,
+   "produced": 72,
+   "leftover": 2,
+   "consumes": [
+    {
+     "item": "minecraft:terracotta",
+     "count": 72
+    },
+    {
+     "item": "minecraft:orange_dye",
+     "count": 9
+    }
+   ]
+  },
+  {
+   "item": "minecraft:orange_dye",
+   "recipe": "minecraft:orange_dye_from_red_yellow",
+   "type": "minecraft:crafting_shapeless",
+   "batches": 5,
+   "yield_per_batch": 2,
+   "produced": 10,
+   "leftover": 1,
+   "consumes": [
+    {
+     "item": "minecraft:red_dye",
+     "count": 5
+    },
+    {
+     "item": "minecraft:yellow_dye",
+     "count": 5
+    }
+   ]
+  },
+  {
+   "item": "minecraft:red_terracotta",
+   "recipe": "minecraft:red_terracotta",
+   "type": "minecraft:crafting_shaped",
+   "batches": 1,
+   "yield_per_batch": 8,
+   "produced": 8,
+   "leftover": 5,
+   "consumes": [
+    {
+     "item": "minecraft:terracotta",
+     "count": 8
+    },
+    {
+     "item": "minecraft:red_dye",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "item": "minecraft:red_dye",
+   "recipe": "minecraft:red_dye_from_beetroot",
+   "type": "minecraft:crafting_shapeless",
+   "batches": 6,
+   "yield_per_batch": 1,
+   "produced": 6,
+   "leftover": 0,
+   "consumes": [
+    {
+     "item": "minecraft:beetroot",
+     "count": 6
+    }
+   ]
+  },
+  {
+   "item": "minecraft:yellow_terracotta",
+   "recipe": "minecraft:yellow_terracotta",
+   "type": "minecraft:crafting_shaped",
+   "batches": 5,
+   "yield_per_batch": 8,
+   "produced": 40,
+   "leftover": 5,
+   "consumes": [
+    {
+     "item": "minecraft:terracotta",
+     "count": 40
+    },
+    {
+     "item": "minecraft:yellow_dye",
+     "count": 5
+    }
+   ]
+  },
+  {
+   "item": "minecraft:terracotta",
+   "recipe": "minecraft:terracotta",
+   "type": "minecraft:smelting",
+   "batches": 207,
+   "yield_per_batch": 1,
+   "produced": 207,
+   "leftover": 0,
+   "consumes": [
+    {
+     "item": "minecraft:clay",
+     "count": 207
+    }
+   ]
+  },
+  {
+   "item": "minecraft:clay",
+   "recipe": "minecraft:clay",
+   "type": "minecraft:crafting_shaped",
+   "batches": 207,
+   "yield_per_batch": 1,
+   "produced": 207,
+   "leftover": 0,
+   "consumes": [
+    {
+     "item": "minecraft:clay_ball",
+     "count": 828
+    }
+   ]
+  },
+  {
+   "item": "minecraft:yellow_dye",
+   "recipe": "minecraft:yellow_dye_from_dandelion",
+   "type": "minecraft:crafting_shapeless",
+   "batches": 10,
+   "yield_per_batch": 1,
+   "produced": 10,
+   "leftover": 0,
+   "consumes": [
+    {
+     "item": "minecraft:dandelion",
+     "count": 10
+    }
+   ]
+  }
+ ],
+ "leftovers": [
+  {
+   "item": "minecraft:orange_dye",
+   "count": 1
+  },
+  {
+   "item": "minecraft:orange_terracotta",
+   "count": 2
+  },
+  {
+   "item": "minecraft:red_terracotta",
+   "count": 5
+  },
+  {
+   "item": "minecraft:yellow_terracotta",
+   "count": 5
+  }
+ ],
+ "carry": {
+  "slots": 20,
+  "inventory_slots": 36,
+  "trips": 1
+ },
+ "deficit": {
+  "computed_against": {
+   "inventory_hash": null,
+   "storage_index_ts": 0
+  },
+  "missing": [
+   {
+    "item": "minecraft:bricks",
+    "count": 45
+   },
+   {
+    "item": "minecraft:dirt",
+    "count": 832
+   },
+   {
+    "item": "minecraft:orange_terracotta",
+    "count": 70
+   },
+   {
+    "item": "minecraft:red_terracotta",
+    "count": 3
+   },
+   {
+    "item": "minecraft:terracotta",
+    "count": 87
+   },
+   {
+    "item": "minecraft:yellow_terracotta",
+    "count": 35
+   }
+  ],
+  "gather_plan": [
+   {
+    "item": "minecraft:beetroot",
+    "count": 6,
+    "via": "farm",
+    "estimated_minutes": 1.8
+   },
+   {
+    "item": "minecraft:clay_ball",
+    "count": 1008,
+    "via": "dig",
+    "estimated_minutes": 40.3
+   },
+   {
+    "item": "minecraft:coal",
+    "count": 49,
+    "via": "mine",
+    "estimated_minutes": 3.9
+   },
+   {
+    "item": "minecraft:dandelion",
+    "count": 10,
+    "via": "farm",
+    "estimated_minutes": 3.0
+   },
+   {
+    "item": "minecraft:dirt",
+    "count": 832,
+    "via": "dig",
+    "estimated_minutes": 33.3
+   }
+  ],
+  "note": "design-side estimate; the mind recomputes from live state before gathering"
+ },
+ "totals": {
+  "final_blocks": 240,
+  "scaffold_blocks": 832,
+  "estimated_gather_minutes": 82.3,
+  "estimated_build_minutes": null
+ },
+ "estimates_note": "tools (1 use per block broken), fuel (coal, 8 items each) and minutes are uncalibrated estimates",
+ "game_data": {
+  "version": "26.3",
+  "data_version": 5023
+ }
+}

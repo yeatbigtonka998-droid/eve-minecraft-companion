@@ -1,0 +1,5 @@
+var/
+*.egg-info/
+
+# written by foundation's archive step (mind_commit for a process without a git checkout)
+src/eve_mind/MIND_COMMIT

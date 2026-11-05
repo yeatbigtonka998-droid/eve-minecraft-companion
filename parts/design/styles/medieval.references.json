@@ -1,0 +1,620 @@
+{
+ "references": [
+  {
+   "file": "plains_small_house_1.nbt",
+   "sha256": "f31ab9d96ae26d4ceee561427334c63da67ff29bb522b11f194039d05afb4e18",
+   "notes": [
+    "2 jigsaw blocks replaced by their final_state"
+   ],
+   "exact": {
+    "size": {
+     "x": 7,
+     "y": 7,
+     "z": 7
+    },
+    "blocks": 153,
+    "ground_blocks": 0,
+    "palette": {
+     "minecraft:oak_stairs": 50,
+     "minecraft:cobblestone": 43,
+     "minecraft:oak_planks": 34,
+     "minecraft:stripped_oak_log": 16,
+     "minecraft:glass_pane": 3,
+     "minecraft:wall_torch": 3,
+     "minecraft:oak_door": 2,
+     "minecraft:white_bed": 2
+    },
+    "groups": {
+     "glass": 3,
+     "light": 3,
+     "log": 16,
+     "other": 4,
+     "planks": 34,
+     "stairs": 50,
+     "stone": 43
+    }
+   },
+   "inferred": {
+    "roof": {
+     "value": "hip",
+     "top_stair_facings": {
+      "south": 12,
+      "north": 11,
+      "west": 11,
+      "east": 14
+     },
+     "uncertain": true
+    },
+    "glass_share": {
+     "value": 0.02,
+     "uncertain": true
+    }
+   }
+  },
+  {
+   "file": "plains_small_house_2.nbt",
+   "sha256": "fa2df3defc5f49b883151aec05064bb84dce217d889ae964afab56e3cf3c4c54",
+   "notes": [
+    "2 jigsaw blocks replaced by their final_state"
+   ],
+   "exact": {
+    "size": {
+     "x": 7,
+     "y": 7,
+     "z": 7
+    },
+    "blocks": 154,
+    "ground_blocks": 0,
+    "palette": {
+     "minecraft:oak_planks": 83,
+     "minecraft:white_terracotta": 31,
+     "minecraft:stripped_oak_log": 16,
+     "minecraft:cobblestone": 12,
+     "minecraft:glass_pane": 3,
+     "minecraft:oak_stairs": 3,
+     "minecraft:oak_door": 2,
+     "minecraft:wall_torch": 2,
+     "minecraft:yellow_bed": 2
+    },
+    "groups": {
+     "glass": 3,
+     "light": 2,
+     "log": 16,
+     "other": 35,
+     "planks": 83,
+     "stairs": 3,
+     "stone": 12
+    }
+   },
+   "inferred": {
+    "roof": {
+     "value": "flat_or_other",
+     "top_stair_facings": {},
+     "uncertain": true
+    },
+    "glass_share": {
+     "value": 0.019,
+     "uncertain": true
+    }
+   }
+  },
+  {
+   "file": "plains_small_house_3.nbt",
+   "sha256": "f1f065b95e3abfcd50c4bba9ebdf1bc6be11a9ecd82e8e2e5f33f0b44b277a57",
+   "notes": [
+    "2 jigsaw blocks replaced by their final_state"
+   ],
+   "exact": {
+    "size": {
+     "x": 7,
+     "y": 7,
+     "z": 7
+    },
+    "blocks": 152,
+    "ground_blocks": 0,
+    "palette": {
+     "minecraft:oak_stairs": 50,
+     "minecraft:cobblestone": 37,
+     "minecraft:oak_planks": 34,
+     "minecraft:oak_log": 22,
+     "minecraft:glass_pane": 3,
+     "minecraft:oak_door": 2,
+     "minecraft:wall_torch": 2,
+     "minecraft:yellow_bed": 2
+    },
+    "groups": {
+     "glass": 3,
+     "light": 2,
+     "log": 22,
+     "other": 4,
+     "planks": 34,
+     "stairs": 50,
+     "stone": 37
+    }
+   },
+   "inferred": {
+    "roof": {
+     "value": "hip",
+     "top_stair_facings": {
+      "south": 12,
+      "north": 11,
+      "west": 11,
+      "east": 14
+     },
+     "uncertain": true
+    },
+    "glass_share": {
+     "value": 0.02,
+     "uncertain": true
+    }
+   }
+  },
+  {
+   "file": "plains_small_house_4.nbt",
+   "sha256": "d7150fa818b46765b47d41695ebe9823ee412fb85d9a862ef501b92468a57be7",
+   "notes": [
+    "2 jigsaw blocks replaced by their final_state"
+   ],
+   "exact": {
+    "size": {
+     "x": 7,
+     "y": 7,
+     "z": 7
+    },
+    "blocks": 168,
+    "ground_blocks": 0,
+    "palette": {
+     "minecraft:oak_stairs": 51,
+     "minecraft:cobblestone": 45,
+     "minecraft:oak_log": 30,
+     "minecraft:oak_planks": 30,
+     "minecraft:cobblestone_stairs": 3,
+     "minecraft:glass_pane": 3,
+     "minecraft:oak_door": 2,
+     "minecraft:wall_torch": 2,
+     "minecraft:white_bed": 2
+    },
+    "groups": {
+     "glass": 3,
+     "light": 2,
+     "log": 30,
+     "other": 4,
+     "planks": 30,
+     "stairs": 54,
+     "stone": 45
+    }
+   },
+   "inferred": {
+    "roof": {
+     "value": "gable",
+     "top_stair_facings": {
+      "south": 21,
+      "north": 21
+     },
+     "uncertain": true
+    },
+    "glass_share": {
+     "value": 0.018,
+     "uncertain": true
+    }
+   }
+  },
+  {
+   "file": "plains_small_house_5.nbt",
+   "sha256": "1e50ce263d921faf0c5dda7268f9333f449551175512a721cfb3ae7a1ace61c6",
+   "notes": [
+    "6 jigsaw blocks replaced by their final_state"
+   ],
+   "exact": {
+    "size": {
+     "x": 9,
+     "y": 10,
+     "z": 9
+    },
+    "blocks": 304,
+    "ground_blocks": 47,
+    "palette": {
+     "minecraft:oak_planks": 123,
+     "minecraft:oak_stairs": 70,
+     "minecraft:oak_log": 48,
+     "minecraft:cobblestone": 29,
+     "minecraft:wall_torch": 9,
+     "minecraft:oak_door": 6,
+     "minecraft:oak_fence": 6,
+     "minecraft:glass_pane": 4,
+     "minecraft:ladder": 3,
+     "minecraft:green_carpet": 2,
+     "minecraft:white_bed": 2,
+     "minecraft:cobblestone_stairs": 1,
+     "minecraft:oak_pressure_plate": 1
+    },
+    "groups": {
+     "fence_wall": 6,
+     "glass": 4,
+     "light": 9,
+     "log": 48,
+     "other": 14,
+     "planks": 123,
+     "stairs": 71,
+     "stone": 29
+    }
+   },
+   "inferred": {
+    "roof": {
+     "value": "gable",
+     "top_stair_facings": {
+      "south": 28,
+      "north": 28
+     },
+     "uncertain": true
+    },
+    "glass_share": {
+     "value": 0.013,
+     "uncertain": true
+    }
+   }
+  },
+  {
+   "file": "plains_small_house_6.nbt",
+   "sha256": "4c49014c65a5163dfbe8b810fc79b9ea8c4b426527f0ea36defa4614f9716c0a",
+   "notes": [
+    "2 jigsaw blocks replaced by their final_state"
+   ],
+   "exact": {
+    "size": {
+     "x": 7,
+     "y": 7,
+     "z": 7
+    },
+    "blocks": 144,
+    "ground_blocks": 2,
+    "palette": {
+     "minecraft:oak_stairs": 44,
+     "minecraft:oak_planks": 40,
+     "minecraft:oak_log": 30,
+     "minecraft:cobblestone": 16,
+     "minecraft:oak_trapdoor": 4,
+     "minecraft:oak_door": 2,
+     "minecraft:poppy": 2,
+     "minecraft:white_bed": 2,
+     "minecraft:cobblestone_stairs": 1,
+     "minecraft:glass_pane": 1,
+     "minecraft:torch": 1,
+     "minecraft:wall_torch": 1
+    },
+    "groups": {
+     "glass": 1,
+     "light": 2,
+     "log": 30,
+     "other": 10,
+     "planks": 40,
+     "stairs": 45,
+     "stone": 16
+    }
+   },
+   "inferred": {
+    "roof": {
+     "value": "gable",
+     "top_stair_facings": {
+      "south": 18,
+      "north": 18
+     },
+     "uncertain": true
+    },
+    "glass_share": {
+     "value": 0.007,
+     "uncertain": true
+    }
+   }
+  },
+  {
+   "file": "plains_small_house_7.nbt",
+   "sha256": "c9d0eb540e6f8d8770a0e67af5f4d9241f8729605338f523b25a723b162351e3",
+   "notes": [
+    "2 jigsaw blocks replaced by their final_state"
+   ],
+   "exact": {
+    "size": {
+     "x": 7,
+     "y": 7,
+     "z": 8
+    },
+    "blocks": 176,
+    "ground_blocks": 0,
+    "palette": {
+     "minecraft:oak_stairs": 69,
+     "minecraft:cobblestone": 52,
+     "minecraft:oak_log": 28,
+     "minecraft:oak_planks": 8,
+     "minecraft:cobblestone_stairs": 4,
+     "minecraft:glass_pane": 4,
+     "minecraft:oak_door": 4,
+     "minecraft:wall_torch": 4,
+     "minecraft:yellow_bed": 2,
+     "minecraft:chest": 1
+    },
+    "groups": {
+     "glass": 4,
+     "light": 4,
+     "log": 28,
+     "other": 7,
+     "planks": 8,
+     "stairs": 73,
+     "stone": 52
+    }
+   },
+   "inferred": {
+    "roof": {
+     "value": "gable",
+     "top_stair_facings": {
+      "south": 28,
+      "north": 28
+     },
+     "uncertain": true
+    },
+    "glass_share": {
+     "value": 0.023,
+     "uncertain": true
+    }
+   }
+  },
+  {
+   "file": "plains_small_house_8.nbt",
+   "sha256": "25c86413aa094f852c2f1ca5f6c4f2cfeab0ddf40662df60530eb77157d48bd0",
+   "notes": [
+    "2 jigsaw blocks replaced by their final_state"
+   ],
+   "exact": {
+    "size": {
+     "x": 7,
+     "y": 8,
+     "z": 7
+    },
+    "blocks": 175,
+    "ground_blocks": 77,
+    "palette": {
+     "minecraft:cobblestone": 55,
+     "minecraft:oak_stairs": 45,
+     "minecraft:oak_log": 26,
+     "minecraft:oak_planks": 25,
+     "minecraft:wheat": 6,
+     "minecraft:glass_pane": 5,
+     "minecraft:cobblestone_stairs": 3,
+     "minecraft:water": 3,
+     "minecraft:oak_door": 2,
+     "minecraft:wall_torch": 2,
+     "minecraft:white_bed": 2,
+     "minecraft:oak_slab": 1
+    },
+    "groups": {
+     "glass": 5,
+     "light": 2,
+     "log": 26,
+     "other": 13,
+     "planks": 25,
+     "slab": 1,
+     "stairs": 48,
+     "stone": 55
+    }
+   },
+   "inferred": {
+    "roof": {
+     "value": "gable",
+     "top_stair_facings": {
+      "south": 16,
+      "north": 16,
+      "west": 2,
+      "east": 2
+     },
+     "uncertain": true
+    },
+    "glass_share": {
+     "value": 0.029,
+     "uncertain": true
+    }
+   }
+  },
+  {
+   "file": "plains_medium_house_1.nbt",
+   "sha256": "fa231cf6a9a9d83902c36dfe46ef7d160d04976d962f06093bc4bf51b73b17b5",
+   "notes": [
+    "4 jigsaw blocks replaced by their final_state"
+   ],
+   "exact": {
+    "size": {
+     "x": 13,
+     "y": 7,
+     "z": 11
+    },
+    "blocks": 438,
+    "ground_blocks": 92,
+    "palette": {
+     "minecraft:oak_planks": 158,
+     "minecraft:oak_stairs": 121,
+     "minecraft:cobblestone": 93,
+     "minecraft:stripped_oak_log": 24,
+     "minecraft:oak_log": 12,
+     "minecraft:glass_pane": 10,
+     "minecraft:wall_torch": 6,
+     "minecraft:oak_fence": 4,
+     "minecraft:oak_pressure_plate": 4,
+     "minecraft:white_bed": 4,
+     "minecraft:oak_door": 2
+    },
+    "groups": {
+     "fence_wall": 4,
+     "glass": 10,
+     "light": 6,
+     "log": 36,
+     "other": 10,
+     "planks": 158,
+     "stairs": 121,
+     "stone": 93
+    }
+   },
+   "inferred": {
+    "roof": {
+     "value": "hip",
+     "top_stair_facings": {
+      "south": 26,
+      "west": 21,
+      "north": 27,
+      "east": 44
+     },
+     "uncertain": true
+    },
+    "glass_share": {
+     "value": 0.023,
+     "uncertain": true
+    }
+   }
+  },
+  {
+   "file": "plains_medium_house_2.nbt",
+   "sha256": "29af9f67c0b8833887b6ce1bdde599d64bc6bc18a3772cd0fb4d918e81388753",
+   "notes": [
+    "3 jigsaw blocks replaced by their final_state"
+   ],
+   "exact": {
+    "size": {
+     "x": 7,
+     "y": 6,
+     "z": 13
+    },
+    "blocks": 270,
+    "ground_blocks": 0,
+    "palette": {
+     "minecraft:oak_stairs": 83,
+     "minecraft:cobblestone": 79,
+     "minecraft:oak_log": 44,
+     "minecraft:oak_planks": 34,
+     "minecraft:oak_slab": 9,
+     "minecraft:glass_pane": 6,
+     "minecraft:wall_torch": 5,
+     "minecraft:yellow_bed": 4,
+     "minecraft:oak_door": 2,
+     "minecraft:chest": 1,
+     "minecraft:cobblestone_stairs": 1,
+     "minecraft:oak_fence": 1,
+     "minecraft:oak_pressure_plate": 1
+    },
+    "groups": {
+     "fence_wall": 1,
+     "glass": 6,
+     "light": 5,
+     "log": 44,
+     "other": 8,
+     "planks": 34,
+     "slab": 9,
+     "stairs": 84,
+     "stone": 79
+    }
+   },
+   "inferred": {
+    "roof": {
+     "value": "gable",
+     "top_stair_facings": {
+      "south": 35,
+      "north": 35
+     },
+     "uncertain": true
+    },
+    "glass_share": {
+     "value": 0.022,
+     "uncertain": true
+    }
+   }
+  },
+  {
+   "file": "plains_big_house_1.nbt",
+   "sha256": "70865174260fb3f8b4dbb57e79b2de0a322caa097a6c3e5f1b6243350bd67676",
+   "notes": [
+    "5 jigsaw blocks replaced by their final_state"
+   ],
+   "exact": {
+    "size": {
+     "x": 7,
+     "y": 11,
+     "z": 11
+    },
+    "blocks": 315,
+    "ground_blocks": 24,
+    "palette": {
+     "minecraft:oak_planks": 150,
+     "minecraft:cobblestone": 76,
+     "minecraft:oak_log": 57,
+     "minecraft:glass_pane": 12,
+     "minecraft:white_bed": 8,
+     "minecraft:wall_torch": 5,
+     "minecraft:cobblestone_stairs": 4,
+     "minecraft:oak_door": 2,
+     "minecraft:chest": 1
+    },
+    "groups": {
+     "glass": 12,
+     "light": 5,
+     "log": 57,
+     "other": 11,
+     "planks": 150,
+     "stairs": 4,
+     "stone": 76
+    }
+   },
+   "inferred": {
+    "roof": {
+     "value": "flat_or_other",
+     "top_stair_facings": {},
+     "uncertain": true
+    },
+    "glass_share": {
+     "value": 0.038,
+     "uncertain": true
+    }
+   }
+  }
+ ],
+ "aggregate": {
+  "blocks": 2449,
+  "palette_share": {
+   "minecraft:oak_planks": 0.2936,
+   "minecraft:oak_stairs": 0.2393,
+   "minecraft:cobblestone": 0.2193,
+   "minecraft:oak_log": 0.1213,
+   "minecraft:stripped_oak_log": 0.0229,
+   "minecraft:glass_pane": 0.022,
+   "minecraft:wall_torch": 0.0167,
+   "minecraft:white_terracotta": 0.0127,
+   "minecraft:oak_door": 0.0114,
+   "minecraft:white_bed": 0.009,
+   "minecraft:cobblestone_stairs": 0.0069,
+   "minecraft:oak_fence": 0.0045
+  },
+  "footprint_range": {
+   "x": [
+    7,
+    13
+   ],
+   "z": [
+    7,
+    13
+   ]
+  },
+  "height_range": [
+   6,
+   11
+  ],
+  "roof_votes": {
+   "hip": 3,
+   "flat_or_other": 2,
+   "gable": 6
+  }
+ },
+ "provenance": {
+  "source": "Minecraft 26.3 client jar (data/minecraft/structure/village/taiga/houses/)",
+  "jar_sha1": "e877b6a07acd633fb3bb475002175cec036e7b87",
+  "data_version": 5023,
+  "terms": "Mojang game data under the Minecraft EULA: used privately to measure style numbers; the files are not committed or redistributed (data/game is gitignored)"
+ },
+ "style": "medieval",
+ "selection": "dwellings only (farms, pens, workshops and decorations left out): plains_small_house_1, plains_small_house_2, plains_small_house_3, plains_small_house_4, plains_small_house_5, plains_small_house_6, plains_small_house_7, plains_small_house_8, plains_medium_house_1, plains_medium_house_2, plains_big_house_1"
+}

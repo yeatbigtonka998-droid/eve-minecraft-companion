@@ -1,0 +1,66 @@
+{
+ "format": "eve-design/1",
+ "project_id": "house7",
+ "version": 1,
+ "world_id": null,
+ "dim": "minecraft:overworld",
+ "origin": {
+  "x": 0,
+  "y": 64,
+  "z": 0
+ },
+ "size": {
+  "x": 7,
+  "y": 7,
+  "z": 8
+ },
+ "style": null,
+ "style_card_hash": null,
+ "palette": [
+  "minecraft:air",
+  "minecraft:glass_pane[east=false,north=true,south=true,waterlogged=false,west=false]",
+  "minecraft:oak_door[facing=north,half=lower,hinge=left,open=false,powered=false]",
+  "minecraft:oak_door[facing=north,half=upper,hinge=left,open=false,powered=false]",
+  "minecraft:oak_log[axis=y]",
+  "minecraft:oak_planks",
+  "minecraft:oak_slab[type=bottom,waterlogged=false]",
+  "minecraft:oak_slab[type=double,waterlogged=false]",
+  "minecraft:oak_stairs[facing=east,half=bottom,shape=straight,waterlogged=false]",
+  "minecraft:oak_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]",
+  "minecraft:oak_stairs[facing=south,half=bottom,shape=straight,waterlogged=false]",
+  "minecraft:oak_stairs[facing=west,half=bottom,shape=straight,waterlogged=false]",
+  "minecraft:wall_torch[facing=south]"
+ ],
+ "blocks": "BQAFAAUABQAFAAUABQAFAAUABQAFAAUABQAFAAUABQAFAAUABQAFAAUABQAFAAUABQAFAAUABQAFAAUABQAFAAUABQAFAAUABQAFAAUABQAFAAUABQAFAAUABQAFAAUABQAAAAAAAAAFAAAAAAAAAAQABQAFAAUABQAFAAQABQAAAAAAAAAAAAAABQAFAAAAAAAAAAAAAAAFAAUAAAAAAAAAAAAAAAUABQAAAAAAAAAAAAAABQAFAAAAAAAAAAAAAAAFAAQABQAFAAIABQAFAAQAAAAAAAAAAAAAAAAAAAAEAAUABQAFAAUABQAEAAUAAAAAAAwAAAAAAAUABQAAAAAAAAAAAAAABQABAAAAAAAAAAAAAAABAAUAAAAAAAAAAAAAAAUABQAAAAAAAAAAAAAABQAEAAUABQADAAUABQAEAAAAAAAAAAAAAAAAAAAABAAFAAUABQAFAAUABAAFAAAAAAAAAAAAAAAFAAUAAAAAAAAAAAAAAAUABQAAAAAAAAAAAAAABQAFAAAAAAAAAAAAAAAFAAUAAAAAAAAAAAAAAAUABAAFAAUABQAFAAUABAAAAAAAAAAAAAAAAAAAAAcACgAKAAoACgAKAAcACAAFAAUABQAFAAUACwAIAAUABQAFAAUABQALAAgABQAFAAUABQAFAAsACAAFAAUABQAFAAUACwAIAAUABQAFAAUABQALAAcACQAJAAkACQAJAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwAKAAoACgAHAAAAAAAIAAUABQAFAAsAAAAAAAgABQAFAAUACwAAAAAACAAFAAUABQALAAAAAAAHAAkACQAJAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAYABgAAAAAAAAAAAAYABgAGAAAAAAAAAAAABgAGAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+ "roles": "BgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgAAAAEAAAALAgICAgILAgAAAAAAAgIAAAAAAAICAAAAAAACAgAAAAAAAgIAAAAAAAILAgIEAgILAAAAAAAAAAsCAgICAgsCAAAJAAACAgAAAAAAAgMAAAAAAAMCAAAAAAACAgAAAAAAAgsCAgQCAgsAAAAAAAAACwICAgICCwIAAAAAAAICAAAAAAACAgAAAAAAAgIAAAAAAAICAAAAAAACCwICAgICCwAAAAAAAAAFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFAAAAAAAAAAAAAAAAAAAABQUFBQUAAAUFBQUFAAAFBQUFBQAABQUFBQUAAAUFBQUFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUFBQAAAAAFBQUAAAAABQUFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+ "rooms": [
+  {
+   "id": "main",
+   "type": "living",
+   "min": {
+    "x": 1,
+    "y": 1,
+    "z": 1
+   },
+   "max": {
+    "x": 5,
+    "y": 3,
+    "z": 5
+   },
+   "door_pos": {
+    "x": 3,
+    "y": 1,
+    "z": 6
+   }
+  }
+ ],
+ "block_entities": [],
+ "hash": "2dfca6a04df4f52af02237d63f06170daa0139891f1253090f85cd43cd7fd830",
+ "provenance": {
+  "source": "hand-built (examples/house7.py, O132)",
+  "compiler_version": null,
+  "seed": null,
+  "schematic": true
+ },
+ "import_issues": []
+}

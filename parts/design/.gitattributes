@@ -1,0 +1,5 @@
+*.litematic binary
+*.schem binary
+*.schematic binary
+*.png binary
+*.eve text eol=lf

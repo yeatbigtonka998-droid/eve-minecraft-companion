@@ -1,0 +1,507 @@
+{
+ "references": [
+  {
+   "file": "taiga_small_house_1.nbt",
+   "sha256": "00ba4d09fc9d5b2d8fe781653246c44c8f027b8ff40f619c02c4e714694c4081",
+   "notes": [
+    "2 jigsaw blocks replaced by their final_state"
+   ],
+   "exact": {
+    "size": {
+     "x": 7,
+     "y": 7,
+     "z": 9
+    },
+    "blocks": 183,
+    "ground_blocks": 33,
+    "palette": {
+     "minecraft:spruce_log": 107,
+     "minecraft:cobblestone": 45,
+     "minecraft:spruce_planks": 9,
+     "minecraft:spruce_trapdoor": 6,
+     "minecraft:glass_pane": 3,
+     "minecraft:cobblestone_wall": 2,
+     "minecraft:purple_bed": 2,
+     "minecraft:spruce_door": 2,
+     "minecraft:spruce_wall_sign": 2,
+     "minecraft:torch": 2,
+     "minecraft:cobblestone_stairs": 1,
+     "minecraft:spruce_stairs": 1,
+     "minecraft:wall_torch": 1
+    },
+    "groups": {
+     "fence_wall": 2,
+     "glass": 3,
+     "light": 3,
+     "log": 107,
+     "other": 10,
+     "planks": 9,
+     "stairs": 2,
+     "stone": 47
+    }
+   },
+   "inferred": {
+    "roof": {
+     "value": "flat_or_other",
+     "top_stair_facings": {},
+     "uncertain": true
+    },
+    "glass_share": {
+     "value": 0.016,
+     "uncertain": true
+    }
+   }
+  },
+  {
+   "file": "taiga_small_house_2.nbt",
+   "sha256": "c69ebb96b75d6fc7bf83761357fe530469d9f727819e4d9b76ceba525d8f408d",
+   "notes": [
+    "2 jigsaw blocks replaced by their final_state"
+   ],
+   "exact": {
+    "size": {
+     "x": 7,
+     "y": 7,
+     "z": 7
+    },
+    "blocks": 147,
+    "ground_blocks": 3,
+    "palette": {
+     "minecraft:cobblestone": 67,
+     "minecraft:spruce_log": 53,
+     "minecraft:spruce_planks": 6,
+     "minecraft:spruce_trapdoor": 6,
+     "minecraft:glass_pane": 3,
+     "minecraft:torch": 3,
+     "minecraft:cobblestone_wall": 2,
+     "minecraft:purple_bed": 2,
+     "minecraft:spruce_door": 2,
+     "minecraft:spruce_stairs": 2,
+     "minecraft:cobblestone_stairs": 1
+    },
+    "groups": {
+     "glass": 3,
+     "light": 3,
+     "log": 53,
+     "other": 10,
+     "planks": 6,
+     "stairs": 3,
+     "stone": 69
+    }
+   },
+   "inferred": {
+    "roof": {
+     "value": "flat_or_other",
+     "top_stair_facings": {},
+     "uncertain": true
+    },
+    "glass_share": {
+     "value": 0.02,
+     "uncertain": true
+    }
+   }
+  },
+  {
+   "file": "taiga_small_house_3.nbt",
+   "sha256": "0ac3031b827e68ae67238ea402927ef831a047c2958eed4243e0798b4326092c",
+   "notes": [
+    "2 jigsaw blocks replaced by their final_state"
+   ],
+   "exact": {
+    "size": {
+     "x": 7,
+     "y": 7,
+     "z": 7
+    },
+    "blocks": 152,
+    "ground_blocks": 0,
+    "palette": {
+     "minecraft:spruce_log": 65,
+     "minecraft:cobblestone": 60,
+     "minecraft:spruce_trapdoor": 6,
+     "minecraft:cobblestone_wall": 4,
+     "minecraft:glass_pane": 3,
+     "minecraft:blue_bed": 2,
+     "minecraft:spruce_door": 2,
+     "minecraft:spruce_stairs": 2,
+     "minecraft:torch": 2,
+     "minecraft:wall_torch": 2,
+     "minecraft:chest": 1,
+     "minecraft:cobblestone_stairs": 1,
+     "minecraft:crafting_table": 1,
+     "minecraft:poppy": 1
+    },
+    "groups": {
+     "glass": 3,
+     "light": 4,
+     "log": 65,
+     "other": 13,
+     "stairs": 3,
+     "stone": 64
+    }
+   },
+   "inferred": {
+    "roof": {
+     "value": "flat_or_other",
+     "top_stair_facings": {},
+     "uncertain": true
+    },
+    "glass_share": {
+     "value": 0.02,
+     "uncertain": true
+    }
+   }
+  },
+  {
+   "file": "taiga_small_house_4.nbt",
+   "sha256": "59a3fce9cf9c8381b4b09b871f3dc970bd4017d34637f5893e75df221788d371",
+   "notes": [
+    "3 jigsaw blocks replaced by their final_state"
+   ],
+   "exact": {
+    "size": {
+     "x": 7,
+     "y": 6,
+     "z": 8
+    },
+    "blocks": 135,
+    "ground_blocks": 19,
+    "palette": {
+     "minecraft:spruce_log": 53,
+     "minecraft:cobblestone": 49,
+     "minecraft:spruce_planks": 18,
+     "minecraft:spruce_door": 4,
+     "minecraft:spruce_trapdoor": 3,
+     "minecraft:wall_torch": 3,
+     "minecraft:blue_bed": 2,
+     "minecraft:glass_pane": 2,
+     "minecraft:crafting_table": 1
+    },
+    "groups": {
+     "glass": 2,
+     "light": 3,
+     "log": 53,
+     "other": 10,
+     "planks": 18,
+     "stone": 49
+    }
+   },
+   "inferred": {
+    "roof": {
+     "value": "flat_or_other",
+     "top_stair_facings": {},
+     "uncertain": true
+    },
+    "glass_share": {
+     "value": 0.015,
+     "uncertain": true
+    }
+   }
+  },
+  {
+   "file": "taiga_small_house_5.nbt",
+   "sha256": "05391373d43bef702cbd917dee4574f896a38279f5779d09d0b79219f1d33ddb",
+   "notes": [
+    "2 jigsaw blocks replaced by their final_state"
+   ],
+   "exact": {
+    "size": {
+     "x": 9,
+     "y": 7,
+     "z": 7
+    },
+    "blocks": 174,
+    "ground_blocks": 4,
+    "palette": {
+     "minecraft:spruce_log": 79,
+     "minecraft:cobblestone": 67,
+     "minecraft:spruce_planks": 9,
+     "minecraft:spruce_trapdoor": 6,
+     "minecraft:glass_pane": 3,
+     "minecraft:wall_torch": 3,
+     "minecraft:cobblestone_stairs": 2,
+     "minecraft:purple_bed": 2,
+     "minecraft:spruce_door": 2,
+     "minecraft:chest": 1
+    },
+    "groups": {
+     "glass": 3,
+     "light": 3,
+     "log": 79,
+     "other": 11,
+     "planks": 9,
+     "stairs": 2,
+     "stone": 67
+    }
+   },
+   "inferred": {
+    "roof": {
+     "value": "flat_or_other",
+     "top_stair_facings": {},
+     "uncertain": true
+    },
+    "glass_share": {
+     "value": 0.017,
+     "uncertain": true
+    }
+   }
+  },
+  {
+   "file": "taiga_medium_house_1.nbt",
+   "sha256": "b0baa345c0b447df21c912ba8828e645be5e639465aa3bff812030d8538ee39a",
+   "notes": [
+    "3 jigsaw blocks replaced by their final_state"
+   ],
+   "exact": {
+    "size": {
+     "x": 7,
+     "y": 11,
+     "z": 7
+    },
+    "blocks": 174,
+    "ground_blocks": 110,
+    "palette": {
+     "minecraft:spruce_log": 57,
+     "minecraft:spruce_planks": 39,
+     "minecraft:cobblestone": 27,
+     "minecraft:spruce_stairs": 23,
+     "minecraft:wall_torch": 7,
+     "minecraft:spruce_door": 4,
+     "minecraft:cobblestone_stairs": 3,
+     "minecraft:spruce_fence": 3,
+     "minecraft:blue_bed": 2,
+     "minecraft:purple_bed": 2,
+     "minecraft:spruce_slab": 2,
+     "minecraft:spruce_trapdoor": 2,
+     "minecraft:chest": 1,
+     "minecraft:glass_pane": 1,
+     "minecraft:spruce_pressure_plate": 1
+    },
+    "groups": {
+     "fence_wall": 3,
+     "glass": 1,
+     "light": 7,
+     "log": 57,
+     "other": 12,
+     "planks": 39,
+     "slab": 2,
+     "stairs": 26,
+     "stone": 27
+    }
+   },
+   "inferred": {
+    "roof": {
+     "value": "flat_or_other",
+     "top_stair_facings": {},
+     "uncertain": true
+    },
+    "glass_share": {
+     "value": 0.006,
+     "uncertain": true
+    }
+   }
+  },
+  {
+   "file": "taiga_medium_house_2.nbt",
+   "sha256": "e7ac33fe4ae1493bd59f161ed5abf4d9073e2391cefc02998c4d5e21318e1388",
+   "notes": [
+    "3 jigsaw blocks replaced by their final_state"
+   ],
+   "exact": {
+    "size": {
+     "x": 7,
+     "y": 11,
+     "z": 8
+    },
+    "blocks": 230,
+    "ground_blocks": 25,
+    "palette": {
+     "minecraft:cobblestone": 113,
+     "minecraft:spruce_log": 57,
+     "minecraft:spruce_planks": 18,
+     "minecraft:spruce_trapdoor": 9,
+     "minecraft:wall_torch": 8,
+     "minecraft:spruce_stairs": 7,
+     "minecraft:glass_pane": 6,
+     "minecraft:spruce_door": 6,
+     "minecraft:blue_bed": 2,
+     "minecraft:purple_bed": 2,
+     "minecraft:chest": 1,
+     "minecraft:crafting_table": 1
+    },
+    "groups": {
+     "glass": 6,
+     "light": 8,
+     "log": 57,
+     "other": 21,
+     "planks": 18,
+     "stairs": 7,
+     "stone": 113
+    }
+   },
+   "inferred": {
+    "roof": {
+     "value": "flat_or_other",
+     "top_stair_facings": {
+      "south": 1
+     },
+     "uncertain": true
+    },
+    "glass_share": {
+     "value": 0.026,
+     "uncertain": true
+    }
+   }
+  },
+  {
+   "file": "taiga_medium_house_3.nbt",
+   "sha256": "185ab9c317fb9713143ea09f3fd5d9b1e15365e2b2514e8c2ba57cedb1ada1c7",
+   "notes": [
+    "5 jigsaw blocks replaced by their final_state"
+   ],
+   "exact": {
+    "size": {
+     "x": 8,
+     "y": 6,
+     "z": 13
+    },
+    "blocks": 256,
+    "ground_blocks": 36,
+    "palette": {
+     "minecraft:spruce_log": 99,
+     "minecraft:cobblestone": 88,
+     "minecraft:spruce_planks": 30,
+     "minecraft:spruce_trapdoor": 11,
+     "minecraft:wall_torch": 5,
+     "minecraft:blue_bed": 4,
+     "minecraft:bookshelf": 4,
+     "minecraft:glass_pane": 4,
+     "minecraft:spruce_door": 4,
+     "minecraft:spruce_fence": 3,
+     "minecraft:spruce_stairs": 2,
+     "minecraft:chest": 1,
+     "minecraft:crafting_table": 1
+    },
+    "groups": {
+     "fence_wall": 3,
+     "glass": 4,
+     "light": 5,
+     "log": 99,
+     "other": 25,
+     "planks": 30,
+     "stairs": 2,
+     "stone": 88
+    }
+   },
+   "inferred": {
+    "roof": {
+     "value": "flat_or_other",
+     "top_stair_facings": {},
+     "uncertain": true
+    },
+    "glass_share": {
+     "value": 0.016,
+     "uncertain": true
+    }
+   }
+  },
+  {
+   "file": "taiga_medium_house_4.nbt",
+   "sha256": "5098a51d978bd198a195b1f220b344591cd3c3c1d0666d20724b906b39f71b3e",
+   "notes": [
+    "3 jigsaw blocks replaced by their final_state"
+   ],
+   "exact": {
+    "size": {
+     "x": 9,
+     "y": 7,
+     "z": 9
+    },
+    "blocks": 209,
+    "ground_blocks": 25,
+    "palette": {
+     "minecraft:spruce_log": 90,
+     "minecraft:cobblestone": 54,
+     "minecraft:spruce_planks": 24,
+     "minecraft:cobblestone_stairs": 16,
+     "minecraft:spruce_trapdoor": 6,
+     "minecraft:wall_torch": 5,
+     "minecraft:purple_bed": 4,
+     "minecraft:spruce_stairs": 4,
+     "minecraft:glass_pane": 2,
+     "minecraft:spruce_door": 2,
+     "minecraft:campfire": 1,
+     "minecraft:furnace": 1
+    },
+    "groups": {
+     "glass": 2,
+     "light": 5,
+     "log": 90,
+     "other": 14,
+     "planks": 24,
+     "stairs": 20,
+     "stone": 54
+    }
+   },
+   "inferred": {
+    "roof": {
+     "value": "hip",
+     "top_stair_facings": {
+      "south": 2,
+      "north": 3,
+      "east": 2,
+      "west": 1
+     },
+     "uncertain": true
+    },
+    "glass_share": {
+     "value": 0.01,
+     "uncertain": true
+    }
+   }
+  }
+ ],
+ "aggregate": {
+  "blocks": 1660,
+  "palette_share": {
+   "minecraft:spruce_log": 0.3976,
+   "minecraft:cobblestone": 0.3434,
+   "minecraft:spruce_planks": 0.0922,
+   "minecraft:spruce_trapdoor": 0.0331,
+   "minecraft:spruce_stairs": 0.0247,
+   "minecraft:wall_torch": 0.0205,
+   "minecraft:spruce_door": 0.0169,
+   "minecraft:glass_pane": 0.0163,
+   "minecraft:cobblestone_stairs": 0.0145,
+   "minecraft:purple_bed": 0.0084,
+   "minecraft:blue_bed": 0.0072,
+   "minecraft:cobblestone_wall": 0.0048
+  },
+  "footprint_range": {
+   "x": [
+    7,
+    9
+   ],
+   "z": [
+    7,
+    13
+   ]
+  },
+  "height_range": [
+   6,
+   11
+  ],
+  "roof_votes": {
+   "flat_or_other": 8,
+   "hip": 1
+  }
+ },
+ "provenance": {
+  "source": "Minecraft 26.3 client jar (data/minecraft/structure/village/taiga/houses/)",
+  "jar_sha1": "e877b6a07acd633fb3bb475002175cec036e7b87",
+  "data_version": 5023,
+  "terms": "Mojang game data under the Minecraft EULA: used privately to measure style numbers; the files are not committed or redistributed (data/game is gitignored)"
+ },
+ "style": "cozy_cabin",
+ "selection": "dwellings only (small and medium houses); farms, pens and workshops left out"
+}

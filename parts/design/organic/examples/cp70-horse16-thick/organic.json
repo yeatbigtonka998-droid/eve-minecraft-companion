@@ -1,0 +1,180 @@
+{
+ "pipeline": "eve-organic/1",
+ "design_hash": "62b363f630e8d8b832e51392e273f72fd427f4b0116f2bee469ecb79117d6789",
+ "eve_design_code": {
+  "commit": "b7e62b8a",
+  "branch": "main",
+  "uncommitted": []
+ },
+ "approval_policy": "gate hold + owner approval per piece via design's CP-65 path; no critic; these structural checks are the precondition (orchestrator decision 2026-10-21)",
+ "mesh_job": {
+  "job_id": "0c064338fb6845d4",
+  "mesh_sha256": "5c9df8cc8f42fcd656f0edf2175cc1ccdebc6226bd447d5afde2d564a34cf4e9",
+  "source": {
+   "kind": "file",
+   "name": "triposr_out.obj",
+   "sha256": "424e0ce8914f95fe35143bd080b869121bfb4098e8c756bbaec6330a5f4d2a4b",
+   "bytes": 3364947
+  },
+  "tool": {
+   "name": "file",
+   "version": null
+  },
+  "watertight": false
+ },
+ "voxelize": {
+  "target": {
+   "height": 16
+  },
+  "scale_blocks_per_unit": 16.0,
+  "yaw": 0,
+  "size": [
+   7,
+   16,
+   17
+  ],
+  "solid": 295,
+  "axis_disagreements": 0,
+  "shells": 3
+ },
+ "params": {
+  "hollow": 2,
+  "clean": true,
+  "palette": "terracotta",
+  "plinth": true,
+  "max_fragment": 4,
+  "thicken": true
+ },
+ "cleanup": {
+  "before": 295,
+  "voids_filled": 0,
+  "pinholes_filled": 0,
+  "bridge_blocks_added": 1,
+  "fragment_blocks_removed": 1,
+  "after": 295
+ },
+ "thicken": {
+  "before": 295,
+  "after": 347,
+  "added": 52,
+  "legs": [
+   {
+    "round": 1,
+    "x": 3,
+    "z": 9,
+    "size": [
+     2,
+     2
+    ],
+    "from_y": 0,
+    "to_y": 3,
+    "added": 14
+   },
+   {
+    "round": 1,
+    "x": 3,
+    "z": 4,
+    "size": [
+     2,
+     2
+    ],
+    "from_y": 0,
+    "to_y": 3,
+    "added": 15
+   },
+   {
+    "round": 1,
+    "x": 3,
+    "z": 12,
+    "size": [
+     2,
+     2
+    ],
+    "from_y": 0,
+    "to_y": 2,
+    "added": 11
+   },
+   {
+    "round": 1,
+    "x": 4,
+    "z": 2,
+    "size": [
+     2,
+     2
+    ],
+    "from_y": 0,
+    "to_y": 2,
+    "added": 12
+   }
+  ],
+  "floating_after": []
+ },
+ "floating": [],
+ "support": {
+  "overhang_blocks": 59,
+  "overhang_per_layer": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   1,
+   3,
+   3,
+   27,
+   15,
+   5,
+   0,
+   1,
+   1,
+   3,
+   0,
+   0
+  ],
+  "ground_contact_blocks": 70,
+  "rule": "every block connects to the ground through faces (no floating parts); the design's own buildable check then replays the build order with eve-builder's reach/support rules (the decider)"
+ },
+ "hollow": {
+  "solid": 417,
+  "shell": 417,
+  "removed": 0,
+  "cavity_refilled_over_3x3x3": 0,
+  "min_wall": 2,
+  "wall_ok": true
+ },
+ "palette_used": [
+  "bricks",
+  "orange_terracotta",
+  "red_terracotta",
+  "terracotta",
+  "yellow_terracotta"
+ ],
+ "blocks": 417,
+ "scaffold_blocks": 624,
+ "validation": {
+  "passed": true,
+  "failed": [],
+  "skipped": []
+ },
+ "gate": "hold",
+ "files": {
+  "bom.json": "1941e0756565831634cb46e1fba5abc27c91b47549fcb86994adcc1f14516c71",
+  "brief.json": "e57579d478c6ecd0bc58ad59b46f45f317d282a1e1a115d7c5fa7067573bff41",
+  "build_order.json": "0670081a5f9c9dc3bd6b5e7984e26c565af9762fae0f5879baa6201ff513caa3",
+  "design.json": "b686856568a90b913739e6f50687ebd3dfc404cfb698013f5f416c5730eb496f",
+  "design.litematic": "9030ed5a992af7ce7756358512a5f396fbe191cf2c75d73f54d42e58ad422680",
+  "gate.json": "50256307172f60b696a0bd7476a066b49307ac1f5ff9e356191a20ffcd38ee98",
+  "previews/elev-E.png": "e90c1286327325845fc6cdf7e0016768b013cf84d63cefb8342a798f24ebb61d",
+  "previews/elev-N.png": "81811748918ab8dd853bd3ce5afe57b947590f4ad4b9b14908dfcb53339a8461",
+  "previews/elev-S.png": "c3586ad74a576f84900bdc08a708276d0240f1632def4955402949ef89b9c857",
+  "previews/elev-W.png": "8e60c3c0ce6947f837b6b4891ef7c728eedecd0a0bdd3617bbde1cbbfc993c4c",
+  "previews/NE.png": "7b55b04ade48305107755b1712b3d88ae502cb5a43ea3797be800fdb649c3647",
+  "previews/NW.png": "26e2c94b8ef346e97e5d6d3b62d23cfc1a236ab84540891ebcd0c9f043115b1a",
+  "previews/render.json": "bc0230cc1168ac19e41b5edf33459a47cf6da88812c1bf0ad5686153c806957d",
+  "previews/SE.png": "0f5081e6b7268abe9f001f1e2ecfda64fee565f0cb8580e41a957d427f291cee",
+  "previews/SW.png": "cf161dee78c2ae7a2521f4c74448f599bf8ec5474a4d4204e685c8c60eba4ae8",
+  "previews/top.png": "49ae6306f8ef48bff9bdad6ad8593d2fb2419232f98eb3f97a2bd004eb486f09",
+  "scaffold.json": "3ee2760be2016831424ce9f2f4beba35035781408855c20af98c3e2ffc40b148",
+  "validation.json": "0b8efd998eecda20bee8bbb2adc2318409cefeca00ea81cc2793ff47e0a3be7b"
+ }
+}

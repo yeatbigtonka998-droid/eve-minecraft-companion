@@ -1,0 +1,47 @@
+{
+ "pipeline": "eve-organic/1",
+ "job_id": "0c064338fb6845d4",
+ "source": {
+  "kind": "file",
+  "name": "triposr_out.obj",
+  "sha256": "424e0ce8914f95fe35143bd080b869121bfb4098e8c756bbaec6330a5f4d2a4b",
+  "bytes": 3364947
+ },
+ "tool": {
+  "name": "file",
+  "version": null
+ },
+ "params": {
+  "up": "z",
+  "timeout_s": 600.0,
+  "cap_usd": 0.0,
+  "retries": 1
+ },
+ "attempts": [],
+ "usd": {
+  "cap": 0.0,
+  "reserved": 0.0
+ },
+ "status": "ok",
+ "output": {
+  "mesh": "mesh.obj",
+  "sha256": "5c9df8cc8f42fcd656f0edf2175cc1ccdebc6226bd447d5afde2d564a34cf4e9",
+  "source_size": [
+   0.41441846,
+   0.97116187,
+   0.97544867
+  ],
+  "up": "z",
+  "vertices": 45101,
+  "faces": 90197,
+  "shells": 3,
+  "watertight": false,
+  "open_shells": 1,
+  "edges": {
+   "boundary_edges": 3,
+   "nonmanifold_edges": 0,
+   "misoriented_edges": 0,
+   "watertight": false
+  }
+ }
+}

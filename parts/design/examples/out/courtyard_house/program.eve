@@ -1,0 +1,13 @@
+# House with a walled courtyard in front: the only way in is through the courtyard gate (CP-57 round 2).
+yard = Build(style="cozy_cabin", seed=19)
+yard.foundation(w=13, d=9, h=1)
+yard.walls(h=4)
+yard.floor()
+yard.door(side="south", at="center")
+yard.windows(side="south", count=2, w=2, h=2)
+yard.windows(side="north", count=2, w=2, h=2)
+yard.windows(side="east", count=1, w=2, h=2)
+yard.room("living")
+yard.room("kitchen")
+yard.roof("gable", ridge="east_west", overhang=1)
+yard.courtyard(side="south", depth=6, h=2, block="stone_bricks")

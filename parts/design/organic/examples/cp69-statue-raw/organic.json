@@ -1,0 +1,113 @@
+{
+ "pipeline": "eve-organic/1",
+ "design_hash": "d1ff49b147ccfa09064ec19cb18b638fab052561fd494c1fe80229734f1f1adb",
+ "eve_design_code": {
+  "commit": "a2f533e2",
+  "branch": "main",
+  "uncommitted": []
+ },
+ "approval_policy": "gate hold + owner approval per piece via design's CP-65 path; no critic; these structural checks are the precondition (orchestrator decision 2026-10-21)",
+ "mesh_job": {
+  "job_id": "15138199be0d49a0",
+  "mesh_sha256": "783f623dc228f0cdf26e962735e8735663be2d8943d62bcb5ca2a943b2866549",
+  "source": {
+   "kind": "generated",
+   "generator": "statue",
+   "seed": 1
+  },
+  "tool": {
+   "name": "organic.statue",
+   "version": "eve-organic/1"
+  },
+  "watertight": true
+ },
+ "voxelize": {
+  "target": {
+   "height": 16
+  },
+  "scale_blocks_per_unit": 16.0,
+  "yaw": 0,
+  "size": [
+   9,
+   16,
+   8
+  ],
+  "solid": 227,
+  "axis_disagreements": 0,
+  "shells": 9
+ },
+ "params": {
+  "hollow": 2,
+  "clean": false,
+  "palette": "stone",
+  "plinth": false,
+  "max_fragment": 4,
+  "thicken": false
+ },
+ "floating": [],
+ "support": {
+  "overhang_blocks": 21,
+  "overhang_per_layer": [
+   0,
+   0,
+   0,
+   0,
+   2,
+   0,
+   0,
+   11,
+   2,
+   0,
+   2,
+   4,
+   0,
+   0,
+   0,
+   0
+  ],
+  "ground_contact_blocks": 40,
+  "rule": "every block connects to the ground through faces (no floating parts); the design's own buildable check then replays the build order with eve-builder's reach/support rules (the decider)"
+ },
+ "hollow": {
+  "solid": 227,
+  "shell": 227,
+  "removed": 0,
+  "cavity_refilled_over_3x3x3": 0,
+  "min_wall": 2,
+  "wall_ok": true
+ },
+ "palette_used": [
+  "andesite",
+  "cobblestone",
+  "polished_andesite",
+  "stone_bricks"
+ ],
+ "blocks": 227,
+ "scaffold_blocks": 332,
+ "validation": {
+  "passed": true,
+  "failed": [],
+  "skipped": []
+ },
+ "gate": "hold",
+ "files": {
+  "bom.json": "2890d11265d7eebc4acd251c63e24d24dda367550d14e36620a00231c213dfb3",
+  "brief.json": "e57579d478c6ecd0bc58ad59b46f45f317d282a1e1a115d7c5fa7067573bff41",
+  "build_order.json": "4485d13b7ff35fc654d518a8cf704e5489f66a221ba1f435f016ac9f673c0318",
+  "design.json": "f425152114a2160f06ce040dd1abfc71b05af70ea023bebc0fea9e1b78ecc4bb",
+  "design.litematic": "24780049a1ec3ca1052057bae3ead519cbc83145d9791802cbd4a6615521471e",
+  "gate.json": "2c1aa2f35c463e05e03481c0dc9ba328758df9142d29081afc5183c337326e5e",
+  "previews/elev-E.png": "4e59ebf7f7a4f9d55d8ed7cfd184e7433aa7c7605beee2c1f9b3f82ebaf8b0f7",
+  "previews/elev-N.png": "1f8acbf92fdc9561f0e58f5a67291ccbbef25077136a062757855a10f6effdca",
+  "previews/elev-S.png": "e8686c3309b872f928112e4176a781c1ec4373bb67d0a9555a0a895b242f620f",
+  "previews/elev-W.png": "ca8e9f3367958374f2a13db4b93384a9a32380198fcd35cb4a5b95912ca1d00c",
+  "previews/NE.png": "4f5bcfd6d3dff35c79c39d6a3c4bf7a8f38b5ad9115792a23cccaecd3273ce6b",
+  "previews/NW.png": "5c6ac5f0d79484e9db1b18e6d1dd665bd231255c69a9b75f5fea673b7f1473cb",
+  "previews/render.json": "901c3e263741b1d26de03700bae48e08911ad3e61776e108ac18d3ca545afb02",
+  "previews/SE.png": "68e360819e28ffa57786019de970c47f1bfdb6a5e2430b05351bbcf9a745d7a2",
+  "previews/SW.png": "44fc2d346792d35fa81bcd7e1bb117ecc8ca3d1a3bc887c86f97f3c88a09cf88",
+  "previews/top.png": "19663c8a9694fdb5124144ca6738c46819d6b7327c142ea1646d00f022e0720e",
+  "scaffold.json": "769669597ef4e1256ddcc9f1e39671f05b7a3a6e1475522062b695346d96decd",
+  "validation.json": "6d9fcadb37f454c9ab01299d83beb05a5ca1e0622e2330b3b781b0d30435d314"
+ }
+}

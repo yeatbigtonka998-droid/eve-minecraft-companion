@@ -1,0 +1,23 @@
+{
+ "site": {
+  "dim": "minecraft:overworld",
+  "origin": {
+   "x": 0,
+   "y": 64,
+   "z": 0
+  },
+  "plot": {
+   "min": {
+    "x": -3,
+    "z": -3
+   },
+   "max": {
+    "x": 26,
+    "z": 15
+   }
+  }
+ },
+ "budget": {
+  "max_blocks": 900
+ }
+}

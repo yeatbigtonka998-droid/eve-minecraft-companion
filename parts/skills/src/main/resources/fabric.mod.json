@@ -1,0 +1,21 @@
+{
+	"schemaVersion": 1,
+	"id": "eve-skills",
+	"version": "${version}",
+	"name": "Eve skills",
+	"description": "Eve's resource and crafting skills (craft, smelt, withdraw, deposit, mining, farming), run by eve-body's arbiter.",
+	"license": "All-Rights-Reserved",
+	"environment": "client",
+	"entrypoints": {
+		"eve-body:skills": [
+			"eve.skills.EveSkills"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": ">=0.161.0",
+		"eve-body": "*"
+	}
+}

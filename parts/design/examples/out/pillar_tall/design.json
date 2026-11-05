@@ -1,0 +1,32 @@
+{
+ "format": "eve-design/1",
+ "project_id": "pillar_tall",
+ "version": 1,
+ "world_id": null,
+ "dim": "minecraft:overworld",
+ "origin": {
+  "x": 405,
+  "y": 65,
+  "z": -1
+ },
+ "size": {
+  "x": 3,
+  "y": 12,
+  "z": 3
+ },
+ "style": null,
+ "style_card_hash": null,
+ "palette": [
+  "minecraft:air",
+  "minecraft:stone_bricks"
+ ],
+ "blocks": "AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA",
+ "roles": "AgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC",
+ "rooms": [],
+ "block_entities": [],
+ "hash": "fa571642384b8197b1058784b77c05452d1808a5cc479fb5c8ea0077a022b64c",
+ "provenance": {
+  "source": "hand-built CP-53 fixture (examples/pillar_tall.py)"
+ },
+ "import_issues": []
+}

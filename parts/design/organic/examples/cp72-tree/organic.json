@@ -1,0 +1,114 @@
+{
+ "pipeline": "eve-organic/1",
+ "design_hash": "df1961b38a9bf9dba6ead124c5eddc4b75604ff3e3c3e718fc623319ff213215",
+ "eve_design_code": {
+  "commit": "99989a5c",
+  "branch": "main",
+  "uncommitted": []
+ },
+ "approval_policy": "gate hold + owner approval per piece via design's CP-65 path; no critic; these structural checks are the precondition (orchestrator decision 2026-10-21)",
+ "mesh_job": {
+  "job_id": "802227a4590a7073",
+  "mesh_sha256": "e3d027557145dc59083d7e671d184a4ed545bbe7706a9f4c0fd8c0f7481df2ba",
+  "source": {
+   "kind": "generated",
+   "generator": "tree",
+   "seed": 1
+  },
+  "tool": {
+   "name": "organic.tree",
+   "version": "eve-organic/1"
+  },
+  "watertight": true
+ },
+ "voxelize": {
+  "target": {
+   "height": 10
+  },
+  "scale_blocks_per_unit": 10.0,
+  "yaw": 0,
+  "size": [
+   9,
+   10,
+   9
+  ],
+  "solid": 122,
+  "axis_disagreements": 0,
+  "shells": 9
+ },
+ "params": {
+  "hollow": 2,
+  "clean": true,
+  "palette": "tree",
+  "plinth": false,
+  "max_fragment": 4,
+  "thicken": false
+ },
+ "cleanup": {
+  "before": 122,
+  "voids_filled": 0,
+  "pinholes_filled": 0,
+  "bridge_blocks_added": 0,
+  "fragment_blocks_removed": 0,
+  "after": 122
+ },
+ "floating": [],
+ "support": {
+  "overhang_blocks": 40,
+  "overhang_per_layer": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   25,
+   14,
+   1,
+   0,
+   0
+  ],
+  "ground_contact_blocks": 2,
+  "rule": "every block connects to the ground through faces (no floating parts); the design's own buildable check then replays the build order with eve-builder's reach/support rules (the decider)"
+ },
+ "hollow": {
+  "solid": 122,
+  "shell": 122,
+  "removed": 0,
+  "cavity_refilled_over_3x3x3": 0,
+  "min_wall": 2,
+  "wall_ok": true
+ },
+ "palette_used": [
+  "moss_block",
+  "oak_log",
+  "oak_planks"
+ ],
+ "blocks": 122,
+ "scaffold_blocks": 235,
+ "validation": {
+  "passed": true,
+  "failed": [],
+  "skipped": []
+ },
+ "gate": "hold",
+ "files": {
+  "bom.json": "db974e77782b07dd5d710feaccec355d872d407290d409332b42eedef9e18f2f",
+  "brief.json": "f2230a13a8dd8151d7c848be33dc87cd6cd9438adb4893843c1f700b8352c9f7",
+  "build_order.json": "0d5b26a42290ae92d169e65ba7f004c88d8a6b6995764883c8ed42f50c5e3133",
+  "design.json": "bbe99b9a0c6bab956e50a133c6563de9b3c4cac7ea0747f537412d9649031c9b",
+  "design.litematic": "14956785fda05981d217004500b0174aabd066e56b3c8d6f7dbd82e913f03461",
+  "gate.json": "4f20da169d8a9091782c15961d2159a449b08eba4ab4d375c85b7c25e90e4a0d",
+  "previews/elev-E.png": "1fc98482e0b1887304e723967213003353eeb3230f703eaae9b2cd9983fdf103",
+  "previews/elev-N.png": "08f42b2b5383899af1cc17ffdd668dd2745914ae3349f80a5619934a564c03b7",
+  "previews/elev-S.png": "a7f672e32c7de08a2ece7aeba0298302e9879a12d5ba2da248281096de77bb91",
+  "previews/elev-W.png": "f22d370f5914e729bbb9bf71566936f99315d5caecb77e9570e4f8682b9b6794",
+  "previews/NE.png": "da20b697b66182dda77744a29a41482052a4b4bd8ad88b50a058b8bc3b5a9960",
+  "previews/NW.png": "e29d841f88a6e858e057bf05d0eeadd4efc08d8dc097ca49459d55de565ca1f7",
+  "previews/render.json": "64635147faedb7f8444fc882fd9cad77e0a69ee00c444058ecd2d6d083b84b79",
+  "previews/SE.png": "36c38988854638fa2e653d5a9e6363b8e2e5beceda9a9c342be5252ad62ba535",
+  "previews/SW.png": "3dadf3b793cccf35162a00de721a9cd0aae28ea9f0eccea58a80074f56540ae0",
+  "previews/top.png": "e1a6503b72bdc7b2916e0b398def2cc84120f976a463c7b9aa9b38630356a24e",
+  "scaffold.json": "186848c905c516974ffe547c12d4c980de63995039de7dd9174fb75981d5d474",
+  "validation.json": "66e51c54d1f9e85c12d671e84d0a874d499150ab61cb9c9079c99519100545e6"
+ }
+}

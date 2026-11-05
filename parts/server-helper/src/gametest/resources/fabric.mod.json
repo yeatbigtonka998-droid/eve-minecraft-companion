@@ -1,0 +1,21 @@
+{
+	"schemaVersion": 1,
+	"id": "eve-sense-gametest",
+	"version": "0.0.0",
+	"name": "Eve Sense event-level tests",
+	"environment": "*",
+	"entrypoints": {
+		"fabric-gametest": [
+			"eve.sense.test.RailsTests"
+		],
+		"main": [
+			"eve.sense.test.DevCommands"
+		],
+		"client": [
+			"eve.sense.test.DevClientDriver"
+		]
+	},
+	"depends": {
+		"eve-sense": "*"
+	}
+}

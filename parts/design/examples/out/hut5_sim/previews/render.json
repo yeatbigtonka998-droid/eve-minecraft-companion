@@ -1,0 +1,56 @@
+{
+ "renderer": "eve-preview/3",
+ "design_hash": "90a0175d44fb6728663e0781a329782f1d2e15209d24a2b80d83c31b85000edd",
+ "game": "26.3",
+ "views": {
+  "SE": {
+   "camera": "true isometric from the SE corner (35.26 deg elevation, yaw 45 deg off the axes)",
+   "px_per_block": 16
+  },
+  "NE": {
+   "camera": "true isometric from the NE corner (35.26 deg elevation, yaw 45 deg off the axes)",
+   "px_per_block": 16
+  },
+  "NW": {
+   "camera": "true isometric from the NW corner (35.26 deg elevation, yaw 45 deg off the axes)",
+   "px_per_block": 16
+  },
+  "SW": {
+   "camera": "true isometric from the SW corner (35.26 deg elevation, yaw 45 deg off the axes)",
+   "px_per_block": 16
+  },
+  "elev-S": {
+   "camera": "straight-on elevation of the S side; darker = farther back, hot pink = open air (around the building, under a porch, under a floating block), yellow = you see into a room (a hole in the wall)",
+   "px_per_block": 28
+  },
+  "elev-E": {
+   "camera": "straight-on elevation of the E side; darker = farther back, hot pink = open air (around the building, under a porch, under a floating block), yellow = you see into a room (a hole in the wall)",
+   "px_per_block": 28
+  },
+  "elev-N": {
+   "camera": "straight-on elevation of the N side; darker = farther back, hot pink = open air (around the building, under a porch, under a floating block), yellow = you see into a room (a hole in the wall)",
+   "px_per_block": 28
+  },
+  "elev-W": {
+   "camera": "straight-on elevation of the W side; darker = farther back, hot pink = open air (around the building, under a porch, under a floating block), yellow = you see into a room (a hole in the wall)",
+   "px_per_block": 28
+  },
+  "top": {
+   "camera": "orthographic from above, darker = lower",
+   "px_per_block": 16
+  },
+  "interior-main": {
+   "camera": "SE isometric plan cut: the room box +1 block, cut 2 blocks above its floor so furniture and openings show",
+   "px_per_block": 20
+  }
+ },
+ "unsupported": {
+  "minecraft:chest": 1
+ },
+ "approximations": [
+  "element rotation drawn axis-aligned",
+  "fixed foliage tint",
+  "flat colour per face (texture average)",
+  "painter's ordering per box"
+ ]
+}

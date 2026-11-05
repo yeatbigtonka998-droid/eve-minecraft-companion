@@ -1,0 +1,33 @@
+{
+ "format": "eve-design/1",
+ "project_id": "test3",
+ "version": 1,
+ "world_id": null,
+ "dim": "minecraft:overworld",
+ "origin": {
+  "x": 0,
+  "y": 64,
+  "z": -1
+ },
+ "size": {
+  "x": 3,
+  "y": 1,
+  "z": 1
+ },
+ "style": null,
+ "style_card_hash": null,
+ "palette": [
+  "minecraft:air",
+  "minecraft:dirt"
+ ],
+ "blocks": "AQABAAEA",
+ "roles": "CwsL",
+ "rooms": [],
+ "block_entities": [],
+ "hash": "dff4625f4555f19acea71626c06d59812027edad7a29b64d743c59b27387ce67",
+ "provenance": {
+  "scaffold_for": "d2ba3a5bed28ca3797bc407ed047c392f9bdb2654d81779d583fe1099ac04810",
+  "plan": "hand"
+ },
+ "import_issues": []
+}

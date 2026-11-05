@@ -1,0 +1,27 @@
+[project]
+name = "eve_mind"
+version = "0.1.0"
+description = "Eve's mind: WebSocket hub, skill dispatch, durable tasks, memory, planner"
+requires-python = ">=3.12"
+dependencies = ["websockets>=13", "jsonschema>=4.21"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+eve = "eve_mind.cli:main"
+eve-mind = "eve_mind.__main__:main"
+eve-brain-login = "eve_mind.hosted.login:main_login"
+eve-brain-logout = "eve_mind.hosted.login:main_logout"
+eve-brain-status = "eve_mind.hosted.login:main_status"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["ollama: needs a live Ollama server (skipped when none answers)"]

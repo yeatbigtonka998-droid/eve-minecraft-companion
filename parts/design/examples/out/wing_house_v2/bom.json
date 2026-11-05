@@ -1,0 +1,760 @@
+{
+ "design_hash": "a09c702803652bb07d0d15b8b62358f83ad0423ceaf386e33ea1c022c9e67b14",
+ "scaffold_hash": "95b574b1479c86cd6dd86993fbcf51b78b72bd0260664aa356520ae8635c9d59",
+ "final": [
+  {
+   "item": "minecraft:barrel",
+   "count": 1
+  },
+  {
+   "item": "minecraft:chest",
+   "count": 1
+  },
+  {
+   "item": "minecraft:cobblestone",
+   "count": 60
+  },
+  {
+   "item": "minecraft:crafting_table",
+   "count": 2
+  },
+  {
+   "item": "minecraft:dark_oak_planks",
+   "count": 23
+  },
+  {
+   "item": "minecraft:dark_oak_stairs",
+   "count": 213
+  },
+  {
+   "item": "minecraft:furnace",
+   "count": 1
+  },
+  {
+   "item": "minecraft:glass_pane",
+   "count": 36
+  },
+  {
+   "item": "minecraft:lantern",
+   "count": 5
+  },
+  {
+   "item": "minecraft:spruce_door",
+   "count": 1
+  },
+  {
+   "item": "minecraft:spruce_planks",
+   "count": 478
+  },
+  {
+   "item": "minecraft:spruce_stairs",
+   "count": 4
+  },
+  {
+   "item": "minecraft:stonecutter",
+   "count": 1
+  },
+  {
+   "item": "minecraft:stripped_spruce_log",
+   "count": 106
+  },
+  {
+   "item": "minecraft:white_bed",
+   "count": 1
+  }
+ ],
+ "items_per_state": {
+  "minecraft:barrel[facing=south,open=false]": [
+   {
+    "item": "minecraft:barrel",
+    "count": 1
+   }
+  ],
+  "minecraft:chest[facing=west,type=single,waterlogged=false]": [
+   {
+    "item": "minecraft:chest",
+    "count": 1
+   }
+  ],
+  "minecraft:cobblestone": [
+   {
+    "item": "minecraft:cobblestone",
+    "count": 1
+   }
+  ],
+  "minecraft:crafting_table": [
+   {
+    "item": "minecraft:crafting_table",
+    "count": 1
+   }
+  ],
+  "minecraft:dark_oak_planks": [
+   {
+    "item": "minecraft:dark_oak_planks",
+    "count": 1
+   }
+  ],
+  "minecraft:dark_oak_stairs[facing=east,half=bottom,shape=straight,waterlogged=false]": [
+   {
+    "item": "minecraft:dark_oak_stairs",
+    "count": 1
+   }
+  ],
+  "minecraft:dark_oak_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]": [
+   {
+    "item": "minecraft:dark_oak_stairs",
+    "count": 1
+   }
+  ],
+  "minecraft:dark_oak_stairs[facing=south,half=bottom,shape=straight,waterlogged=false]": [
+   {
+    "item": "minecraft:dark_oak_stairs",
+    "count": 1
+   }
+  ],
+  "minecraft:dark_oak_stairs[facing=west,half=bottom,shape=straight,waterlogged=false]": [
+   {
+    "item": "minecraft:dark_oak_stairs",
+    "count": 1
+   }
+  ],
+  "minecraft:dirt": [
+   {
+    "item": "minecraft:dirt",
+    "count": 1
+   }
+  ],
+  "minecraft:furnace[facing=north,lit=false]": [
+   {
+    "item": "minecraft:furnace",
+    "count": 1
+   }
+  ],
+  "minecraft:glass_pane[east=false,north=true,south=true,waterlogged=false,west=false]": [
+   {
+    "item": "minecraft:glass_pane",
+    "count": 1
+   }
+  ],
+  "minecraft:glass_pane[east=true,north=false,south=false,waterlogged=false,west=true]": [
+   {
+    "item": "minecraft:glass_pane",
+    "count": 1
+   }
+  ],
+  "minecraft:lantern[hanging=false,waterlogged=false]": [
+   {
+    "item": "minecraft:lantern",
+    "count": 1
+   }
+  ],
+  "minecraft:spruce_door[facing=east,half=lower,hinge=left,open=false,powered=false]": [
+   {
+    "item": "minecraft:spruce_door",
+    "count": 1
+   }
+  ],
+  "minecraft:spruce_door[facing=east,half=upper,hinge=left,open=false,powered=false]": [],
+  "minecraft:spruce_planks": [
+   {
+    "item": "minecraft:spruce_planks",
+    "count": 1
+   }
+  ],
+  "minecraft:spruce_stairs[facing=east,half=bottom,shape=straight,waterlogged=false]": [
+   {
+    "item": "minecraft:spruce_stairs",
+    "count": 1
+   }
+  ],
+  "minecraft:stonecutter[facing=north]": [
+   {
+    "item": "minecraft:stonecutter",
+    "count": 1
+   }
+  ],
+  "minecraft:stripped_spruce_log[axis=y]": [
+   {
+    "item": "minecraft:stripped_spruce_log",
+    "count": 1
+   }
+  ],
+  "minecraft:white_bed[facing=west,occupied=false,part=foot]": [
+   {
+    "item": "minecraft:white_bed",
+    "count": 1
+   }
+  ],
+  "minecraft:white_bed[facing=west,occupied=false,part=head]": []
+ },
+ "scaffold": [
+  {
+   "item": "minecraft:dirt",
+   "count": 203
+  }
+ ],
+ "tools": [
+  {
+   "item": "minecraft:<any>_axe",
+   "uses": 430,
+   "estimate": true
+  },
+  {
+   "item": "minecraft:<any>_pickaxe",
+   "uses": 83,
+   "estimate": true
+  },
+  {
+   "item": "minecraft:<any>_shovel",
+   "uses": 424,
+   "estimate": true
+  }
+ ],
+ "fuel": [
+  {
+   "item": "minecraft:coal",
+   "count": 4,
+   "smelted_items": 27,
+   "estimate": true
+  }
+ ],
+ "crafting": [
+  {
+   "item": "minecraft:barrel",
+   "recipe": "minecraft:barrel",
+   "type": "minecraft:crafting_shaped",
+   "batches": 1,
+   "yield_per_batch": 1,
+   "produced": 1,
+   "leftover": 0,
+   "consumes": [
+    {
+     "item": "minecraft:spruce_planks",
+     "count": 6
+    },
+    {
+     "item": "minecraft:oak_slab",
+     "count": 2
+    }
+   ]
+  },
+  {
+   "item": "minecraft:chest",
+   "recipe": "minecraft:chest",
+   "type": "minecraft:crafting_shaped",
+   "batches": 1,
+   "yield_per_batch": 1,
+   "produced": 1,
+   "leftover": 0,
+   "consumes": [
+    {
+     "item": "minecraft:spruce_planks",
+     "count": 8
+    }
+   ]
+  },
+  {
+   "item": "minecraft:crafting_table",
+   "recipe": "minecraft:crafting_table",
+   "type": "minecraft:crafting_shaped",
+   "batches": 2,
+   "yield_per_batch": 1,
+   "produced": 2,
+   "leftover": 0,
+   "consumes": [
+    {
+     "item": "minecraft:spruce_planks",
+     "count": 8
+    }
+   ]
+  },
+  {
+   "item": "minecraft:dark_oak_stairs",
+   "recipe": "minecraft:dark_oak_stairs",
+   "type": "minecraft:crafting_shaped",
+   "batches": 54,
+   "yield_per_batch": 4,
+   "produced": 216,
+   "leftover": 3,
+   "consumes": [
+    {
+     "item": "minecraft:dark_oak_planks",
+     "count": 324
+    }
+   ]
+  },
+  {
+   "item": "minecraft:dark_oak_planks",
+   "recipe": "minecraft:dark_oak_planks",
+   "type": "minecraft:crafting_shapeless",
+   "batches": 87,
+   "yield_per_batch": 4,
+   "produced": 348,
+   "leftover": 1,
+   "consumes": [
+    {
+     "item": "minecraft:dark_oak_log",
+     "count": 87
+    }
+   ]
+  },
+  {
+   "item": "minecraft:furnace",
+   "recipe": "minecraft:furnace",
+   "type": "minecraft:crafting_shaped",
+   "batches": 1,
+   "yield_per_batch": 1,
+   "produced": 1,
+   "leftover": 0,
+   "consumes": [
+    {
+     "item": "minecraft:cobblestone",
+     "count": 8
+    }
+   ]
+  },
+  {
+   "item": "minecraft:glass_pane",
+   "recipe": "minecraft:glass_pane",
+   "type": "minecraft:crafting_shaped",
+   "batches": 3,
+   "yield_per_batch": 16,
+   "produced": 48,
+   "leftover": 12,
+   "consumes": [
+    {
+     "item": "minecraft:glass",
+     "count": 18
+    }
+   ]
+  },
+  {
+   "item": "minecraft:glass",
+   "recipe": "minecraft:glass",
+   "type": "minecraft:smelting",
+   "batches": 18,
+   "yield_per_batch": 1,
+   "produced": 18,
+   "leftover": 0,
+   "consumes": [
+    {
+     "item": "minecraft:sand",
+     "count": 18
+    }
+   ]
+  },
+  {
+   "item": "minecraft:lantern",
+   "recipe": "minecraft:lantern",
+   "type": "minecraft:crafting_shaped",
+   "batches": 5,
+   "yield_per_batch": 1,
+   "produced": 5,
+   "leftover": 0,
+   "consumes": [
+    {
+     "item": "minecraft:torch",
+     "count": 5
+    },
+    {
+     "item": "minecraft:iron_nugget",
+     "count": 40
+    }
+   ]
+  },
+  {
+   "item": "minecraft:iron_nugget",
+   "recipe": "minecraft:iron_nugget",
+   "type": "minecraft:crafting_shapeless",
+   "batches": 5,
+   "yield_per_batch": 9,
+   "produced": 45,
+   "leftover": 5,
+   "consumes": [
+    {
+     "item": "minecraft:iron_ingot",
+     "count": 5
+    }
+   ]
+  },
+  {
+   "item": "minecraft:oak_slab",
+   "recipe": "minecraft:oak_slab",
+   "type": "minecraft:crafting_shaped",
+   "batches": 1,
+   "yield_per_batch": 6,
+   "produced": 6,
+   "leftover": 4,
+   "consumes": [
+    {
+     "item": "minecraft:oak_planks",
+     "count": 3
+    }
+   ]
+  },
+  {
+   "item": "minecraft:oak_planks",
+   "recipe": "minecraft:oak_planks",
+   "type": "minecraft:crafting_shapeless",
+   "batches": 1,
+   "yield_per_batch": 4,
+   "produced": 4,
+   "leftover": 1,
+   "consumes": [
+    {
+     "item": "minecraft:oak_log",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "item": "minecraft:spruce_door",
+   "recipe": "minecraft:spruce_door",
+   "type": "minecraft:crafting_shaped",
+   "batches": 1,
+   "yield_per_batch": 3,
+   "produced": 3,
+   "leftover": 2,
+   "consumes": [
+    {
+     "item": "minecraft:spruce_planks",
+     "count": 6
+    }
+   ]
+  },
+  {
+   "item": "minecraft:spruce_stairs",
+   "recipe": "minecraft:spruce_stairs",
+   "type": "minecraft:crafting_shaped",
+   "batches": 1,
+   "yield_per_batch": 4,
+   "produced": 4,
+   "leftover": 0,
+   "consumes": [
+    {
+     "item": "minecraft:spruce_planks",
+     "count": 6
+    }
+   ]
+  },
+  {
+   "item": "minecraft:stonecutter",
+   "recipe": "minecraft:stonecutter",
+   "type": "minecraft:crafting_shaped",
+   "batches": 1,
+   "yield_per_batch": 1,
+   "produced": 1,
+   "leftover": 0,
+   "consumes": [
+    {
+     "item": "minecraft:stone",
+     "count": 3
+    },
+    {
+     "item": "minecraft:iron_ingot",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "item": "minecraft:iron_ingot",
+   "recipe": "minecraft:iron_ingot_from_smelting_raw_iron",
+   "type": "minecraft:smelting",
+   "batches": 6,
+   "yield_per_batch": 1,
+   "produced": 6,
+   "leftover": 0,
+   "consumes": [
+    {
+     "item": "minecraft:raw_iron",
+     "count": 6
+    }
+   ]
+  },
+  {
+   "item": "minecraft:stone",
+   "recipe": "minecraft:stone",
+   "type": "minecraft:smelting",
+   "batches": 3,
+   "yield_per_batch": 1,
+   "produced": 3,
+   "leftover": 0,
+   "consumes": [
+    {
+     "item": "minecraft:cobblestone",
+     "count": 3
+    }
+   ]
+  },
+  {
+   "item": "minecraft:stripped_spruce_log",
+   "recipe": "axe:strip",
+   "type": "strip",
+   "batches": 106,
+   "yield_per_batch": 1,
+   "produced": 106,
+   "leftover": 0,
+   "consumes": [
+    {
+     "item": "minecraft:spruce_log",
+     "count": 106
+    }
+   ]
+  },
+  {
+   "item": "minecraft:torch",
+   "recipe": "minecraft:torch",
+   "type": "minecraft:crafting_shaped",
+   "batches": 2,
+   "yield_per_batch": 4,
+   "produced": 8,
+   "leftover": 3,
+   "consumes": [
+    {
+     "item": "minecraft:stick",
+     "count": 2
+    },
+    {
+     "item": "minecraft:coal",
+     "count": 2
+    }
+   ]
+  },
+  {
+   "item": "minecraft:stick",
+   "recipe": "minecraft:stick",
+   "type": "minecraft:crafting_shaped",
+   "batches": 1,
+   "yield_per_batch": 4,
+   "produced": 4,
+   "leftover": 2,
+   "consumes": [
+    {
+     "item": "minecraft:spruce_planks",
+     "count": 2
+    }
+   ]
+  },
+  {
+   "item": "minecraft:white_bed",
+   "recipe": "minecraft:white_bed",
+   "type": "minecraft:crafting_shaped",
+   "batches": 1,
+   "yield_per_batch": 1,
+   "produced": 1,
+   "leftover": 0,
+   "consumes": [
+    {
+     "item": "minecraft:white_wool",
+     "count": 3
+    },
+    {
+     "item": "minecraft:spruce_planks",
+     "count": 3
+    }
+   ]
+  },
+  {
+   "item": "minecraft:spruce_planks",
+   "recipe": "minecraft:spruce_planks",
+   "type": "minecraft:crafting_shapeless",
+   "batches": 130,
+   "yield_per_batch": 4,
+   "produced": 520,
+   "leftover": 3,
+   "consumes": [
+    {
+     "item": "minecraft:spruce_log",
+     "count": 130
+    }
+   ]
+  }
+ ],
+ "leftovers": [
+  {
+   "item": "minecraft:dark_oak_planks",
+   "count": 1
+  },
+  {
+   "item": "minecraft:dark_oak_stairs",
+   "count": 3
+  },
+  {
+   "item": "minecraft:glass_pane",
+   "count": 12
+  },
+  {
+   "item": "minecraft:iron_nugget",
+   "count": 5
+  },
+  {
+   "item": "minecraft:oak_planks",
+   "count": 1
+  },
+  {
+   "item": "minecraft:oak_slab",
+   "count": 4
+  },
+  {
+   "item": "minecraft:spruce_door",
+   "count": 2
+  },
+  {
+   "item": "minecraft:spruce_planks",
+   "count": 3
+  },
+  {
+   "item": "minecraft:stick",
+   "count": 2
+  },
+  {
+   "item": "minecraft:torch",
+   "count": 3
+  }
+ ],
+ "carry": {
+  "slots": 30,
+  "inventory_slots": 36,
+  "trips": 1
+ },
+ "deficit": {
+  "computed_against": {
+   "inventory_hash": null,
+   "storage_index_ts": 0
+  },
+  "missing": [
+   {
+    "item": "minecraft:barrel",
+    "count": 1
+   },
+   {
+    "item": "minecraft:chest",
+    "count": 1
+   },
+   {
+    "item": "minecraft:cobblestone",
+    "count": 60
+   },
+   {
+    "item": "minecraft:crafting_table",
+    "count": 2
+   },
+   {
+    "item": "minecraft:dark_oak_planks",
+    "count": 23
+   },
+   {
+    "item": "minecraft:dark_oak_stairs",
+    "count": 213
+   },
+   {
+    "item": "minecraft:dirt",
+    "count": 203
+   },
+   {
+    "item": "minecraft:furnace",
+    "count": 1
+   },
+   {
+    "item": "minecraft:glass_pane",
+    "count": 36
+   },
+   {
+    "item": "minecraft:lantern",
+    "count": 5
+   },
+   {
+    "item": "minecraft:spruce_door",
+    "count": 1
+   },
+   {
+    "item": "minecraft:spruce_planks",
+    "count": 478
+   },
+   {
+    "item": "minecraft:spruce_stairs",
+    "count": 4
+   },
+   {
+    "item": "minecraft:stonecutter",
+    "count": 1
+   },
+   {
+    "item": "minecraft:stripped_spruce_log",
+    "count": 106
+   },
+   {
+    "item": "minecraft:white_bed",
+    "count": 1
+   }
+  ],
+  "gather_plan": [
+   {
+    "item": "minecraft:coal",
+    "count": 6,
+    "via": "mine",
+    "estimated_minutes": 0.5
+   },
+   {
+    "item": "minecraft:cobblestone",
+    "count": 71,
+    "via": "mine",
+    "estimated_minutes": 5.7
+   },
+   {
+    "item": "minecraft:dark_oak_log",
+    "count": 87,
+    "via": "chop",
+    "estimated_minutes": 13.0
+   },
+   {
+    "item": "minecraft:dirt",
+    "count": 203,
+    "via": "dig",
+    "estimated_minutes": 8.1
+   },
+   {
+    "item": "minecraft:oak_log",
+    "count": 1,
+    "via": "chop",
+    "estimated_minutes": 0.1
+   },
+   {
+    "item": "minecraft:raw_iron",
+    "count": 6,
+    "via": "mine",
+    "estimated_minutes": 0.5
+   },
+   {
+    "item": "minecraft:sand",
+    "count": 18,
+    "via": "dig",
+    "estimated_minutes": 0.7
+   },
+   {
+    "item": "minecraft:spruce_log",
+    "count": 236,
+    "via": "chop",
+    "estimated_minutes": 35.4
+   },
+   {
+    "item": "minecraft:white_wool",
+    "count": 3,
+    "via": "hunt",
+    "estimated_minutes": 3.0
+   }
+  ],
+  "note": "design-side estimate; the mind recomputes from live state before gathering"
+ },
+ "totals": {
+  "final_blocks": 935,
+  "scaffold_blocks": 203,
+  "estimated_gather_minutes": 67.0,
+  "estimated_build_minutes": null
+ },
+ "estimates_note": "tools (1 use per block broken), fuel (coal, 8 items each) and minutes are uncalibrated estimates",
+ "game_data": {
+  "version": "26.3",
+  "data_version": 5023
+ }
+}

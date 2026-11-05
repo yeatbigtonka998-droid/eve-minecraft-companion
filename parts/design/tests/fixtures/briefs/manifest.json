@@ -1,0 +1,17 @@
+{
+  "about": "CP-61 pipeline briefs (authored by the design chat for the fake generator; NOT held-out briefs for a real model, which must come from Hunter or the mind's brief writer, CP-54). Varied rooms, storeys, features, plots, roofs and budgets.",
+  "briefs": [
+    {"project_id": "b01-hut", "style": "cozy_cabin", "rooms": ["bedroom"], "budget": {"max_blocks": 1500}},
+    {"project_id": "b02-cabin", "style": "cozy_cabin", "rooms": ["living", "bedroom"], "features": ["porch", "chimney"],
+     "site": {"plot": {"min": {"x": -3, "z": -3}, "max": {"x": 18, "z": 18}}, "height_limit": 90, "origin": {"x": 0, "y": 64, "z": 0}}},
+    {"project_id": "b03-workshop", "style": "cozy_cabin", "rooms": ["workshop", "storage"], "roof": "flat"},
+    {"project_id": "b04-family", "style": "cozy_cabin", "rooms": ["living", "kitchen", "bedroom", "bedroom"], "storeys": 2},
+    {"project_id": "b05-tight-plot", "style": "cozy_cabin", "rooms": ["living", "bedroom"],
+     "site": {"plot": {"min": {"x": 0, "z": 0}, "max": {"x": 12, "z": 12}}, "height_limit": 80, "origin": {"x": 1, "y": 64, "z": 1}}},
+    {"project_id": "b06-storehouse", "style": "cozy_cabin", "rooms": ["storage", "storage", "workshop"], "features": ["chimney"]},
+    {"project_id": "b07-detailed", "style": "cozy_cabin", "rooms": ["living", "bedroom"], "features": ["detail", "porch"]},
+    {"project_id": "b08-two-storey-flat", "style": "cozy_cabin", "rooms": ["kitchen", "living", "bedroom"], "storeys": 2, "roof": "flat"},
+    {"project_id": "b09-budget", "style": "cozy_cabin", "rooms": ["living", "bedroom"], "budget": {"max_blocks": 900, "gather_minutes": 600}},
+    {"project_id": "b10-retreat", "style": "cozy_cabin", "rooms": ["bedroom", "living", "kitchen"], "features": ["porch", "detail"], "roof": "gable"}
+  ]
+}

@@ -1,0 +1,134 @@
+plugins {
+	id 'net.fabricmc.fabric-loom' version "${loom_version}"
+}
+
+version = project.mod_version
+group = 'eve'
+
+sourceSets {
+	// The skill-provider API (eve.body.api): compiled into eve-body's jar and also published alone (apiJar) for provider mods.
+	api {
+		compileClasspath += configurations.compileClasspath // minecraft + fabric (not main.output: no cycle)
+	}
+	main {
+		compileClasspath += api.output
+		runtimeClasspath += api.output
+	}
+	// unit tests touch main classes that implement the API (O102g: Providers.ProviderAct implements BodyServices)
+	test {
+		compileClasspath += api.output
+		runtimeClasspath += api.output
+	}
+	// Dev-only example skill provider (README "Skill providers"); its own jar (exampleJar), never inside eve-body's jar.
+	example {
+		compileClasspath += configurations.compileClasspath + api.output
+	}
+	// Dev-only server mod: stands in for eve-sense's eve:control sender until theirs exists. Never shipped.
+	testmod {
+		compileClasspath += main.compileClasspath
+		runtimeClasspath += main.runtimeClasspath
+	}
+	// Dev-only CLIENT mod (CP-11): makes the body send malformed frames on its live link. Its own jar (devtoolsJar), never
+	// inside eve-body's jar; dropped into mods only for a CP-11 run.
+	devtools {
+		compileClasspath += main.compileClasspath + main.output
+		runtimeClasspath += main.runtimeClasspath + main.output
+	}
+}
+
+loom {
+	mods {
+		"eve-body" {
+			sourceSet sourceSets.main
+			sourceSet sourceSets.api
+		}
+		"eve-body-testmod" { sourceSet sourceSets.testmod }
+		"eve-body-devtools" { sourceSet sourceSets.devtools }
+	}
+	runs {
+		client {
+			programArgs "--username", (findProperty("eve.username") ?: "EveDev").toString() // -Peve.username=EveDev2 (lane C); dev accounts only
+			// -Peve.server=127.0.0.1:25566 picks another loopback server (lane B, sense's); -Peve.noQuickPlay tests auto-join instead
+			if (findProperty("eve.noQuickPlay") == null) programArgs "--quickPlayMultiplayer", (findProperty("eve.server") ?: "localhost:25565").toString()
+			// Dev client talks to the stub/harness on 8952; the real mind owns 8951 (-Peve.link.url=ws://127.0.0.1:8951/body to test against it).
+			property "eve.link.url", (findProperty("eve.link.url") ?: "ws://127.0.0.1:8952/body").toString()
+		}
+		server {
+			runDir "run-server"
+			source sourceSets.testmod
+		}
+	}
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
+	// Baritone is LGPL and its own mod: compiled against, never bundled. Dev client gets it in run/mods (copyBaritone).
+	compileOnly files("libs/baritone-api-fabric-${project.baritone_version}.jar")
+
+	testImplementation platform("org.junit:junit-bom:${project.junit_version}")
+	testImplementation "org.junit.jupiter:junit-jupiter"
+	testRuntimeOnly "org.junit.platform:junit-platform-launcher"
+}
+
+test { useJUnitPlatform() }
+
+def baritoneJar = file("libs/baritone-api-fabric-${project.baritone_version}.jar")
+def baritoneSha1 = project.baritone_sha1
+def verifyBaritone = tasks.register("verifyBaritone") {
+	inputs.file(baritoneJar)
+	doLast {
+		def got = java.security.MessageDigest.getInstance("SHA-1").digest(baritoneJar.bytes).encodeHex().toString()
+		if (got != baritoneSha1) throw new GradleException("${baritoneJar.name}: SHA-1 ${got} != pinned ${baritoneSha1} (release checksums.txt)")
+	}
+}
+tasks.named("compileJava") { dependsOn verifyBaritone }
+def copyBaritone = tasks.register("copyBaritone", Copy) {
+	dependsOn verifyBaritone
+	from baritoneJar
+	into file("run/mods")
+}
+tasks.matching { it.name == "runClient" }.configureEach { dependsOn copyBaritone }
+
+processResources {
+	def version = project.version
+	inputs.property "version", version
+	filesMatching("fabric.mod.json") { expand "version": version }
+	// The registry the body implements ships inside the jar; hello.registry_hash is computed from it.
+	// -Peve.registry=<file>: a dev build against a proposed registry (never for a jar that leaves Shark; a lane jar is built from main)
+	from(file(project.findProperty("eve.registry") ?: "../../contracts/skills/registry.json")) { rename { "registry.json" }; into "eve" }
+	// Same jar from any checkout of a commit: Windows checkouts (autocrlf) give CRLF text, others LF; pack every text resource as LF.
+	filesMatching(["**/*.json", "**/*.txt", "**/*.md"]) {
+		filter(org.apache.tools.ant.filters.FixCrLfFilter, eol: org.apache.tools.ant.filters.FixCrLfFilter.CrLf.newInstance("lf"))
+	}
+}
+
+tasks.withType(JavaCompile).configureEach { it.options.release = 25 }
+
+java {
+	sourceCompatibility = JavaVersion.VERSION_25
+	targetCompatibility = JavaVersion.VERSION_25
+}
+
+tasks.register("devtoolsJar", Jar) {
+	archiveBaseName = "eve-body-devtools"
+	from sourceSets.devtools.output
+	destinationDirectory = layout.buildDirectory.dir("devtools")
+}
+
+jar { from sourceSets.api.output }
+
+// eve-body-api-<version>.jar: compileOnly for provider mods (parts/skills); at runtime eve-body's own jar carries the classes.
+tasks.register("apiJar", Jar) {
+	archiveBaseName = "eve-body-api"
+	from sourceSets.api.output
+	destinationDirectory = layout.buildDirectory.dir("api")
+}
+
+tasks.register("exampleJar", Jar) {
+	archiveBaseName = "eve-body-example"
+	from sourceSets.example.output
+	destinationDirectory = layout.buildDirectory.dir("example")
+}

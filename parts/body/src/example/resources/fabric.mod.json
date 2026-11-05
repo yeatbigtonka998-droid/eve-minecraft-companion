@@ -1,0 +1,10 @@
+{
+	"schemaVersion": 1,
+	"id": "eve-body-example",
+	"version": "0.0.0",
+	"name": "Eve body example skill provider",
+	"description": "DEV ONLY. The README's skill-provider example, built as its own jar (exampleJar) to test the provider API.",
+	"environment": "client",
+	"entrypoints": { "eve-body:skills": ["eve.example.ExampleProvider"] },
+	"depends": { "eve-body": "*" }
+}

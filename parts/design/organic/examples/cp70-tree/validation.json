@@ -1,0 +1,100 @@
+{
+ "design_hash": "df1961b38a9bf9dba6ead124c5eddc4b75604ff3e3c3e718fc623319ff213215",
+ "validator_version": "eve-validate/3",
+ "game": "26.3",
+ "passed": true,
+ "skipped": [],
+ "needs_approval": false,
+ "checks": {
+  "site_fit": {
+   "status": "pass",
+   "failures": [],
+   "notes": [],
+   "approximations": []
+  },
+  "walkable": {
+   "status": "pass",
+   "failures": [],
+   "notes": [
+    "no rooms labelled; only checked that the design can be walked around"
+   ],
+   "approximations": [
+    "flat ground below y=0",
+    "doors count as passable (openable)",
+    "a door's approach: the cell beside it along its facing"
+   ]
+  },
+  "enclosed": {
+   "status": "pass",
+   "failures": [],
+   "notes": [],
+   "approximations": [
+    "passable blocks (torches, signs, carpets...) count as gaps"
+   ]
+  },
+  "lit": {
+   "status": "pass",
+   "failures": [],
+   "notes": [],
+   "approximations": [
+    "luminance from a hand table",
+    "stairs/slabs/glass treated as transparent",
+    "sky light ignored (interiors)"
+   ]
+  },
+  "functional": {
+   "status": "pass",
+   "failures": [],
+   "notes": [],
+   "approximations": []
+  },
+  "stable": {
+   "status": "pass",
+   "failures": [],
+   "notes": [],
+   "approximations": [
+    "support = any non-passable neighbour; face sturdiness not modelled"
+   ]
+  },
+  "fire_safe": {
+   "status": "pass",
+   "failures": [],
+   "notes": [],
+   "approximations": [
+    "flammability from wood/wool/leaf tags + a short list",
+    "26-neighbourhood"
+   ]
+  },
+  "buildable": {
+   "status": "pass",
+   "failures": [],
+   "notes": [],
+   "approximations": [
+    "build_order.json replayed block by block with eve-builder's rules (eve_design.placecheck): a standing spot reachable on foot (sturdy top, bottom slab or stair), a face within 4.3 of the eye (feet + 1.27), hit first by the ray, look matching the facing; stand policy 'walk_surfaces'",
+    "scaffold blocks are taken as placeable; the click aims at face centres (body's place_block v2 may do better)"
+   ]
+  },
+  "affordable": {
+   "status": "pass",
+   "failures": [],
+   "notes": [],
+   "approximations": [
+    "gathering minutes are uncalibrated estimates (bom.json)"
+   ]
+  },
+  "within_limits": {
+   "status": "pass",
+   "failures": [],
+   "notes": [],
+   "approximations": []
+  },
+  "stand_audit": {
+   "status": "pass",
+   "failures": [],
+   "notes": [
+    "0 of 606 planned stands rest on the design's exterior (0 of 122 design-block steps); scaffold 366, ground 240"
+   ],
+   "approximations": []
+  }
+ }
+}

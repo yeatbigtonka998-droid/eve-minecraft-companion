@@ -1,0 +1,63 @@
+{
+ "format": "eve-design/1",
+ "project_id": "hut5_tall",
+ "version": 1,
+ "world_id": null,
+ "dim": "minecraft:overworld",
+ "origin": {
+  "x": 0,
+  "y": 64,
+  "z": 0
+ },
+ "size": {
+  "x": 5,
+  "y": 8,
+  "z": 6
+ },
+ "style": null,
+ "style_card_hash": null,
+ "palette": [
+  "minecraft:air",
+  "minecraft:chest[facing=west,type=single,waterlogged=false]",
+  "minecraft:cobblestone",
+  "minecraft:glass_pane[east=true,north=false,south=false,waterlogged=false,west=true]",
+  "minecraft:oak_door[facing=north,half=lower,hinge=left,open=false,powered=false]",
+  "minecraft:oak_door[facing=north,half=upper,hinge=left,open=false,powered=false]",
+  "minecraft:oak_log[axis=y]",
+  "minecraft:oak_planks",
+  "minecraft:wall_torch[facing=east]",
+  "minecraft:wall_torch[facing=west]"
+ ],
+ "blocks": "AgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgAAAAAAAgAAAAAABgAHAAcABwAGAAcAAAAAAAEABwAHAAAAAAAAAAcABwAAAAAAAAAHAAYABwAEAAcABgAAAAAAAAAAAAAABgAHAAMABwAGAAcAAAAAAAAABwAHAAAAAAAJAAcABwAAAAAAAAAHAAYABwAFAAcABgAAAAAAAAAAAAAABgAHAAcABwAGAAcAAAAAAAAABwAHAAAAAAAAAAcABwAAAAAAAAAHAAYABwAHAAcABgAAAAAAAAAAAAAABgAHAAcABwAGAAcAAAAAAAAABwAHAAAAAAAAAAcABwAAAAAAAAAHAAYABwAHAAcABgAAAAAAAAAAAAAABgAHAAcABwAGAAcAAAAAAAAABwAHAAgAAAAAAAcABwAAAAAAAAAHAAYABwAHAAcABgAAAAAAAAAAAAAABgAHAAcABwAGAAcAAAAAAAAABwAHAAAAAAAAAAcABwAAAAAAAAAHAAYABwAHAAcABgAAAAAAAAAAAAAABwAHAAcABwAHAAcABwAHAAcABwAHAAcABwAHAAcABwAHAAcABwAHAAcABwAHAAcABwAAAAAAAAAAAAAA",
+ "roles": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQAAAQAACwICAgsCAAAIAgIAAAACAgAAAAILAgQCCwAAAAAACwIDAgsCAAAAAgIAAAkCAgAAAAILAgQCCwAAAAAACwICAgsCAAAAAgIAAAACAgAAAAILAgICCwAAAAAACwICAgsCAAAAAgIAAAACAgAAAAILAgICCwAAAAAACwICAgsCAAAAAgIJAAACAgAAAAILAgICCwAAAAAACwICAgsCAAAAAgIAAAACAgAAAAILAgICCwAAAAAABQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQAAAAAA",
+ "rooms": [
+  {
+   "id": "main",
+   "type": "storage",
+   "min": {
+    "x": 1,
+    "y": 1,
+    "z": 1
+   },
+   "max": {
+    "x": 3,
+    "y": 6,
+    "z": 3
+   },
+   "door_pos": {
+    "x": 2,
+    "y": 1,
+    "z": 4
+   }
+  }
+ ],
+ "block_entities": [],
+ "hash": "c65ebf701b171d2c1caa178dcfaa42f9212144ac11a9eb7b6a7108e7fa4f25d0",
+ "provenance": {
+  "source": "hand-built (examples/hut5_tall.py)",
+  "compiler_version": null,
+  "seed": null,
+  "schematic": true
+ },
+ "import_issues": []
+}

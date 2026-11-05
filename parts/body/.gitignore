@@ -1,0 +1,11 @@
+.gradle/
+build/
+run/
+run-server/
+out/
+.idea/
+*.iml
+hs_err_*.log
+# root .gitignore drops **/*.jar; the wrapper jar is needed for a clean-checkout build
+!gradle/wrapper/gradle-wrapper.jar
+*.log

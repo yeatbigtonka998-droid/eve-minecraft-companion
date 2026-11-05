@@ -1,0 +1,19 @@
+{
+ "tool": "TripoSR",
+ "repo_commit": "107cefdc244c39106fa830359024f6a2f1c78871",
+ "licence": "MIT (code and weights)",
+ "weights_sha256": "429e2c6b22a0923967459de24d67f05962b235f79cde6b032aa7ed2ffcd970ee",
+ "image_encoder": "facebook/dino-vitb16 (Apache-2.0)",
+ "mc_resolution": 256,
+ "torch": "2.7.1+cu128",
+ "gpu": "NVIDIA GeForce RTX 5080",
+ "load_s": 4.1,
+ "infer_s": 19.3,
+ "peak_vram_mb": 2378,
+ "vertices": 45101,
+ "faces": 90198,
+ "shims": [
+  "torchmcubes->skimage",
+  "rembg stub"
+ ]
+}

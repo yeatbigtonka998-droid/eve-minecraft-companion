@@ -1,0 +1,37 @@
+{
+  "_note": "CP-42 held-out owner commands. Written 2026-10-19 by the mind chat BEFORE any mapper rule or prompt existed; never used to tune rules or prompts. Author is not Hunter, so qualification still needs Hunter-written paraphrases (see STATUS.md). Slot numbers are what a player says (1-9); the registry slot is 0-8.",
+  "clear": [
+    {"text": "eve, walk over to 12 64 -30", "expect": {"kind": "skill", "skill": "walk_to", "params": {"pos": {"x": 12, "y": 64, "z": -30}}}},
+    {"text": "head to x 40 y 70 z 15 please", "expect": {"kind": "skill", "skill": "walk_to", "params": {"pos": {"x": 40, "y": 70, "z": 15}}}},
+    {"text": "go home", "expect": {"kind": "control", "op": "home"}},
+    {"text": "come back to base", "expect": {"kind": "control", "op": "home"}},
+    {"text": "stop!", "expect": {"kind": "control", "op": "stop"}},
+    {"text": "Eve hold on, freeze", "expect": {"kind": "control", "op": "stop"}},
+    {"text": "you can carry on now", "expect": {"kind": "control", "op": "resume"}},
+    {"text": "pick hotbar slot 3", "expect": {"kind": "skill", "skill": "select_hotbar", "params": {"slot": 2}}},
+    {"text": "switch to your fifth slot", "expect": {"kind": "skill", "skill": "select_hotbar", "params": {"slot": 4}}},
+    {"text": "say hello everyone", "expect": {"kind": "skill", "skill": "chat_say", "params": {"text": "hello everyone"}}},
+    {"text": "tell them good morning", "expect": {"kind": "skill", "skill": "chat_say", "params": {"text": "good morning"}}},
+    {"text": "crouch", "expect": {"kind": "skill", "skill": "sneak", "params": {"on": true}}},
+    {"text": "stand up straight", "expect": {"kind": "skill", "skill": "sneak", "params": {"on": false}}},
+    {"text": "jump", "expect": {"kind": "skill", "skill": "jump", "params": {}}},
+    {"text": "look at 5 65 5", "expect": {"kind": "skill", "skill": "look_at", "params": {"pos": {"x": 5, "y": 65, "z": 5}}}},
+    {"text": "mine the block at 3 63 -2", "expect": {"kind": "skill", "skill": "mine_block", "params": {"pos": {"x": 3, "y": 63, "z": -2}}}},
+    {"text": "place cobblestone at 4 64 4", "expect": {"kind": "skill", "skill": "place_block", "params": {"pos": {"x": 4, "y": 64, "z": 4}, "item": "minecraft:cobblestone"}}},
+    {"text": "open the chest at 10 64 10", "expect": {"kind": "skill", "skill": "open_container", "params": {"pos": {"x": 10, "y": 64, "z": 10}}}},
+    {"text": "cancel what you're doing", "expect": {"kind": "control", "op": "cancel"}},
+    {"text": "switch to manual mode", "expect": {"kind": "control", "op": "mode", "mode": "manual"}}
+  ],
+  "ambiguous": [
+    {"text": "come here", "expect": {"kind": "question"}},
+    {"text": "go over there", "expect": {"kind": "question"}},
+    {"text": "mine that", "expect": {"kind": "question"}},
+    {"text": "place a block", "expect": {"kind": "question"}},
+    {"text": "walk to 10 64", "expect": {"kind": "question"}}
+  ],
+  "conflicting": [
+    {"text": "walk to 1 64 1 and then stop", "expect": {"kind": "control", "op": "stop"}},
+    {"text": "don't stop, keep walking to 5 64 5", "expect": {"kind": "unknown"}, "note": "O25a (2026-10-20): a negated stop is placed as not a stop; was control/stop under O25"},
+    {"text": "STOP walking to 3 64 3", "expect": {"kind": "control", "op": "stop"}}
+  ]
+}

@@ -1,0 +1,123 @@
+{
+ "pipeline": "eve-organic/1",
+ "design_hash": "d1064838bbca39b8e036a548e00800588534fe6ad54254a089c92ce542be8ad4",
+ "eve_design_code": {
+  "commit": "c1594320",
+  "branch": "design/o94ag-c",
+  "uncommitted": [],
+  "note": "corrected by hand: the emit recorded organic.py's checkout (main d2ef0bb4), the code that ran was this worktree"
+ },
+ "approval_policy": "gate hold + owner approval per piece via design's CP-65 path; no critic; these structural checks are the precondition (orchestrator decision 2026-10-21)",
+ "mesh_job": {
+  "job_id": "0c064338fb6845d4",
+  "mesh_sha256": "5c9df8cc8f42fcd656f0edf2175cc1ccdebc6226bd447d5afde2d564a34cf4e9",
+  "source": {
+   "kind": "file",
+   "name": "triposr_out.obj",
+   "sha256": "424e0ce8914f95fe35143bd080b869121bfb4098e8c756bbaec6330a5f4d2a4b",
+   "bytes": 3364947
+  },
+  "tool": {
+   "name": "file",
+   "version": null
+  },
+  "watertight": false
+ },
+ "voxelize": {
+  "target": {
+   "height": 14
+  },
+  "scale_blocks_per_unit": 14.0,
+  "yaw": 0,
+  "size": [
+   6,
+   14,
+   15
+  ],
+  "solid": 193,
+  "axis_disagreements": 0,
+  "shells": 3
+ },
+ "params": {
+  "hollow": 2,
+  "clean": true,
+  "palette": "terracotta",
+  "plinth": true,
+  "max_fragment": 4,
+  "thicken": false
+ },
+ "cleanup": {
+  "before": 193,
+  "voids_filled": 0,
+  "pinholes_filled": 0,
+  "bridge_blocks_added": 5,
+  "fragment_blocks_removed": 3,
+  "after": 195
+ },
+ "floating": [],
+ "support": {
+  "overhang_blocks": 47,
+  "overhang_per_layer": [
+   0,
+   0,
+   0,
+   1,
+   2,
+   1,
+   4,
+   22,
+   10,
+   2,
+   0,
+   1,
+   2,
+   1,
+   1
+  ],
+  "ground_contact_blocks": 45,
+  "rule": "every block connects to the ground through faces (no floating parts); the design's own buildable check then replays the build order with eve-builder's reach/support rules (the decider)"
+ },
+ "hollow": {
+  "solid": 240,
+  "shell": 240,
+  "removed": 0,
+  "cavity_refilled_over_3x3x3": 0,
+  "min_wall": 2,
+  "wall_ok": true
+ },
+ "palette_used": [
+  "bricks",
+  "orange_terracotta",
+  "red_terracotta",
+  "terracotta",
+  "yellow_terracotta"
+ ],
+ "blocks": 240,
+ "scaffold_blocks": 832,
+ "validation": {
+  "passed": true,
+  "failed": [],
+  "skipped": []
+ },
+ "gate": "hold",
+ "files": {
+  "bom.json": "bc665adb341896652d79342e9c762bcdc693f2ad2fdd2bc6be41fd5d4a3b2b6e",
+  "brief.json": "e57579d478c6ecd0bc58ad59b46f45f317d282a1e1a115d7c5fa7067573bff41",
+  "build_order.json": "801cb6b7676b378cd5ba576dc4624cff61925079f1415b456df0f04901baf93e",
+  "design.json": "3740415fc2352bfaf6c0634db840538eeb1ceca4bb96775635ce8915ff20a2e1",
+  "design.litematic": "67da0979b2da727702f04899da67ee8cfbd144bde46f0700198330d0e9493c47",
+  "gate.json": "39b5503c7973d8ab16d57c57aac9b66c7d4b4db4478d2fc2088edddc3443f286",
+  "previews/elev-E.png": "36bd5e8f6e2e03e14f240fdd1ffdabf0112de3413e81f622b250bcca0572286d",
+  "previews/elev-N.png": "9c8db8c95f18cfaa56ec820394d10cd17a3a69d5f08477c0ce1d218fc340c00f",
+  "previews/elev-S.png": "4a22faf966cc68f7958bfcf3f403c2c4a2d9e51b72bc308d325971547e6701cb",
+  "previews/elev-W.png": "0a1837e7da65e9e857e4155e28cc8258f319ac3f71ee2f464b59cf5bfe3f4d7a",
+  "previews/NE.png": "39197ba8b56dee8ee2e3be46ce75075c02602d4bdb5c1e398d56d7276131f3f5",
+  "previews/NW.png": "c9ac15f790b0519fc6ec17873e70c81ff33fc505f17711c92527d1e9553d23a2",
+  "previews/render.json": "e348da953d29cb8e3252afb6fb3257a0022d360d335086507fb6dbda6172cc91",
+  "previews/SE.png": "9584a56dea1df473fd52166c69848f23e87461a6fabd4f0a51989e6c6c18c98a",
+  "previews/SW.png": "f416acaace626ddc2aed9663d607a5ae305ef98309cb356d7825a7f07719942f",
+  "previews/top.png": "10c9ad6cc4e4d5935f3f1483a28bbe623ef47ea6d128b2e9c1d1be4cc3782386",
+  "scaffold.json": "702af42527198f26aba9e80833cab9ca57b2fe0d99c033017e26d2a42bcd28a8",
+  "validation.json": "1cc9e4ffb568652741861f5fe89944ad79c1613a4b7090f280c2b7dc44473429"
+ }
+}

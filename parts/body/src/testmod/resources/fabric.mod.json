@@ -1,0 +1,10 @@
+{
+	"schemaVersion": 1,
+	"id": "eve-body-testmod",
+	"version": "0.0.0",
+	"name": "Eve body dev test sender",
+	"description": "DEV ONLY. Sends eve:control to a player from /evetest so the body can be tested before eve-sense ships.",
+	"environment": "*",
+	"entrypoints": { "main": ["eve.body.testmod.TestSender"] },
+	"depends": { "fabric-api": "*" }
+}

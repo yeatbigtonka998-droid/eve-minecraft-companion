@@ -1,0 +1,10 @@
+{
+	"schemaVersion": 1,
+	"id": "eve-body-devtools",
+	"version": "0.0.0",
+	"name": "Eve body dev tools (CP-11)",
+	"description": "DEV ONLY, never in a release. When config/eve-devtools-malformed.trigger appears, the body sends each malformed frame once on its live mind link.",
+	"environment": "client",
+	"entrypoints": { "client": ["eve.body.DevMalformed"] },
+	"depends": { "eve-body": "*", "fabric-api": "*" }
+}

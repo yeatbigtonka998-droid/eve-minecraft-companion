@@ -1,0 +1,23 @@
+{
+ "about": "CP-44 G06 dev cases (mind-written, for the post-set-5 global-scope change): wording that means every world makes a rule or taste global; wording tied to one world keeps it there. Format: live_cp44_dev.py scenarios.",
+ "owner": "Silvershark3600",
+ "worlds": {"A": "dev-shark:a1a5b81d7d18", "B": "other-shark:fedcba987654"},
+ "scenarios": [
+  {"id": "W01", "tag": "global-no-matter", "steps": [{"say": "No matter which world we're in, never place beds in the Nether."}, {"world": "B"}],
+   "expect": {"current": [{"subject": "beds in the Nether", "predicate": "rule", "object": "never place beds in the Nether", "scope": "global", "confidence": "certain", "source": "owner_chat"}], "superseded": [], "absent": []}},
+  {"id": "W02", "tag": "global-whatever-map", "steps": [{"say": "Whatever map we play on, don't trade with wandering traders."}, {"world": "B"}],
+   "expect": {"current": [{"subject": "wandering traders", "predicate": "rule", "object": "don't trade with wandering traders", "scope": "global", "confidence": "certain", "source": "owner_chat"}], "superseded": [], "absent": []}},
+  {"id": "W03", "tag": "global-every-server", "steps": [{"say": "On every server, keep the hotbar's first slot for a sword."}, {"world": "B"}],
+   "expect": {"current": [{"subject": "hotbar first slot", "predicate": "rule", "object": "keep the first hotbar slot for a sword", "scope": "global", "confidence": "certain", "source": "owner_chat"}], "superseded": [], "absent": []}},
+  {"id": "W04", "tag": "global-all-my-worlds", "steps": [{"say": "In all my worlds, never use lava buckets near wood."}, {"world": "B"}],
+   "expect": {"current": [{"subject": "lava buckets", "predicate": "rule", "object": "never use lava buckets near wood", "scope": "global", "confidence": "certain", "source": "owner_chat"}], "superseded": [], "absent": []}},
+  {"id": "W05", "tag": "global-across-worlds", "steps": [{"say": "Across worlds, I prefer copper lanterns for lighting."}, {"world": "B"}],
+   "expect": {"current": [{"subject": "lighting", "predicate": "preference", "object": "copper lanterns", "scope": "global", "confidence": "certain", "source": "owner_chat"}], "superseded": [], "absent": []}},
+  {"id": "W06", "tag": "world-this-map", "steps": [{"say": "On this map, never break the stone bridge."}, {"world": "B"}],
+   "expect": {"current": [], "superseded": [], "absent": [{"subject": "stone bridge", "predicate": "rule", "object": "never break the stone bridge", "scope": "world", "confidence": "certain", "source": "owner_chat"}]}},
+  {"id": "W07", "tag": "world-here", "steps": [{"say": "Here, don't harvest the pumpkins by the gate."}, {"world": "B"}],
+   "expect": {"current": [], "superseded": [], "absent": [{"subject": "pumpkins by the gate", "predicate": "rule", "object": "don't harvest the pumpkins by the gate", "scope": "world", "confidence": "certain", "source": "owner_chat"}]}},
+  {"id": "W08", "tag": "world-rule-back-in-A", "steps": [{"say": "In this world, leave the llamas alone."}, {"world": "B"}, {"world": "A"}],
+   "expect": {"current": [{"subject": "llamas", "predicate": "rule", "object": "leave the llamas alone", "scope": "world", "confidence": "certain", "source": "owner_chat"}], "superseded": [], "absent": []}}
+ ]
+}

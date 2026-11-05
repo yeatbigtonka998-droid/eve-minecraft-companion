@@ -1,0 +1,16 @@
+# Cozy cabin, hand-authored (CP-55/CP-57). Follows the example in Hunter's Build Side document;
+# three south windows do not fit between the frame pillars and the door, so two per long wall.
+cabin = Build(style="cozy_cabin", seed=42)
+cabin.foundation(w=11, d=9, h=1, block="cobblestone")
+cabin.walls(h=4, frame="stripped_spruce_log", fill="spruce_planks")
+cabin.floor(block="spruce_planks")
+cabin.door(side="south", at="center")
+cabin.windows(side="south", count=2, w=2, h=2)
+cabin.windows(side="north", count=2, w=2, h=2)
+cabin.windows(side="east", count=1, w=2, h=2)
+cabin.windows(side="west", count=1, w=2, h=2)
+cabin.roof("gable", ridge="east_west", overhang=1, block="dark_oak")
+cabin.chimney(side="east", block="bricks")
+cabin.porch(side="south", depth=3)
+cabin.room("living", furnish=True)
+cabin.room("bedroom", furnish=True)

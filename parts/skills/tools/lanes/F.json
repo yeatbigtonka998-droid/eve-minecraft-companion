@@ -1,0 +1,14 @@
+{
+  "_comment": "O104j: lane F on the 45L (eve-watch's 45L-LANE-F-PLAN; body's parts/body/tools/lanes/F.json). Skills' harnesses take it with --lane-config <this>, run ON THE 45L as eveuser from a checkout of main: py -3.12 parts/skills/tools/window_cp39.py --lane-config parts/skills/tools/lanes/F.json --registry <prefix> --skills-jar 8a0444bf --dry-run. Same world seed and zones as lanes B..E (sense's lanes/F/README.md), so the fixture offsets are lane B's. RCON: rcon.py reads <root>\\server-dev\\server.properties (port 25581). The gate here is the fire rule run ON the 45L (host45l --lanef-fire --local), re-checked before the window takes F's lock; lane_health.py --gate --host 45l (F's sampler + the fire rule over ssh) runs on Shark first, in tools/lanef/run-window-f.ps1 (on the 45L it would ssh to itself and hang).",
+  "label": "F",
+  "root": "C:\\eve-lanes\\F",
+  "token_file": "mind/config/eve-link-token.txt",
+  "cli_port": 8962,
+  "player": "EveDevF",
+  "client_task": "Eve Lane F Client",
+  "pad_offset": [0, 0, 0],
+  "mine_offset": [0, 0, 0],
+  "evidence_root": "C:\\eve-lanes\\F\\evidence",
+  "tag": "lanef",
+  "gate": ["parts/watch/laneb/host45l.py", "--lanef-fire", "--local"]
+}

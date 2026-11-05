@@ -1,0 +1,99 @@
+{
+ "design_hash": "2bf74ebb95fedc3bbbe352f71c4444fb8481452d8cada4b1ad8d8f9cf4bad81c",
+ "scaffold_hash": "7a2f11d3827383736874f5b4e8a35bf3513ce8132a9ad0d40c85ddb3f7a7a41b",
+ "final": [
+  {
+   "item": "minecraft:obsidian",
+   "count": 10
+  }
+ ],
+ "items_per_state": {
+  "minecraft:dirt": [
+   {
+    "item": "minecraft:dirt",
+    "count": 1
+   }
+  ],
+  "minecraft:obsidian": [
+   {
+    "item": "minecraft:obsidian",
+    "count": 1
+   }
+  ]
+ },
+ "scaffold": [
+  {
+   "item": "minecraft:dirt",
+   "count": 23
+  }
+ ],
+ "tools": [
+  {
+   "item": "minecraft:<any>_pickaxe",
+   "uses": 10,
+   "estimate": true
+  },
+  {
+   "item": "minecraft:<any>_shovel",
+   "uses": 45,
+   "estimate": true
+  }
+ ],
+ "fuel": [
+  {
+   "item": "minecraft:coal",
+   "count": 0,
+   "smelted_items": 0,
+   "estimate": true
+  }
+ ],
+ "crafting": [],
+ "leftovers": [],
+ "carry": {
+  "slots": 2,
+  "inventory_slots": 36,
+  "trips": 1
+ },
+ "deficit": {
+  "computed_against": {
+   "inventory_hash": "5f1554400589cd6f764cfb4ce62f0c6e5fdeb12b424f1f50790c8c2ae9347215",
+   "storage_index_ts": 1250
+  },
+  "missing": [
+   {
+    "item": "minecraft:dirt",
+    "count": 22
+   },
+   {
+    "item": "minecraft:obsidian",
+    "count": 10
+   }
+  ],
+  "gather_plan": [
+   {
+    "item": "minecraft:dirt",
+    "count": 22,
+    "via": "dig",
+    "estimated_minutes": 0.9
+   },
+   {
+    "item": "minecraft:obsidian",
+    "count": 10,
+    "via": "mine",
+    "estimated_minutes": 0.8
+   }
+  ],
+  "note": "design-side estimate; the mind recomputes from live state before gathering"
+ },
+ "totals": {
+  "final_blocks": 10,
+  "scaffold_blocks": 23,
+  "estimated_gather_minutes": 1.7,
+  "estimated_build_minutes": null
+ },
+ "estimates_note": "tools (1 use per block broken), fuel (coal, 8 items each) and minutes are uncalibrated estimates",
+ "game_data": {
+  "version": "26.3",
+  "data_version": 5023
+ }
+}

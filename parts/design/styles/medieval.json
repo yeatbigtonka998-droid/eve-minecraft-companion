@@ -1,0 +1,116 @@
+{
+ "style": "medieval",
+ "status": "draft from references",
+ "provenance": {
+  "source": "medieval.references.json (measured)",
+  "references": [
+   "plains_small_house_1.nbt",
+   "plains_small_house_2.nbt",
+   "plains_small_house_3.nbt",
+   "plains_small_house_4.nbt",
+   "plains_small_house_5.nbt",
+   "plains_small_house_6.nbt",
+   "plains_small_house_7.nbt",
+   "plains_small_house_8.nbt",
+   "plains_medium_house_1.nbt",
+   "plains_medium_house_2.nbt",
+   "plains_big_house_1.nbt"
+  ],
+  "role_rule": "frame: *_log/*_wood (non-stripped first); wall: *_planks and *terracotta; base: cobblestone/stone-brick family full blocks; roof: the wood family with the most *_stairs. Inferred mapping, uncertain until a human labels it.",
+  "terms": "Mojang game data under the Minecraft EULA: used privately to measure style numbers; the files are not committed or redistributed (data/game is gitignored)",
+  "note": "Not Hunter's taste: numbers are measured, the role mapping is a fixed rule; review pending."
+ },
+ "palette": {
+  "frame": [
+   [
+    "minecraft:oak_log",
+    0.841
+   ],
+   [
+    "minecraft:stripped_oak_log",
+    0.159
+   ]
+  ],
+  "wall": [
+   [
+    "minecraft:oak_planks",
+    0.959
+   ],
+   [
+    "minecraft:white_terracotta",
+    0.041
+   ]
+  ],
+  "base": [
+   [
+    "minecraft:cobblestone",
+    1.0
+   ]
+  ],
+  "floor": [
+   [
+    "minecraft:oak_planks",
+    1.0
+   ]
+  ],
+  "roof": "oak",
+  "door": "oak",
+  "fence": "oak",
+  "trim": "oak",
+  "window": "minecraft:glass_pane",
+  "chimney": "minecraft:cobblestone"
+ },
+ "proportions": {
+  "footprint": {
+   "min": [
+    7,
+    7
+   ],
+   "max": [
+    13,
+    13
+   ]
+  },
+  "height": [
+   6,
+   11
+  ],
+  "roof": {
+   "kind": "gable",
+   "votes": {
+    "hip": 3,
+    "flat_or_other": 2,
+    "gable": 6
+   },
+   "uncertain": true
+  }
+ },
+ "rules": {
+  "frame_every": 4,
+  "frame_every_source": "unmeasured default"
+ },
+ "detailing": {
+  "default": [
+   "pillars",
+   "base_band",
+   "gradient"
+  ],
+  "base_band_rows": 1,
+  "source": "references show log frames on a cobblestone base; no trapdoor shutters in them"
+ },
+ "reference_share_top": {
+  "minecraft:oak_planks": 0.2936,
+  "minecraft:oak_stairs": 0.2393,
+  "minecraft:cobblestone": 0.2193,
+  "minecraft:oak_log": 0.1213,
+  "minecraft:stripped_oak_log": 0.0229,
+  "minecraft:glass_pane": 0.022,
+  "minecraft:wall_torch": 0.0167,
+  "minecraft:white_terracotta": 0.0127,
+  "minecraft:oak_door": 0.0114,
+  "minecraft:white_bed": 0.009,
+  "minecraft:cobblestone_stairs": 0.0069,
+  "minecraft:oak_fence": 0.0045
+ },
+ "blocks_measured": 2449
+}

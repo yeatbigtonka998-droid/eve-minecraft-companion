@@ -1,0 +1,29 @@
+{
+	"required": true,
+	"package": "eve.sense.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"mixins": [
+		"BlockEntityMixin",
+		"BlockItemMixin",
+		"CommandsMixin",
+		"CompoundContainerAccessor",
+		"FurnaceAccessor",
+		"ContainerMenuMixin",
+		"ItemInvoker",
+		"ItemStackMixin",
+		"LivingEntityMixin",
+		"PlayerMixin",
+		"ProjectileMixin",
+		"ServerExplosionMixin",
+		"ServerGamePacketListenerMixin"
+	],
+	"server": [
+		"DedicatedServerMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}

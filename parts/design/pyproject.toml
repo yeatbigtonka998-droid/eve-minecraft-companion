@@ -1,0 +1,20 @@
+[project]
+name = "eve_design"
+version = "0.1.0"
+description = "Eve's offline design system: schematic I/O, labelled grids, BOM, building language, validation, previews"
+requires-python = ">=3.12"
+dependencies = ["nbtlib==2.0.4", "numpy>=2.0", "pillow>=11", "websockets>=13"]
+
+[project.optional-dependencies]
+litematic = ["litemapy==0.11.0b0"]   # GPL-3.0, optional: .litematic export and its tests
+test = ["pytest>=8"]
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

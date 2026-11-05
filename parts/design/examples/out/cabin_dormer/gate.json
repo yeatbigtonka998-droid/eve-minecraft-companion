@@ -1,0 +1,46 @@
+{
+ "version": "eve-gate/1",
+ "design_hash": "abdacef503bb5ed79e068d29439f3c364bda18d96e810610fafd13d16a745e7e",
+ "category": "eve_own",
+ "decision": "reject",
+ "reasons": [
+  "validation_passed: buildable: no reachable standing spot with a way back down sees a face to place it against within reach while looking south even with the scaffold",
+  "brief_checks_ran: skipped without a brief: ['site_fit']",
+  "critiqued: no critique (critic not configured or unavailable)"
+ ],
+ "checks": {
+  "validation_bound": {
+   "ok": true
+  },
+  "bom_bound": {
+   "ok": true
+  },
+  "scaffold_bound": {
+   "ok": true
+  },
+  "validation_passed": {
+   "ok": false,
+   "reason": "buildable: no reachable standing spot with a way back down sees a face to place it against within reach while looking south even with the scaffold"
+  },
+  "brief_checks_ran": {
+   "ok": false,
+   "reason": "skipped without a brief: ['site_fit']"
+  },
+  "previews_bound": {
+   "ok": true
+  },
+  "critiqued": {
+   "ok": false,
+   "reason": "no critique (critic not configured or unavailable)"
+  }
+ },
+ "policy": {
+  "critics": [
+   "deepseek"
+  ],
+  "threshold": 7.0,
+  "require_brief_checks": true,
+  "allow_validation_only": false,
+  "selftest_dir": "designs/_critic"
+ }
+}

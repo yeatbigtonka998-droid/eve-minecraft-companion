@@ -1,0 +1,26 @@
+{
+	"schemaVersion": 1,
+	"id": "eve-sense",
+	"version": "${version}",
+	"name": "Eve Sense",
+	"description": "Server helper for Project Sentience: Eve's senses and the safety rails enforced below every model.",
+	"authors": [
+		"Hunter"
+	],
+	"license": "All-Rights-Reserved",
+	"environment": "server",
+	"entrypoints": {
+		"main": [
+			"eve.sense.EveSense"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": "*"
+	},
+	"mixins": [
+		"eve-sense.mixins.json"
+	]
+}

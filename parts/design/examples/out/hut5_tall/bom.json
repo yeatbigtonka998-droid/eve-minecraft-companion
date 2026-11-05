@@ -1,0 +1,344 @@
+{
+ "design_hash": "c65ebf701b171d2c1caa178dcfaa42f9212144ac11a9eb7b6a7108e7fa4f25d0",
+ "scaffold_hash": "babfbc2f855a3196560d864919cd0f51587f697cc50e5a6a46b5be06f1b57ce2",
+ "final": [
+  {
+   "item": "minecraft:chest",
+   "count": 1
+  },
+  {
+   "item": "minecraft:cobblestone",
+   "count": 26
+  },
+  {
+   "item": "minecraft:glass_pane",
+   "count": 1
+  },
+  {
+   "item": "minecraft:oak_door",
+   "count": 1
+  },
+  {
+   "item": "minecraft:oak_log",
+   "count": 24
+  },
+  {
+   "item": "minecraft:oak_planks",
+   "count": 94
+  },
+  {
+   "item": "minecraft:torch",
+   "count": 2
+  }
+ ],
+ "items_per_state": {
+  "minecraft:chest[facing=west,type=single,waterlogged=false]": [
+   {
+    "item": "minecraft:chest",
+    "count": 1
+   }
+  ],
+  "minecraft:cobblestone": [
+   {
+    "item": "minecraft:cobblestone",
+    "count": 1
+   }
+  ],
+  "minecraft:dirt": [
+   {
+    "item": "minecraft:dirt",
+    "count": 1
+   }
+  ],
+  "minecraft:glass_pane[east=true,north=false,south=false,waterlogged=false,west=true]": [
+   {
+    "item": "minecraft:glass_pane",
+    "count": 1
+   }
+  ],
+  "minecraft:oak_door[facing=north,half=lower,hinge=left,open=false,powered=false]": [
+   {
+    "item": "minecraft:oak_door",
+    "count": 1
+   }
+  ],
+  "minecraft:oak_door[facing=north,half=upper,hinge=left,open=false,powered=false]": [],
+  "minecraft:oak_log[axis=y]": [
+   {
+    "item": "minecraft:oak_log",
+    "count": 1
+   }
+  ],
+  "minecraft:oak_planks": [
+   {
+    "item": "minecraft:oak_planks",
+    "count": 1
+   }
+  ],
+  "minecraft:wall_torch[facing=east]": [
+   {
+    "item": "minecraft:torch",
+    "count": 1
+   }
+  ],
+  "minecraft:wall_torch[facing=west]": [
+   {
+    "item": "minecraft:torch",
+    "count": 1
+   }
+  ]
+ },
+ "scaffold": [
+  {
+   "item": "minecraft:dirt",
+   "count": 60
+  }
+ ],
+ "tools": [
+  {
+   "item": "minecraft:<any>_axe",
+   "uses": 52,
+   "estimate": true
+  },
+  {
+   "item": "minecraft:<any>_pickaxe",
+   "uses": 28,
+   "estimate": true
+  },
+  {
+   "item": "minecraft:<any>_shovel",
+   "uses": 126,
+   "estimate": true
+  }
+ ],
+ "fuel": [
+  {
+   "item": "minecraft:coal",
+   "count": 1,
+   "smelted_items": 6,
+   "estimate": true
+  }
+ ],
+ "crafting": [
+  {
+   "item": "minecraft:chest",
+   "recipe": "minecraft:chest",
+   "type": "minecraft:crafting_shaped",
+   "batches": 1,
+   "yield_per_batch": 1,
+   "produced": 1,
+   "leftover": 0,
+   "consumes": [
+    {
+     "item": "minecraft:oak_planks",
+     "count": 8
+    }
+   ]
+  },
+  {
+   "item": "minecraft:glass_pane",
+   "recipe": "minecraft:glass_pane",
+   "type": "minecraft:crafting_shaped",
+   "batches": 1,
+   "yield_per_batch": 16,
+   "produced": 16,
+   "leftover": 15,
+   "consumes": [
+    {
+     "item": "minecraft:glass",
+     "count": 6
+    }
+   ]
+  },
+  {
+   "item": "minecraft:glass",
+   "recipe": "minecraft:glass",
+   "type": "minecraft:smelting",
+   "batches": 6,
+   "yield_per_batch": 1,
+   "produced": 6,
+   "leftover": 0,
+   "consumes": [
+    {
+     "item": "minecraft:sand",
+     "count": 6
+    }
+   ]
+  },
+  {
+   "item": "minecraft:oak_door",
+   "recipe": "minecraft:oak_door",
+   "type": "minecraft:crafting_shaped",
+   "batches": 1,
+   "yield_per_batch": 3,
+   "produced": 3,
+   "leftover": 2,
+   "consumes": [
+    {
+     "item": "minecraft:oak_planks",
+     "count": 6
+    }
+   ]
+  },
+  {
+   "item": "minecraft:torch",
+   "recipe": "minecraft:torch",
+   "type": "minecraft:crafting_shaped",
+   "batches": 1,
+   "yield_per_batch": 4,
+   "produced": 4,
+   "leftover": 2,
+   "consumes": [
+    {
+     "item": "minecraft:stick",
+     "count": 1
+    },
+    {
+     "item": "minecraft:coal",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "item": "minecraft:stick",
+   "recipe": "minecraft:stick",
+   "type": "minecraft:crafting_shaped",
+   "batches": 1,
+   "yield_per_batch": 4,
+   "produced": 4,
+   "leftover": 3,
+   "consumes": [
+    {
+     "item": "minecraft:oak_planks",
+     "count": 2
+    }
+   ]
+  },
+  {
+   "item": "minecraft:oak_planks",
+   "recipe": "minecraft:oak_planks",
+   "type": "minecraft:crafting_shapeless",
+   "batches": 28,
+   "yield_per_batch": 4,
+   "produced": 112,
+   "leftover": 2,
+   "consumes": [
+    {
+     "item": "minecraft:oak_log",
+     "count": 28
+    }
+   ]
+  }
+ ],
+ "leftovers": [
+  {
+   "item": "minecraft:glass_pane",
+   "count": 15
+  },
+  {
+   "item": "minecraft:oak_door",
+   "count": 2
+  },
+  {
+   "item": "minecraft:oak_planks",
+   "count": 2
+  },
+  {
+   "item": "minecraft:stick",
+   "count": 3
+  },
+  {
+   "item": "minecraft:torch",
+   "count": 2
+  }
+ ],
+ "carry": {
+  "slots": 9,
+  "inventory_slots": 36,
+  "trips": 1
+ },
+ "deficit": {
+  "computed_against": {
+   "inventory_hash": null,
+   "storage_index_ts": 0
+  },
+  "missing": [
+   {
+    "item": "minecraft:chest",
+    "count": 1
+   },
+   {
+    "item": "minecraft:cobblestone",
+    "count": 26
+   },
+   {
+    "item": "minecraft:dirt",
+    "count": 60
+   },
+   {
+    "item": "minecraft:glass_pane",
+    "count": 1
+   },
+   {
+    "item": "minecraft:oak_door",
+    "count": 1
+   },
+   {
+    "item": "minecraft:oak_log",
+    "count": 24
+   },
+   {
+    "item": "minecraft:oak_planks",
+    "count": 94
+   },
+   {
+    "item": "minecraft:torch",
+    "count": 2
+   }
+  ],
+  "gather_plan": [
+   {
+    "item": "minecraft:coal",
+    "count": 2,
+    "via": "mine",
+    "estimated_minutes": 0.2
+   },
+   {
+    "item": "minecraft:cobblestone",
+    "count": 26,
+    "via": "mine",
+    "estimated_minutes": 2.1
+   },
+   {
+    "item": "minecraft:dirt",
+    "count": 60,
+    "via": "dig",
+    "estimated_minutes": 2.4
+   },
+   {
+    "item": "minecraft:oak_log",
+    "count": 52,
+    "via": "chop",
+    "estimated_minutes": 7.8
+   },
+   {
+    "item": "minecraft:sand",
+    "count": 6,
+    "via": "dig",
+    "estimated_minutes": 0.2
+   }
+  ],
+  "note": "design-side estimate; the mind recomputes from live state before gathering"
+ },
+ "totals": {
+  "final_blocks": 150,
+  "scaffold_blocks": 60,
+  "estimated_gather_minutes": 12.7,
+  "estimated_build_minutes": null
+ },
+ "estimates_note": "tools (1 use per block broken), fuel (coal, 8 items each) and minutes are uncalibrated estimates",
+ "game_data": {
+  "version": "26.3",
+  "data_version": 5023
+ }
+}

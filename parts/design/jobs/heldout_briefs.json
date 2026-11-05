@@ -1,0 +1,27 @@
+{
+  "about": "CP-61 held-out briefs, written 2026-10-20 before any real-model run and never used to develop or tune prompts, fakes or validators. Each has a site (plot, height limit, flat terrain at y=63, no terrain change allowed: P9) so the gate can decide. Run them once with tools/run_jobs.py; a later prompt change needs a new held-out set.",
+  "briefs": [
+    {"project_id": "h01-lakeside-hut", "purpose": "a one-room sleeping hut by a lake", "style": "cozy_cabin", "rooms": ["bedroom"],
+     "features": ["porch"], "budget": {"max_blocks": 900}},
+    {"project_id": "h02-family-cottage", "purpose": "a cottage for a family of four", "style": "cozy_cabin",
+     "rooms": ["living", "kitchen", "bedroom", "bedroom"], "storeys": 2, "features": ["chimney"], "budget": {"max_blocks": 2500}},
+    {"project_id": "h03-smithy", "purpose": "a smithy with a storeroom", "style": "medieval", "rooms": ["workshop", "storage"],
+     "features": ["chimney"], "budget": {"max_blocks": 1600}},
+    {"project_id": "h04-inn", "purpose": "a small two-storey inn", "style": "medieval", "rooms": ["living", "kitchen", "bedroom", "bedroom"],
+     "storeys": 2, "features": ["porch"], "budget": {"max_blocks": 3000}},
+    {"project_id": "h05-reading-room", "purpose": "a quiet reading room with a dormer window", "style": "cozy_cabin",
+     "rooms": ["living"], "features": ["dormer"], "budget": {"max_blocks": 1200}},
+    {"project_id": "h06-walled-farmhouse", "purpose": "a farmhouse with a walled yard for animals", "style": "medieval",
+     "rooms": ["living", "storage"], "features": ["courtyard"], "budget": {"max_blocks": 2200}},
+    {"project_id": "h07-storehouse", "purpose": "a village storehouse", "style": "cozy_cabin", "rooms": ["storage", "storage"],
+     "roof": "gable", "budget": {"max_blocks": 1500}},
+    {"project_id": "h08-watch-house", "purpose": "a three-storey watch house with a lookout bedroom on top", "style": "medieval",
+     "rooms": ["storage", "workshop", "bedroom"], "storeys": 3, "budget": {"max_blocks": 3500}},
+    {"project_id": "h09-cabin-with-annex", "purpose": "a cabin with a workshop annex", "style": "cozy_cabin",
+     "rooms": ["living", "bedroom", "workshop"], "features": ["wing"], "budget": {"max_blocks": 2600}},
+    {"project_id": "h10-tiny-kitchen", "purpose": "a summer kitchen", "style": "medieval", "rooms": ["kitchen"], "roof": "flat",
+     "budget": {"max_blocks": 800}}
+  ],
+  "site_template": {"plot": {"min": {"x": -10, "z": -10}, "max": {"x": 40, "z": 40}}, "height_limit": 120, "origin": {"x": 0, "y": 64, "z": 0},
+                    "terrain_change": 0, "terrain_flat_y": 63}
+}

@@ -1,0 +1,33 @@
+{
+ "version": "eve-gate/1",
+ "design_hash": "c65ebf701b171d2c1caa178dcfaa42f9212144ac11a9eb7b6a7108e7fa4f25d0",
+ "category": "schematic",
+ "decision": "n/a",
+ "reasons": [],
+ "checks": {
+  "validation_bound": {
+   "ok": true
+  },
+  "bom_bound": {
+   "ok": true
+  },
+  "scaffold_bound": {
+   "ok": true
+  },
+  "validation_passed": {
+   "ok": true
+  },
+  "previews_bound": {
+   "ok": true
+  }
+ },
+ "policy": {
+  "critics": [
+   "deepseek"
+  ],
+  "threshold": 7.0,
+  "require_brief_checks": true,
+  "allow_validation_only": false,
+  "selftest_dir": "designs/_critic"
+ }
+}

@@ -1,0 +1,30 @@
+{
+ "project_id": "pillar_tall",
+ "purpose": "tall-scaffold test (builder CP-53), End island A",
+ "site": {
+  "plot": {
+   "min": {
+    "x": 400,
+    "z": -6
+   },
+   "max": {
+    "x": 409,
+    "z": 6
+   }
+  },
+  "height_limit": 120,
+  "origin": {
+   "x": 405,
+   "y": 65,
+   "z": -1
+  },
+  "terrain_change": 0,
+  "obstacles": [
+   [
+    402,
+    65,
+    0
+   ]
+  ]
+ }
+}

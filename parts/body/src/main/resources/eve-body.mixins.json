@@ -1,0 +1,15 @@
+{
+	"required": true,
+	"package": "eve.body.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"client": [
+		"ConnectScreenMixin",
+		"ConnectionMixin",
+		"GameModeMixin",
+		"MinecraftInvoker",
+		"MinecraftMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

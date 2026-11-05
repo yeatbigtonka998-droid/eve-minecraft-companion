@@ -1,0 +1,12 @@
+{
+  "_comment": "O104 lane F on the 45L (eve-watch 45L-LANE-F-PLAN; foundation's facts 2026-10-22). Run on the 45L as eveuser: py -3.12 parts/body/tools/laneb.py nights --lane-config <this> --dry-run. The body runs from F's src (runClient as EveDevF); eve-watch's roll writes the pins file and builds build\\libs for the jar check.",
+  "label": "F",
+  "root": "C:\\eve-lanes\\F",
+  "token_file": "mind/config/eve-link-token.txt",
+  "cli_port": 8962,
+  "player": "EveDevF",
+  "evidence_root": "C:\\eve-lanes\\F\\evidence",
+  "host": "45l",
+  "body_jar": "C:\\eve-lanes\\F\\src\\parts\\body\\build\\libs\\eve-body-0.2.0.jar",
+  "pins_file": "C:\\eve-lanes\\pins\\laneF.json"
+}

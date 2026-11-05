@@ -1,0 +1,35 @@
+{
+ "format": "eve-design/1",
+ "project_id": "nether_portal",
+ "version": 1,
+ "world_id": null,
+ "dim": "minecraft:overworld",
+ "origin": {
+  "x": 0,
+  "y": 64,
+  "z": 0
+ },
+ "size": {
+  "x": 7,
+  "y": 5,
+  "z": 2
+ },
+ "style": null,
+ "style_card_hash": null,
+ "palette": [
+  "minecraft:air",
+  "minecraft:dirt"
+ ],
+ "blocks": "AQAAAAAAAQAAAAAAAAAAAAEAAQABAAEAAQABAAAAAQAAAAAAAAAAAAAAAAABAAEAAQABAAEAAAAAAAAAAAAAAAAAAAAAAAAAAQABAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEAAAAAAAAAAAA=",
+ "roles": "CwAACwAAAAALCwsLCwsACwAAAAAAAAsLCwsLAAAAAAAAAAAACwsLCwAAAAAAAAAAAAALCwsAAAAAAAAAAAAAAAsLAAAAAA==",
+ "rooms": [],
+ "block_entities": [],
+ "hash": "7a2f11d3827383736874f5b4e8a35bf3513ce8132a9ad0d40c85ddb3f7a7a41b",
+ "provenance": {
+  "scaffold_for": "2bf74ebb95fedc3bbbe352f71c4444fb8481452d8cada4b1ad8d8f9cf4bad81c",
+  "plan": "greedy dirt staircases (eve_design.scaffold)",
+  "staircases": 4,
+  "order_slots": []
+ },
+ "import_issues": []
+}

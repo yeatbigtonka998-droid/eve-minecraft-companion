@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eve watch</title>
+<style>
+  :root { --bg:#0e1013; --panel:#161a1f; --line:#262c34; --fg:#d7dde4; --dim:#8a94a0; --ok:#5fd18a; --warn:#e6b34a; --bad:#ff5a5a; --acc:#7ab8ff; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg); font: 13px/1.4 "Segoe UI", system-ui, sans-serif; }
+  #top { height: 34px; display: flex; align-items: center; gap: 14px; padding: 0 12px; background: var(--panel); border-bottom: 1px solid var(--line); white-space: nowrap; overflow: hidden; }
+  #top b { font-size: 15px; }
+  .pill { padding: 1px 8px; border-radius: 10px; border: 1px solid var(--line); }
+  .stopped { background: var(--bad); color: #fff; border-color: var(--bad); font-weight: 700; }
+  .ok { color: var(--ok); } .warn { color: var(--warn); } .bad { color: var(--bad); } .dim { color: var(--dim); }
+  #main { display: grid; grid-template-columns: minmax(0, 3fr) minmax(320px, 2fr); height: calc(100% - 34px); }
+  #view { position: relative; background: #000; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  #view img { max-width: 100%; max-height: 100%; }
+  #note { position: absolute; left: 0; right: 0; bottom: 0; padding: 4px 8px; background: rgba(0,0,0,.65); font-size: 12px; }
+  #big { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; text-align: center; padding: 20px; font-size: 20px; color: var(--warn); }
+  .banner { background: var(--bad); color: #fff; font-weight: 700; font-size: 16px; padding: 8px 10px; margin-bottom: 8px; border-radius: 4px; }
+  #board { overflow-y: auto; padding: 8px 10px; border-left: 1px solid var(--line); }
+  h3 { margin: 10px 0 4px; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--acc); }
+  h3:first-child { margin-top: 0; }
+  .kv { display: grid; grid-template-columns: 78px 1fr; gap: 1px 8px; }
+  .kv span:nth-child(odd) { color: var(--dim); }
+  .row { padding: 3px 0; border-bottom: 1px solid var(--line); word-break: break-word; }
+  .row .t { color: var(--dim); font-size: 11px; }
+  code { font: 11.5px Consolas, monospace; color: #b9c4cf; }
+</style>
+</head>
+<body>
+<div id="top"><b>Eve</b><span id="world" class="dim">world ?</span><span id="mode" class="pill">mode ?</span><span id="run" class="pill">?</span><span id="links"></span><span id="spend" class="pill"></span><span id="upd" class="dim" style="margin-left:auto"></span></div>
+<div id="main">
+  <div id="view"><img id="frame" alt=""><div id="big"></div><div id="note">connecting…</div></div>
+  <div id="board">loading…</div>
+</div>
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let skew = 0;  // server clock minus ours, so "ago" is right even if the clocks differ
+function ago(ts) {
+  if (!ts) return "";
+  const s = Math.max(0, Math.round((Date.now() + skew - ts) / 1000));
+  const r = s < 90 ? s + " s" : s < 5400 ? Math.round(s / 60) + " min" : Math.round(s / 3600) + " h";
+  return `${r} ago · ${new Date(Number(ts)).toLocaleTimeString()}`;
+}
+const dur = ms => ms == null ? "" : ms < 1000 ? ms + " ms" : (ms / 1000).toFixed(1) + " s";
+const tone = st => ({ok:"ok", done:"ok", running:"warn", accepted:"warn", sent:"warn", pending:"warn", queued:"warn"}[st] || (["failed","rejected","timeout","uncertain"].includes(st) ? "bad" : "dim"));
+const kv = o => `<div class="kv">${Object.entries(o).filter(([, v]) => v !== undefined && v !== null && v !== "").map(([k, v]) => `<span>${esc(k)}</span><span>${v}</span>`).join("")}</div>`;
+const pos = p => p ? `${p.x.toFixed(1)} ${p.y.toFixed(1)} ${p.z.toFixed(1)}` : "?";
+
+async function frameLoop() {
+  let wait = 500;
+  try {
+    const r = await fetch("/frame.jpg", {cache: "no-store"});
+    if (r.status === 200) {
+      const old = $("frame").src;
+      $("frame").src = URL.createObjectURL(await r.blob());
+      if (old.startsWith("blob:")) URL.revokeObjectURL(old);
+      $("frame").style.display = "";
+    } else { $("frame").style.display = "none"; wait = 1000; }
+  } catch { wait = 2000; }
+  setTimeout(frameLoop, wait);
+}
+
+function render(b) {
+  skew = b.now - Date.now();
+  const st = b.status, m = b.meta || {}, e = b.eve;
+  const stopped = st ? st.stopped : m["control.stopped"] === "1";
+  $("world").textContent = (st && st.sense && st.sense.world_id) || (e && e.world_id) || "world ?";
+  $("mode").textContent = "mode " + ((st && st.mode) || m["control.mode"] || "manual");
+  $("run").textContent = stopped ? "STOPPED" + (st && st.stopped_by ? " by " + st.stopped_by : "") : "RUNNING";
+  $("run").className = "pill " + (stopped ? "stopped" : "ok");
+  const link = (n, up) => `<span class="${up ? "ok" : "bad"}">● ${n}</span>`;
+  $("links").innerHTML = st ? `${link("mind", true)} ${link("body", st.body)} ${link("sense", st.sense)}` : `<span class="bad">● mind: ${esc(b.status_error)}</span>`;
+  const sp = st && st.spend, usd = v => "$" + Number(v).toFixed(2);
+  $("spend").textContent = sp ? `OpenRouter ${usd(sp.remaining_usd)} left of ${usd(sp.cap_usd)}` : "spend: n/a";
+  $("spend").className = "pill " + (!sp ? "dim" : sp.remaining_usd <= 0 ? "stopped" : sp.remaining_usd < 0.25 * sp.cap_usd || sp.unsettled ? "warn" : "ok");
+  $("upd").textContent = "updated " + new Date(b.now).toLocaleTimeString(); $("upd").className = "dim";
+  const cap = b.capture || {};
+  $("note").textContent = cap.note === "ok" ? `${cap.window || ""} · ${cap.size ? cap.size.join("×") : ""}` : cap.note || "";
+  $("note").className = cap.note === "ok" ? "dim" : "warn";
+  $("big").textContent = cap.note && cap.note !== "ok" ? cap.note : "";
+  $("big").style.display = cap.note && cap.note !== "ok" ? "flex" : "none";
+
+  let h = "";
+  if (stopped) h += `<div class="banner">STOPPED${st && st.stopped_by ? " by " + esc(st.stopped_by) : m["control.stopped_by"] ? " by " + esc(m["control.stopped_by"]) : ""} <span style="font-weight:400;font-size:12px">${ago(Number(m["control.stopped_ts"]))} · nothing runs until a trusted resume</span></div>`;
+  if (b.db_error) h += `<div class="bad">DB: ${esc(b.db_error)}</div>`;
+  if (st && !st.binding.ok) h += `<div class="bad">dispatch refused: ${esc(st.binding.detail)}</div>`;
+  h += "<h3>Eve now</h3>";
+  h += e ? kv({where: `${esc(pos(e.pos))} <span class="dim">${esc((e.dim || "").replace("minecraft:", ""))}</span>`,
+               health: `${esc(e.health)} <span class="dim">food</span> ${esc(e.food)}`, mode: esc(e.gamemode),
+               holding: esc((e.mainhand || "nothing").replace("minecraft:", "")), threats: e.threats ? `<span class="bad">${e.threats}</span>` : "0",
+               biome: esc((e.biome || "").replace("minecraft:", "")) + ` <span class="dim">time ${esc(e.time_of_day)}, light ${esc(e.light)}</span>`,
+               seen: `<span class="${b.now - e.ts > 5000 ? "warn" : "dim"}">${ago(e.ts)}</span>`})
+       : `<div class="dim">no state observed yet</div>`;
+  h += "<h3>Doing</h3>";
+  const t = b.active_task, a = b.active_action;
+  h += t || a ? kv({task: t ? `${esc(t.goal)} <span class="${tone(t.status)}">${esc(t.status)}</span> <span class="dim">${esc(t.source)}</span>${t.reason ? " · " + esc(t.reason) : ""}${t.progress ? " · " + esc(t.progress) : ""}` : "",
+                     action: a ? `<b>${esc(a.skill)}</b> <span class="${tone(a.status)}">${esc(a.status)}</span> · ${dur(a.elapsed_ms)} <code>${esc(a.params)}</code>` : ""})
+              : `<div class="dim">idle</div>`;
+  const pk = b.parked_tasks || [];
+  if (pk.length) h += `<div class="dim" style="margin-top:4px">parked (waits for <code>eve continue</code>; expires after 1 h):</div>` + pk.map(p => `<div class="row">${esc(p.goal)} <span class="dim">${esc(p.status)}</span>${p.reason ? " · " + esc(p.reason) : ""} <span class="t">${ago(p.updated_ts)}</span></div>`).join("");
+  const ld = (b.decisions || [])[0];
+  h += "<h3>Last decision</h3>" + (ld ? `<div><b>${esc(ld.kind)}</b> ${esc(ld.model)} · ${dur(ld.latency_ms)} · ${ld.validated ? '<span class="ok">valid</span>' : '<span class="bad">invalid</span>'} <span class="t dim">${ago(ld.ts)}</span><br><span class="dim">asked</span> ${esc(ld.input)}<br><span class="dim">chose</span> <code>${esc(ld.output)}</code></div>` : `<div class="dim">no planner decisions recorded yet</div>`);
+  const hb = b.heartbeat || {}, srv = hb["eve.status"], met = hb.metrics, pl = b.planner_latency_ms;
+  h += "<h3>Heartbeat</h3>" + kv({
+    server: srv ? `${esc(srv.tps)} TPS · chunks ${esc(srv.loaded_chunks_by_eve)} · broke/placed 1h ${esc(srv.blocks_broken_last_hour)}/${esc(srv.blocks_placed_last_hour)} <span class="dim">${ago(srv.ts)}</span>` : "",
+    client: met ? `${esc(met.fps)} fps · tick ${esc(met.tick_ms_avg)} ms · actions done ${esc(met.actions_done)} <span class="dim">${ago(met.ts)}</span>` : "",
+    planner: pl ? `last ${dur(pl.last)}, avg ${dur(pl.avg)}` : `<span class="dim">no planner calls yet</span>`,
+    mind: st ? `registry ${esc(st.registry.version)} · reconcile ${st.reconcile_needed ? "pending" : "done"}` : `<span class="bad">${esc(b.status_error)}</span>`});
+  h += "<h3>Today</h3>" + kv({client: cap.client_started_ms ? `started ${ago(cap.client_started_ms)}` : `<span class="warn">not running</span>`,
+    console: cap.locked ? `<span class="warn">locked</span>` : "unlocked"});
+  h += (b.recent_tasks || []).map(t => `<div class="row">${esc(t.goal)} <span class="${tone(t.status)}">${esc(t.status)}</span>${t.reason ? " <span class=\"dim\">" + esc(t.reason) + "</span>" : ""} <span class="t">${ago(t.updated_ts)}</span></div>`).join("");
+  h += "<h3>Spend (OpenRouter, Eve's cap is the only guard)</h3>" + (sp ? kv({
+    month: `${usd(sp.month_to_date_usd)} of ${usd(sp.cap_usd)} · <b class="${sp.remaining_usd <= 0 ? "bad" : sp.remaining_usd < 0.25 * sp.cap_usd ? "warn" : "ok"}">${usd(sp.remaining_usd)} left</b>`,
+    today: `${usd(sp.today_usd)} · ${esc(sp.calls)} calls this month`,
+    unsettled: sp.unsettled ? `<span class="warn">${esc(sp.unsettled)} (worst-case reservations, counted toward the cap)</span>` : "0",
+    models: Object.entries(sp.by_model || {}).map(([m, v]) => `${esc(m)} ${usd(v)}`).join(", ") || ""})
+    : `<div class="dim">${st ? "not reported by the running mind (needs mind 8439e7f or later)" : "unknown: mind /cli unreachable"}</div>`);
+  if (e) h += "<h3>Inventory</h3>" + (e.inventory.length ? `<div>${e.inventory.map(esc).join(", ")}</div>` : `<div class="dim">empty</div>`);
+  h += "<h3>Last actions</h3>" + ((b.actions || []).map(x => `<div class="row"><b>${esc(x.skill)}</b> <span class="${tone(x.status)}">${esc(x.status)}</span>${x.code && x.code !== x.status ? " " + esc(x.code) : ""} <span class="t">${ago(x.result_ts || x.sent_ts)}${x.result_ts && x.sent_ts ? " · took " + dur(x.result_ts - x.sent_ts) : ""}</span><br><code>${esc(x.params)}</code>${x.evidence ? `<br><span class="dim">evidence</span> <code>${esc(x.evidence)}</code>` : ""}${x.note ? `<br><span class="dim">body says</span> ${esc(x.note)}` : ""}${x.reconcile_note ? `<br><span class="warn">${esc(x.reconcile_note)}</span>` : ""}</div>`).join("") || `<div class="dim">none</div>`);
+  h += "<h3>Decisions</h3>" + ((b.decisions || []).map(d => `<div class="row"><b>${esc(d.kind)}</b> ${esc(d.model)} · ${dur(d.latency_ms)} · ${d.validated ? '<span class="ok">valid</span>' : '<span class="bad">invalid</span>'} <span class="t">${ago(d.ts)}</span><br><span class="dim">in</span> ${esc(d.input)}<br><span class="dim">out</span> <code>${esc(d.output)}</code></div>`).join("") || `<div class="dim">none yet</div>`);
+  h += "<h3>Events</h3>" + ((b.events || []).map(v => `<div class="row"><b>${esc(v.kind)}</b> <span class="dim">${esc(v.source)}</span> <span class="t">${ago(v.ts)}</span><br><code>${esc(v.payload)}</code></div>`).join("") || `<div class="dim">none</div>`);
+  h += "<h3>Journal</h3>" + (b.journal ? `<div>${esc(b.journal.text)} <span class="t">${ago(b.journal.ts)}</span></div>` : `<div class="dim">no entries yet</div>`);
+  const sc = $("board").scrollTop;
+  $("board").innerHTML = h;
+  $("board").scrollTop = sc;
+}
+
+async function boardLoop() {
+  try { render(await (await fetch("/api/board", {cache: "no-store"})).json()); }
+  catch (err) { $("upd").textContent = "eve-watch unreachable"; $("upd").className = "bad"; }
+  setTimeout(boardLoop, 1500);
+}
+frameLoop(); boardLoop();
+</script>
+</body>
+</html>

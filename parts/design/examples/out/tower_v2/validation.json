@@ -1,0 +1,106 @@
+{
+ "design_hash": "0cfae1f8704e71b0a4e77f4a444fcdcd9b1d88900040d7b9342321942d6f0a75",
+ "validator_version": "eve-validate/3",
+ "game": "26.3",
+ "passed": true,
+ "skipped": [
+  "site_fit"
+ ],
+ "needs_approval": false,
+ "checks": {
+  "site_fit": {
+   "status": "skipped",
+   "failures": [],
+   "notes": [
+    "no site in the brief"
+   ],
+   "approximations": []
+  },
+  "walkable": {
+   "status": "pass",
+   "failures": [],
+   "notes": [],
+   "approximations": [
+    "flat ground below y=0",
+    "doors count as passable (openable)",
+    "a door's approach: the cell beside it along its facing"
+   ]
+  },
+  "enclosed": {
+   "status": "pass",
+   "failures": [],
+   "notes": [],
+   "approximations": [
+    "passable blocks (torches, signs, carpets...) count as gaps"
+   ]
+  },
+  "lit": {
+   "status": "pass",
+   "failures": [],
+   "notes": [],
+   "approximations": [
+    "luminance from a hand table",
+    "stairs/slabs/glass treated as transparent",
+    "sky light ignored (interiors)"
+   ]
+  },
+  "functional": {
+   "status": "pass",
+   "failures": [],
+   "notes": [
+    "no brief: checked labelled rooms only"
+   ],
+   "approximations": []
+  },
+  "stable": {
+   "status": "pass",
+   "failures": [],
+   "notes": [],
+   "approximations": [
+    "support = any non-passable neighbour; face sturdiness not modelled"
+   ]
+  },
+  "fire_safe": {
+   "status": "pass",
+   "failures": [],
+   "notes": [],
+   "approximations": [
+    "flammability from wood/wool/leaf tags + a short list",
+    "26-neighbourhood"
+   ]
+  },
+  "buildable": {
+   "status": "pass",
+   "failures": [],
+   "notes": [],
+   "approximations": [
+    "build_order.json replayed block by block with eve-builder's rules (eve_design.placecheck): a standing spot reachable on foot (sturdy top, bottom slab or stair), a face within 4.3 of the eye (feet + 1.27), hit first by the ray, look matching the facing; stand policy 'unbuilt'",
+    "scaffold blocks are taken as placeable; the click aims at face centres (body's place_block v2 may do better)"
+   ]
+  },
+  "affordable": {
+   "status": "pass",
+   "failures": [],
+   "notes": [
+    "no budget in the brief: only checked that every material is obtainable"
+   ],
+   "approximations": [
+    "gathering minutes are uncalibrated estimates (bom.json)"
+   ]
+  },
+  "within_limits": {
+   "status": "pass",
+   "failures": [],
+   "notes": [],
+   "approximations": []
+  },
+  "stand_audit": {
+   "status": "warn",
+   "failures": [],
+   "approximations": [],
+   "notes": [
+    "1190 of 4385 planned stands rest on the design's exterior (682 of 1785 design-block steps); scaffold 1990, floor 585, exterior wall 560, ground 530, exterior wall (under scaffold) 311, exterior support (under scaffold) 130, exterior roof 101, stair 81, exterior support 80, foundation 9, exterior furniture 8 (a warning for a non-organic design: hut5_sim built with 6 roof stands; lane C C2 placed 33 % from such stands)"
+   ]
+  }
+ }
+}

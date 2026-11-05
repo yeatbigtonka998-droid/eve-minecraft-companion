@@ -1,0 +1,17 @@
+{
+ "format": "eve-approval/1",
+ "approval_id": "H-horse",
+ "project_id": "cp69-horse-triposr",
+ "version": 1,
+ "design_hash": "d1064838bbca39b8e036a548e00800588534fe6ad54254a089c92ce542be8ad4",
+ "site_hash": null,
+ "budget": null,
+ "decided_by": "Hunter",
+ "decision": "approved",
+ "category": "owner_small",
+ "channel": "orchestrator_relay",
+ "ts": 1792648643247,
+ "text": "Yes, build the 14-block horse as it is (design d1064838) in a lane plot; it's a test piece.",
+ "scope": "lane plot, test piece",
+ "relayed_by": "Project EVE kickoff (orchestrator), message H-horse; written by eve-organic, not by the mind"
+}

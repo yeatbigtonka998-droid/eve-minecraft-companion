@@ -1,0 +1,83 @@
+plugins {
+	id 'net.fabricmc.fabric-loom' version "${loom_version}"
+}
+
+version = project.mod_version
+group = project.maven_group
+base { archivesName = project.archives_base_name }
+
+// Event-level tests (Fabric gametests): `gradlew runGameTest`. Eve is a scripted FakePlayer acting through the
+// same server entry points a client packet reaches. Starts from the repo's real config/envelope.example.json.
+fabricApi {
+	configureTests {
+		createSourceSet = true
+		modId = "eve-sense-gametest"
+		enableClientGameTests = false
+		eula = providers.gradleProperty("eve.eula").map { it == "true" }.orElse(false)
+	}
+}
+
+loom {
+	runs {
+		server {
+			// -Peve.link.url=ws://127.0.0.1:8952/sense when the real hub's 8951 is taken on this PC
+			def url = providers.gradleProperty("eve.link.url")
+			if (url.isPresent()) property("eve.link.url", url.get())
+			// -Peve.devtools=true adds the dev-only /evetest command (gametest source set; never in the shipped jar)
+			if (providers.gradleProperty("eve.devtools").map { it == "true" }.getOrElse(false)) source sourceSets.gametest
+		}
+		// G1 / CP-12 / CP-15-live on Shark only. Eve = EveDev with eve-body's built jar in run-client/mods; the owner
+		// client has no eve-body. With -Peve.devtools=true both carry the dev-only client test driver (gametest source set).
+		client {
+			runDir "run-client"
+			programArgs "--username", "EveDev", "--quickPlayMultiplayer", "127.0.0.1:25566"
+			if (providers.gradleProperty("eve.devtools").map { it == "true" }.getOrElse(false)) source sourceSets.gametest
+		}
+		ownerClient {
+			client()
+			runDir "run-owner"
+			programArgs "--username", "OwnerDev", "--quickPlayMultiplayer", "127.0.0.1:25566"
+			source sourceSets.gametest
+		}
+		gameTest {
+			property("eve.envelope", rootProject.file("../../config/envelope.example.json").absolutePath)
+			property("eve.evidence.dir", rootProject.file("../../evidence").absolutePath)
+		}
+	}
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+	// H-trees tests only: a fake Ledger DB. On the server, Ledger 1.3.25 bundles this same driver; the mod jar ships none.
+	gametestImplementation "org.xerial:sqlite-jdbc:3.50.3.0"
+}
+
+// Dev tools as their own mod jar (eve-sense-devtools-<version>.jar): /evetest + the client test driver, for disposable
+// test worlds only. Built from the gametest output minus the suite and its mod descriptor.
+tasks.register("devtoolsJar", Jar) {
+	archiveBaseName = "eve-sense-devtools"
+	from(sourceSets.gametest.output) {
+		include "eve/sense/test/DevCommands*", "eve/sense/test/DevClientDriver*", "eve/sense/test/LinkFuzz*"
+	}
+	from("src/devtools") {
+		include "fabric.mod.json"
+		expand "version": project.version
+		filter(org.apache.tools.ant.filters.FixCrLfFilter, eol: org.apache.tools.ant.filters.FixCrLfFilter.CrLf.newInstance("lf")) // LF whatever the checkout: byte-reproducible jars
+	}
+}
+
+processResources {
+	def version = project.version
+	inputs.property "version", version
+	filesMatching("fabric.mod.json") { expand "version": version }
+	filesMatching(["**/*.json", "**/*.txt"]) { filter(org.apache.tools.ant.filters.FixCrLfFilter, eol: org.apache.tools.ant.filters.FixCrLfFilter.CrLf.newInstance("lf")) } // LF whatever the checkout (core.autocrlf)
+}
+
+tasks.withType(JavaCompile).configureEach { it.options.release = 25 }
+
+java {
+	sourceCompatibility = JavaVersion.VERSION_25
+	targetCompatibility = JavaVersion.VERSION_25
+}

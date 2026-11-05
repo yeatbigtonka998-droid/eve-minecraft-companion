@@ -1,0 +1,21 @@
+{
+	"schemaVersion": 1,
+	"id": "eve-combat",
+	"version": "${version}",
+	"name": "Eve combat",
+	"description": "Eve's fighting skills (fight_melee with target selection and group handling), run by eve-body's arbiter.",
+	"license": "All-Rights-Reserved",
+	"environment": "client",
+	"entrypoints": {
+		"eve-body:skills": [
+			"eve.combat.EveCombat"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": ">=0.161.0",
+		"eve-body": "*"
+	}
+}

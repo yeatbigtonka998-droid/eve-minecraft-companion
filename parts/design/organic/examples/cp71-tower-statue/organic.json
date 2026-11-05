@@ -1,0 +1,87 @@
+{
+ "pipeline": "eve-organic/1",
+ "design_hash": "4d9b27e0a09e8cbe6779be8ebfb4885108eabb60cc3e8ac4a8769acc58ca2aab",
+ "eve_design_code": {
+  "commit": "901f92d8",
+  "branch": "main",
+  "uncommitted": []
+ },
+ "approval_policy": "gate hold + owner approval per piece via design's CP-65 path; no critic; these structural checks are the precondition (orchestrator decision 2026-10-21)",
+ "combined": [
+  {
+   "part": "architecture",
+   "folder": "watchtower_small",
+   "design_hash": "77c9d0ba1a753bb901ade79fa82934d92098dda189c02253dcfbfb4fe818087e",
+   "origin": [
+    0,
+    64,
+    0
+   ]
+  },
+  {
+   "part": "organic",
+   "folder": "cp69-statue-raw",
+   "design_hash": "d1ff49b147ccfa09064ec19cb18b638fab052561fd494c1fe80229734f1f1adb",
+   "origin": [
+    -10,
+    64,
+    0
+   ],
+   "yaw": 90,
+   "at": [
+    -10,
+    0,
+    0
+   ]
+  }
+ ],
+ "blocks": 895,
+ "scaffold_blocks": 666,
+ "validation": {
+  "passed": true,
+  "failed": [],
+  "skipped": []
+ },
+ "gate": "hold",
+ "files": {
+  "bom.json": "bcf14704892ba6646d26140f7b61a72213dafdf7fa6d4b377807ade2774ca89f",
+  "brief.json": "913c85a729f7cff55a8904911722c0d1e4a704a1561417e86378260836ebd164",
+  "build_order.json": "6241e851f3ec6e9cbf6e2be1457b4e55c3170f44f138915e460740f58bc1b4d0",
+  "design.json": "717f2c0ae397c7a44ff1598487fc26ceb8532f79d842643362e8a65e0380ebb8",
+  "design.litematic": "25ac13e07638182bb49ef79a7fe2a8f4841478bd053e50840976947cc1b8349f",
+  "gate.json": "dc17bdaa38c57de0b26ef40c243b506df05dc5fd8b0231d47121b3f2f1e352dd",
+  "previews/elev-E.png": "7d7a78164cd5eccb8c2753533a923b6e3c5c826735cad013fecf1d20757feb23",
+  "previews/elev-N.png": "3377326b67014285b369c3569df5654bed582b5490a37cf4b86bfbe3ef5de300",
+  "previews/elev-S.png": "d1c2842828d15443d21125cb8904150ee343565fbe61054275470dc4e7d0c0da",
+  "previews/elev-W.png": "576ec254aaa949f5b6db8107f1d1303c03644b729e56b0db265bb8c08c8d7e7d",
+  "previews/interior-bedroom.png": "0a4c8680b6fb80fc50d16a1b3ae70127a25806a3b169d2210806010ea54067c0",
+  "previews/interior-storage.png": "3b74c941ce3fb5c6993523a57398697f6c90efc1130b8552a691d41ee7a05065",
+  "previews/NE.png": "dcb2657b32d92a5c4b3e05b0088a83aa33ee377a774b634ce77f0b6c5863c198",
+  "previews/NW.png": "cc2dc5f1a85c8465b0e99df4a5c2889dcdb00ae40a8e35d2f0ffc6630f875384",
+  "previews/render.json": "315d8d7768a559e10906c533e5dbff771c013da2be3f78c0a8f27aec811d66e5",
+  "previews/SE.png": "347c8df0f6f9da78927407dfd962e9d89059cdab7e66d9455774a01123a0bd07",
+  "previews/SW.png": "7e544310b7343e26e4284167ed32d5dbd916e98d20e3eff7d444b40847282265",
+  "previews/top.png": "3f5147006ae1d557b848194b705383b0820afa376b12c74eff8e0a4de3f5ffe2",
+  "scaffold.json": "a877d74bd3515e07002c94d60f009b73210ec69f352133cb6400a48e64e7e7d3",
+  "validation.json": "940ed4feaad23136ac1e74d5dee0c445989ce2fc77bac65c9a2dedba479cfab0"
+ },
+ "cli_validation": {
+  "command": "python -m eve_design import design.litematic --origin ... --brief brief.json",
+  "exit": 0,
+  "passed": true,
+  "checks": {
+   "site_fit": "pass",
+   "walkable": "pass",
+   "enclosed": "pass",
+   "lit": "pass",
+   "functional": "pass",
+   "stable": "pass",
+   "fire_safe": "pass",
+   "buildable": "pass",
+   "affordable": "pass",
+   "within_limits": "pass",
+   "stand_audit": "pass"
+  },
+  "same_blocks": true
+ }
+}

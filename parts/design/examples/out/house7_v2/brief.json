@@ -1,0 +1,21 @@
+{
+ "purpose": "small wood house",
+ "names": [
+  "small wood house",
+  "wooden house",
+  "oak house",
+  "small house",
+  "wood cabin",
+  "hut",
+  "cabin",
+  "house"
+ ],
+ "style": "oak",
+ "approval_category": "schematic",
+ "authored_by": "eve-build-flow (O132)",
+ "footprint": {
+  "x": 7,
+  "z": 7
+ },
+ "door_side": "south"
+}

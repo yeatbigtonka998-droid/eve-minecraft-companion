@@ -1,0 +1,58 @@
+{
+  "envelope_version": 1,
+  "world_id": "eve-dev:000000000000",
+  "owner": {
+    "trusted_players": ["Silvershark3600"],
+    "eve_account": "FED_Chairman"
+  },
+  "mode_default": "manual",
+  "mode_allowed": ["manual"],
+  "difficulty": "normal",
+  "death_rules": "true_survival",
+  "home": {
+    "dim": "minecraft:overworld",
+    "center": {"x": 0, "y": 64, "z": 0},
+    "radius": 64,
+    "explore_radius": 128
+  },
+  "zones": [
+    {"id": "home", "dim": "minecraft:overworld", "min": {"x": -32, "y": -64, "z": -32}, "max": {"x": 32, "y": 319, "z": 32}, "break": "task_only", "place": "task_only", "containers": "private", "snapshot": true, "note": "village core; breaks only when a task names the block"},
+    {"id": "mine", "dim": "minecraft:overworld", "min": {"x": 64, "y": -64, "z": -64}, "max": {"x": 192, "y": 60, "z": 64}, "break": "free", "place": "free", "containers": "private", "snapshot": false, "note": "test mining area"}
+  ],
+  "containers": {
+    "default_tag": "private",
+    "tags": {}
+  },
+  "protected_entities": {
+    "players": true,
+    "villagers": true,
+    "iron_golems": true,
+    "pets": true,
+    "named": true,
+    "extra_types": []
+  },
+  "hazards": {"fire": false, "lava": false, "tnt": false},
+  "limits": {
+    "blocks_broken_per_hour": 200,
+    "blocks_placed_per_hour": 400,
+    "chunk_scan_radius": 4,
+    "ws_payload_max_bytes": 262144,
+    "max_action_queue": 20
+  },
+  "sensors": {
+    "storage_index": "loaded_chunks_only",
+    "ore": "exposed_only",
+    "crops": "zones_only",
+    "entities_radius": 32
+  },
+  "budgets": {
+    "deepseek_monthly_usd": 20,
+    "planner_calls_per_hour_max": 600,
+    "fal_monthly_usd": 0
+  },
+  "approvals": {
+    "small_build_block_limit": 0,
+    "wishlist_max_per_week": 0,
+    "terrain_change_blocks": 0
+  }
+}

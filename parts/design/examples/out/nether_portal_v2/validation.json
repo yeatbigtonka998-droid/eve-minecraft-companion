@@ -1,0 +1,100 @@
+{
+ "design_hash": "ee96350c7aa4f06a26f95be9d6ad9ab52b84dd260342c3aee5fb0b8d959f0f63",
+ "validator_version": "eve-validate/2",
+ "game": "26.3",
+ "passed": true,
+ "skipped": [
+  "site_fit"
+ ],
+ "needs_approval": false,
+ "checks": {
+  "site_fit": {
+   "status": "skipped",
+   "failures": [],
+   "notes": [
+    "no site in the brief"
+   ],
+   "approximations": []
+  },
+  "walkable": {
+   "status": "pass",
+   "failures": [],
+   "notes": [
+    "no rooms labelled; only checked that the design can be walked around"
+   ],
+   "approximations": [
+    "flat ground below y=0",
+    "doors count as passable (openable)",
+    "a door's approach: the cell beside it along its facing"
+   ]
+  },
+  "enclosed": {
+   "status": "pass",
+   "failures": [],
+   "notes": [],
+   "approximations": [
+    "passable blocks (torches, signs, carpets...) count as gaps"
+   ]
+  },
+  "lit": {
+   "status": "pass",
+   "failures": [],
+   "notes": [],
+   "approximations": [
+    "luminance from a hand table",
+    "stairs/slabs/glass treated as transparent",
+    "sky light ignored (interiors)"
+   ]
+  },
+  "functional": {
+   "status": "pass",
+   "failures": [],
+   "notes": [
+    "no brief: checked labelled rooms only"
+   ],
+   "approximations": []
+  },
+  "stable": {
+   "status": "pass",
+   "failures": [],
+   "notes": [],
+   "approximations": [
+    "support = any non-passable neighbour; face sturdiness not modelled"
+   ]
+  },
+  "fire_safe": {
+   "status": "pass",
+   "failures": [],
+   "notes": [],
+   "approximations": [
+    "flammability from wood/wool/leaf tags + a short list",
+    "26-neighbourhood"
+   ]
+  },
+  "buildable": {
+   "status": "pass",
+   "failures": [],
+   "notes": [],
+   "approximations": [
+    "build_order.json replayed block by block with eve-builder's rules (eve_design.placecheck): a standing spot reachable on foot (sturdy top, bottom slab or stair), a face within 4.3 of the eye (feet + 1.27), hit first by the ray, look matching the facing; standing in cells not yet built ('unbuilt')",
+    "scaffold blocks are taken as placeable; the click aims at face centres (body's place_block v2 may do better)"
+   ]
+  },
+  "affordable": {
+   "status": "pass",
+   "failures": [],
+   "notes": [
+    "no budget in the brief: only checked that every material is obtainable"
+   ],
+   "approximations": [
+    "gathering minutes are uncalibrated estimates (bom.json)"
+   ]
+  },
+  "within_limits": {
+   "status": "pass",
+   "failures": [],
+   "notes": [],
+   "approximations": []
+  }
+ }
+}
