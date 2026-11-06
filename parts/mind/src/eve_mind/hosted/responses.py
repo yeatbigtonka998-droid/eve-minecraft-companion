@@ -56,8 +56,10 @@ def error(kind, code, message, param=None, retry_after_s=None):
 
 
 def parse_stream(lines):
-    """Server-sent events -> the completed response object, or an error dict. Only response.completed counts."""
-    event, data = None, []
+    """Server-sent events -> the completed response object, or an error dict. Only response.completed counts.
+    The plan route (live 2026-11-05) sends response.completed with an EMPTY output list: the items come in
+    response.output_item.done events, so those are kept and stand in for an empty output."""
+    event, data, items = None, [], {}
     for line in lines:
         if line.startswith("event:"):
             event = line[6:].strip()
@@ -72,8 +74,13 @@ def parse_stream(lines):
             except ValueError:
                 continue
             kind = ev.get("type") or event
+            if kind == "response.output_item.done" and isinstance(ev.get("item"), dict):
+                items[ev.get("output_index", len(items))] = ev["item"]
             if kind == "response.completed":
-                return {"ok": True, "response": ev.get("response") or {}}
+                resp = ev.get("response") or {}
+                if not resp.get("output") and items:
+                    resp = {**resp, "output": [items[i] for i in sorted(items)]}
+                return {"ok": True, "response": resp}
             if kind == "response.failed":
                 r = ev.get("response") or {}
                 k, code, msg, param = classify(200, {"error": r.get("error") or {}})

@@ -107,8 +107,27 @@ def logout(argv=None, store=None, transport=None):
     return 0
 
 
-def status(argv=None, store=None):
-    s = OpenAIPlanProvider(store or Store()).status()
+def status(argv=None, store=None, transport=None):
+    a = argparse.ArgumentParser(prog="eve-brain-status", description="Eve's ChatGPT connection (no tokens shown).")
+    a.add_argument("--set-model", metavar="SLUG", help="use this model from now on (checked against your account's list; "
+                                                         "no new sign-in)")
+    args = a.parse_args(argv)
+    store = store or Store()
+    if args.set_model:
+        kw = {"transport": transport} if transport else {}
+        m = OpenAIPlanProvider(store, **kw).client.models()
+        if not m["ok"]:
+            out(STATE_LINES.get(m["error"]["kind"], f"Could not list models: {m['error']['code']} {m['error']['message']}"))
+            return 3
+        slugs = [x["slug"] for x in m["models"]]
+        if args.set_model not in slugs:
+            out(f"{args.set_model!r} is not on this account. Available: {', '.join(slugs) or '(none)'}")
+            return 3
+        rec = store.account()
+        rec["model"] = args.set_model
+        store.save_account(rec)
+        out(f"Model set to {args.set_model}.")
+    s = OpenAIPlanProvider(store).status()
     out(f"Signed in: {'yes' if s['signed_in'] else 'no'}" + (f" as {s['account']}" if s["account"] else ""))
     out(f"Plan usage granted: {'yes' if s['plan_usage_granted'] else 'no'}; model: {s['model'] or '(none)'}; "
         f"billing: ChatGPT plan")

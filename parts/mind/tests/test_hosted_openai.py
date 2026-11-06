@@ -466,3 +466,56 @@ def test_no_arg_constructor_reads_its_own_home(tmp_path, monkeypatch):
     p = OpenAIPlanProvider()
     assert p.store.dir == tmp_path / "home" and p.model is None and not p.available()
     assert asyncio.run(p.chat("s", "u", {}))["error"] == "planner_unavailable"
+
+
+
+def live_shape(call_args=None, text=None):
+    """The event sequence the plan route really sent (2026-11-05, gpt-6.1-sol): output items only in
+    response.output_item.done, response.completed with output []. Payload text is placeholder."""
+    if call_args is not None:
+        item = {"id": "fc_x", "type": "function_call", "status": "completed", "arguments": json.dumps(call_args),
+                "call_id": "call_x", "name": "answer"}
+        middle = [{"type": "response.output_item.added", "item": {**item, "status": "in_progress", "arguments": ""},
+                   "output_index": 0, "sequence_number": 2}] +             [{"type": "response.function_call_arguments.delta", "delta": "<part>", "item_id": "fc_x",
+              "obfuscation": "<o>", "output_index": 0, "sequence_number": 3 + i} for i in range(3)] +             [{"type": "response.metadata", "response_id": "resp_x", "sequence_number": 6, "metadata": {}},
+             {"type": "response.function_call_arguments.done", "arguments": item["arguments"], "item_id": "fc_x",
+              "output_index": 0, "sequence_number": 7},
+             {"type": "response.output_item.done", "item": item, "output_index": 0, "sequence_number": 8}]
+    else:
+        item = {"id": "msg_x", "type": "message", "status": "completed", "role": "assistant",
+                "content": [{"type": "output_text", "text": text}]}
+        middle = [{"type": "response.output_text.delta", "delta": "<part>", "output_index": 0},
+                  {"type": "response.output_item.done", "item": item, "output_index": 0, "sequence_number": 4}]
+    head = {"id": "resp_x", "object": "response", "status": "in_progress", "model": "gpt-6.1-sol", "output": []}
+    return [{"type": "response.created", "response": head}, {"type": "response.in_progress", "response": head}] +         middle + [{"type": "response.completed", "response": {**head, "status": "completed", "output": []}}]
+
+
+def test_live_stream_shape_items_from_output_item_done(env):
+    """Regression (live 2026-11-05): completed.output was [] -> text "" and no tool calls -> malformed_output."""
+    _, fake, store, auth = env
+    sign_in(auth, fake)
+    rec = store.account()
+    rec["model"] = "gpt-6.1-sol"
+    store.save_account(rec)
+    p = OpenAIPlanProvider(store, fake, sleep=lambda s: None)
+    fake.responses.append(live_shape(call_args={"steps": ["wave", "say hi"]}))
+    r = asyncio.run(p.chat("sys", "user", {"type": "object"}))
+    assert r["ok"] and json.loads(r["content"]) == {"steps": ["wave", "say hi"]}, r
+    fake.responses.append(live_shape(text="hello"))
+    c = R.Client(auth, fake, sleep=lambda s: None)
+    assert c.respond("gpt-6.1-sol", "x", [])["text"] == "hello"
+    cut = live_shape(call_args={"steps": []})[:-1]                     # items but no response.completed: not success
+    fake.responses += [cut] * 3
+    assert c.respond("gpt-6.1-sol", "x", [])["error"]["code"] == "stream_cut"
+
+
+
+def test_status_set_model_checked_against_the_account(env, capsys):
+    _, fake, store, auth = env
+    sign_in(auth, fake)
+    fake.models.append({"slug": "gpt-6-luna", "display_name": "Luna", "visibility": "list"})
+    assert L.status(["--set-model", "gpt-6-luna"], store=store, transport=fake) == 0
+    assert store.account()["model"] == "gpt-6-luna" and "Model set to gpt-6-luna" in capsys.readouterr().out
+    assert L.status(["--set-model", "hidden"], store=store, transport=fake) == 3          # not listed for this account
+    assert store.account()["model"] == "gpt-6-luna" and "not on this account" in capsys.readouterr().out
+    assert L.status([], store=store) == 0 and "model: gpt-6-luna" in capsys.readouterr().out
